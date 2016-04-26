@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="ext-5.1.0/ext-theme-classic/build/resources/ext-theme-classic-all.css" />
+    <script type="text/javascript" src="ext-5.1.0/ext-all.js"></script>
+    <script type="text/javascript" src="ext-5.1.0/ext-theme-classic/build/ext-theme-classic.js"></script>
+  </head>
+  <body> 
+    <script>
+      /* global Ext */
+
+//      var win = Ext.create('Ext.window.Window', {
+//        title: 'iframe Window',
+//        closable: true,
+//        closeAction: 'hide',
+//        width: 600,
+//        modal: true,
+//        minWidth: 350,
+//        height: 350,
+//        layout: 'fit',
+//        items: [{
+//            xtype: 'label',
+//            text: 'Extshs test'
+//          }]
+//      });
+//      Ext.onReady(function() {
+//        win.show();
+//      });
+
+      Ext.create('Ext.data.Store', {
+        storeId: 'simpsonsStore',
+        fields: ['name', 'email', 'phone'],
+        data: {'items': [
+            {'name': 'Lisa', "email": "lisa@simpsons.com", "phone": "5551111224"},
+            {'name': 'Lisa', "email": "lol@simpsons.com", "phone": "5551111224"},
+            {'name': 'Bart', "email": "bart@simpsons.com", "phone": "5552221234"},
+            {'name': 'Homer', "email": "homer@simpsons.com", "phone": "5552221244"},
+            {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254"}
+          ]},
+        proxy: {
+          type: 'memory',
+          reader: {
+            type: 'json',
+            rootProperty: 'items'
+          }
+        }
+      });
+
+      Ext.create('Ext.grid.Panel', {
+        title: 'Simpsons',
+        store: Ext.data.StoreManager.lookup('simpsonsStore'),
+                plugins: 'gridfilters',
+        columns: [
+          {text: 'Name', dataIndex: 'name'},
+          {text: 'Email', dataIndex: 'email', flex: 1},
+          {text: 'Phone', dataIndex: 'phone', filter: 'number'}
+        ],
+        autoWidth: true,
+        tbar: [{
+            xtype: 'button',
+            text: 'Filter',
+            handler: function(btn) {
+              var g = btn.up('grid');
+              g.store.filter([{property: "name", anyMatch: true, value: 'Lisa'}, {property: "email", anyMatch: true, value: 'lisa@simpsons.com'}]);
+            }
+          }],
+        layout: 'fit',
+        height: 200,
+        width: 400,
+        renderTo: Ext.getBody()
+      });
+    </script> 
+    <div id="panel"></div>
+  </body>
+</html>
