@@ -15,10 +15,10 @@
         title: 'iframe Window',
         closable: true,
         closeAction: 'hide',
-        width: 600,
+        width: 400,
         modal: true,
         minWidth: 350,
-        height: 350,
+        height: 150,
         layout: 'fit',
         items: [{
             xtype: 'label',
@@ -61,11 +61,13 @@
           {text: 'Phone', dataIndex: 'phone', filter: 'number'},
           {text: 'Birth Date', dataIndex: 'birthDate', editor: 'datefield', renderer: Ext.util.Format.dateRenderer('m/d/Y')}
         ],
-        selType: 'rowmodel',
-        plugins: [{
-            ptype: 'rowediting',
-            clicksToEdit: 2
-          }],
+//        selType: 'rowmodel',
+//        plugins: [{
+//            ptype: 'rowediting',
+//            clicksToEdit: 2
+//          }],
+        selType: 'cellmodel',
+        plugins: 'cellediting',
         autoWidth: true,
         tbar: [{
             xtype: 'button',
