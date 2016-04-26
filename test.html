@@ -11,20 +11,20 @@
     <script>
       /* global Ext */
 
-//      var win = Ext.create('Ext.window.Window', {
-//        title: 'iframe Window',
-//        closable: true,
-//        closeAction: 'hide',
-//        width: 600,
-//        modal: true,
-//        minWidth: 350,
-//        height: 350,
-//        layout: 'fit',
-//        items: [{
-//            xtype: 'label',
-//            text: 'Extshs test'
-//          }]
-//      });
+      var win = Ext.create('Ext.window.Window', {
+        title: 'iframe Window',
+        closable: true,
+        closeAction: 'hide',
+        width: 600,
+        modal: true,
+        minWidth: 350,
+        height: 350,
+        layout: 'fit',
+        items: [{
+            xtype: 'label',
+            text: 'Extshs test'
+          }]
+      });
 //      Ext.onReady(function() {
 //        win.show();
 //      });
@@ -64,6 +64,12 @@
             handler: function(btn) {
               var g = btn.up('grid');
               g.store.filter([{property: "name", anyMatch: true, value: 'Lisa'}, {property: "email", anyMatch: true, value: 'lisa@simpsons.com'}]);
+            }
+          }, {
+            xtype: 'button',
+            text: 'Click me',
+            handler: function(btn) {
+             win.show();
             }
           }],
         layout: 'fit',
