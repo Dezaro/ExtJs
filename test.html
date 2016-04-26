@@ -61,13 +61,13 @@
           {text: 'Phone', dataIndex: 'phone', filter: 'number'},
           {text: 'Birth Date', dataIndex: 'birthDate', editor: 'datefield', renderer: Ext.util.Format.dateRenderer('m/d/Y')}
         ],
-//        selType: 'rowmodel',
-//        plugins: [{
-//            ptype: 'rowediting',
-//            clicksToEdit: 2
-//          }],
-        selType: 'cellmodel',
-        plugins: 'cellediting',
+        selType: 'rowmodel',
+        plugins: [{
+            ptype: 'rowediting',
+            clicksToEdit: 2
+          }],
+//        selType: 'cellmodel',
+//        plugins: 'cellediting',
         autoWidth: true,
         tbar: [{
             xtype: 'button',
