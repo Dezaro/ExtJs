@@ -31,13 +31,13 @@
 
       Ext.create('Ext.data.Store', {
         storeId: 'simpsonsStore',
-        fields: ['name', 'email', 'phone'],
+        fields: ['name', 'email', 'phone', 'birthDate'],
         data: {'items': [
-            {'name': 'Lisa', "email": "lisa@simpsons.com", "phone": "5551111224"},
-            {'name': 'Lisa', "email": "lol@simpsons.com", "phone": "5551111224"},
-            {'name': 'Bart', "email": "bart@simpsons.com", "phone": "5552221234"},
-            {'name': 'Homer', "email": "homer@simpsons.com", "phone": "5552221244"},
-            {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254"}
+            {'name': 'Lisa', "email": "lisa@simpsons.com", "phone": "5551111224", "birthDate":"05/10/1990"},
+            {'name': 'Lisa', "email": "lol@simpsons.com", "phone": "5551111224", "birthDate":"07/17/1992"},
+            {'name': 'Bart', "email": "bart@simpsons.com", "phone": "5552221234", "birthDate":"05/04/1993"},
+            {'name': 'Homer', "email": "homer@simpsons.com", "phone": "5552221244", "birthDate":"04/19/1991"},
+            {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate":"10/20/1994"}
           ]},
         proxy: {
           type: 'memory',
@@ -51,11 +51,15 @@
       Ext.create('Ext.grid.Panel', {
         title: 'Simpsons',
         store: Ext.data.StoreManager.lookup('simpsonsStore'),
-                plugins: 'gridfilters',
+        plugins: 'gridfilters',
         columns: [
-          {text: 'Name', dataIndex: 'name'},
-          {text: 'Email', dataIndex: 'email', flex: 1},
-          {text: 'Phone', dataIndex: 'phone', filter: 'number'}
+          {text: 'Name', dataIndex: 'name', editor: {
+              xtype: 'textfield',
+              allowBlank: false
+            }},
+          {text: 'Email', dataIndex: 'email', flex: 1, editor: 'textfield'},
+          {text: 'Phone', dataIndex: 'phone', filter: 'number'},
+          {text: 'Birth Date', dataIndex: 'birthDate', editor: 'datefield'}
         ],
         autoWidth: true,
         tbar: [{
@@ -69,12 +73,18 @@
             xtype: 'button',
             text: 'Click me',
             handler: function(btn) {
-             win.show();
+              win.show();
             }
           }],
         layout: 'fit',
-        height: 200,
-        width: 400,
+        //     height: 200,
+        //     width: 400,
+        dockedItems: [{
+            xtype: 'pagingtoolbar',
+            store: Ext.data.StoreManager.lookup('simpsonsStore'), // same store GridPanel is using
+            dock: 'bottom',
+            displayInfo: true
+          }],
         renderTo: Ext.getBody()
       });
     </script> 

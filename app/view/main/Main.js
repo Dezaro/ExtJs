@@ -68,6 +68,7 @@
       tree,
       iframe
     ],
+  //  tbar: ['->', btnLogout],
     bbar: ['Content appropriate for the current navigation'],
     flex: 1
   };
