@@ -20,7 +20,7 @@ $array = '{
     ]
   },
   {
-    "name": "Small guns",
+    "name": "Small guns1",
     "children": [
       {
         "item_id": 2,
