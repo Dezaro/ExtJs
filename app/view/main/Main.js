@@ -25,26 +25,26 @@
     floatable: false,
     region: 'west',
     width: 250,
-    split: true,
-    tbar: [
-      btnLogout
-    ]
+    split: true // ,
+//    tbar: [
+//      btnLogout
+//    ]
   };
 
   var iframe = {
     xtype: 'panel',
     region: 'center',
-    title: 'Ext 5.1.0 Panel',
+    // title: 'Ext 5.1.0 Panel',
     border: true,
     scrollable: false,
     layout: {
       type: 'fit',
       padding: 5
     },
-    tbar: [
-      '->',
-      btnLogout
-    ],
+//    tbar: [
+//      '->',
+//      btnLogout
+//    ],
     items: [{
         xtype: 'itemShow',
         scrollable: false,
@@ -57,7 +57,7 @@
 
   var panel = {
     xtype: 'panel',
-    title: 'Main Panel',
+    // title: 'Main Panel',
     autoScroll: true,
     border: false,
     layout: {
@@ -68,6 +68,7 @@
       tree,
       iframe
     ],
+    //tbar: [btnLogout],
     bbar: ['Content appropriate for the current navigation'],
     flex: 1
   };
@@ -84,10 +85,16 @@
       type: 'main'
     },
     layout: {
-      type: 'hbox',
+      type: 'vbox',
       align: 'stretch'
     },
     items: [
+      new Ext.Toolbar({
+        items: [
+          //'->',
+          btnLogout
+        ]
+      }),
       panel
     ]
   });
