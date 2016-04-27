@@ -7,7 +7,8 @@ Ext.define('Application.view.item.Show', {
   reference: 'tabpanel',
   border: false,
   items: [{
-      title: 'Tab 1',
+      title: '',
+      icon: "resources/images/icons/fam/cog.gif",
       // icon: "resources/images/icons/fam/cog.gif",
       glyph: null
               // html: KitchenSink.DummyText.longText

@@ -36,6 +36,22 @@ Ext.define('Application.controller.ItemController', {
   onItemSelect: function(selModel, selection) {
     // Executed only when selection is a leaf
     //(selection.data.leaf) ? Ext.get('iframe-12').dom.src = selection.raw.description : null;
-    (selection.data.leaf) ? Ext.getCmp('tabs12').add({title: selection.data.name, closable: true, html: selection.data.description}) : null;
+    this.tabs = Ext.getCmp('tabs12');
+    var active = false;
+    if(selection.data.leaf) {
+      for(var i = 0; i <  this.tabs.items.length; i++) {
+        if(selection.data.item_id ===  this.tabs.items.items[i].id) {
+           this.tabs.setActiveTab( this.tabs.items.items[i].id);
+          active = true;
+        } 
+      }
+      if(active === false){
+           this.tabs.add({id: selection.data.item_id, title: selection.data.name, closable: true, html: selection.data.description});
+           this.tabs.setActiveTab( this.tabs.items.length - 1);
+         // console.log(Ext.getCmp('tabs12').items.items[1].id);
+      }   
+    } else {
+      null;
+    }
   }
 });
