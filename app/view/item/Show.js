@@ -8,7 +8,7 @@ Ext.define('Application.view.item.Show', {
   border: false,
   items: [{
       title: '',
-      icon: "resources/images/icons/fam/cog.gif",
+      icon: "img/icon/config1.png",
       // icon: "resources/images/icons/fam/cog.gif",
       glyph: null
               // html: KitchenSink.DummyText.longText
