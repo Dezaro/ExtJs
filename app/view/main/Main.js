@@ -7,9 +7,15 @@
   document.body.appendChild(css);
 
   var btnLogout = {
-    text: 'Logout',
+    text: 'logout',
     iconCls: 'an-icon',
     handler: 'onClickButton'
+  };
+
+  var btnInfo = {
+    text: 'info',
+    iconCls: 'an-icon',
+    handler: ''
   };
 
   var tree = {
@@ -89,12 +95,20 @@
       align: 'stretch'
     },
     items: [
-      new Ext.Toolbar({
+      {
+        xtype: 'toolbar',
         items: [
-          //'->',
+//          {
+//            xtype: 'textfield',
+//            name: 'info',
+//            fieldLabel: 'Info',
+//            labelWidth: 20
+//          },
+          btnInfo,
+          '->',
           btnLogout
         ]
-      }),
+      },
       panel
     ]
   });
