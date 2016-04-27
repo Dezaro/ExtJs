@@ -33,7 +33,6 @@ Ext.define('Application.controller.ItemController', {
       }
     });
   },
-  test: 'a',
   tabs: null,
   maxTabs: 5,
   onItemSelect: function(selModel, selection) {
