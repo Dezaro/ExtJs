@@ -34,6 +34,7 @@ Ext.define('Application.controller.ItemController', {
     });
   },
   tabs: null,
+  maxTabs: 5,
   onItemSelect: function(selModel, selection) {
     // Executed only when selection is a leaf
     //(selection.data.leaf) ? Ext.get('iframe-12').dom.src = selection.raw.description : null;
@@ -46,9 +47,9 @@ Ext.define('Application.controller.ItemController', {
           active = true;
         }
       }
-      if(!active) {
+      if(!active && this.tabs.items.length <= this.maxTabs) {
         this.tabs.add({id: selection.data.item_id, title: selection.data.name, closable: true, html: selection.data.description});
-        this.tabs.setActiveTab((this.tabs.items.length) - 1);
+        this.tabs.setActiveTab(this.tabs.items.length - 1);
       }
     }
   }
