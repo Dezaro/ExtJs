@@ -36,6 +36,6 @@ Ext.define('Application.controller.ItemController', {
   onItemSelect: function(selModel, selection) {
     // Executed only when selection is a leaf
     //(selection.data.leaf) ? Ext.get('iframe-12').dom.src = selection.raw.description : null;
-    (selection.data.leaf) ? Ext.getCmp('tabs12').add({title: 'Tab 2'}) : null;
+    (selection.data.leaf) ? Ext.getCmp('tabs12').add({title: selection.data.name, closable: true, html: selection.data.description}) : null;
   }
 });
