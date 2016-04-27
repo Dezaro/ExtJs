@@ -20,7 +20,7 @@ $array = '{
     ]
   },
   {
-    "name": "Small guns1",
+    "name": "Small guns",
     "children": [
       {
         "item_id": "tab3",
@@ -34,7 +34,25 @@ $array = '{
         "description": "The Glock pistol, sometimes referred to by the manufacturer as Glock \"Safe Action\" Pistol, is a series of semi-automatic pistols designed and produced by Glock Ges.m.b.H., located in Deutsch-Wagram, Austria. The companys founder, engineer Gaston Glock, had no experience with firearm design or manufacture at the time their first pistol, the Glock 17, was being prototyped.",
         "leaf": true
       }
-    ]}
+    ]
+  },
+  {
+    "name": "Low guns",
+    "children": [
+      {
+        "item_id": "tab5",
+        "name": "GFea1 pistol",
+        "description": "The M1911 is a single-action, semi-automatic, magazine-fed, recoil-operated pistol chambered for the .45 ACP cartridge, which served as the standard-issue sidearm for the United States armed forces from 1911 to 1985. It was first used in later stages of the Philippine-American War, and was widely used in World War I, World War II, the Korean War, and the Vietnam War. The M1911 is still carried by some U.S. forces. Its formal designation as of 1940 was Automatic Pistol, Caliber .45, M1911 for the original Model of 1911 or Automatic Pistol, Caliber .45, M1911A1 for the M1911A1, adopted in 1924.",
+        "leaf": true
+      },
+      {
+        "item_id": "tab6",
+        "name": "Deagle",
+        "description": "The Glock pistol, sometimes referred to by the manufacturer as Glock \"Safe Action\" Pistol, is a series of semi-automatic pistols designed and produced by Glock Ges.m.b.H., located in Deutsch-Wagram, Austria. The companys founder, engineer Gaston Glock, had no experience with firearm design or manufacture at the time their first pistol, the Glock 17, was being prototyped.",
+        "leaf": true
+      }
+    ]
+  }
   ]
 }';
 
