@@ -8,7 +8,7 @@ $array = '{
       {
         "item_id": "tab1",
         "name": "RPG-7",
-        "description": "test.html",
+        "description": "RPG-7.js",
         "leaf": true
       },
       {

@@ -48,8 +48,21 @@ Ext.define('Application.controller.ItemController', {
         }
       }
       if(!active && this.tabs.items.length <= this.maxTabs) {
-        this.tabs.add({id: selection.data.item_id, title: selection.data.name, closable: true, html: selection.data.description});
-        this.tabs.setActiveTab(this.tabs.items.length - 1);
+        this.tabs.add({id: selection.data.item_id, title: selection.data.name, closable: true,
+          loader: {
+                autoLoad:true,
+                url: selection.data.description,
+                contentType: 'javascript',
+                 scripts: true
+            },
+            listeners: {
+                activate: function(tab) {
+                    tab.loader.load();
+                }
+            }
+          });
+          //html: selection.data.description});
+        this.tabs.setActiveTab(this.tabs.items.length - 1);  
       }
     }
   }

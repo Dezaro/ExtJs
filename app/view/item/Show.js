@@ -15,7 +15,7 @@ Ext.define('Application.view.item.Show', {
     }]
 //  src: 'about:blank', //src: '/ExtJs/test.html',
 //  minHeight: 768,
-//  border: false,
+// // border: false,
 //  layout: 'fit',
 //  loadingText: 'Loading ...',
 //  initComponent: function() {
