@@ -55,12 +55,12 @@ Ext.define('Application.controller.ItemController', {
           items: [
             {
               xtype: 'itemFrame',
-              id: selection.data.item_id
+              id: 'framePanel-' + selection.data.item_id
             }
           ]
         });
-       // Ext.get('iframe-' + selection.data.item_id).dom.src = selection.raw.description;
         this.tabs.setActiveTab(this.tabs.items.length - 1);
+        Ext.getCmp('framePanel-' + selection.data.item_id).setSrc(selection.raw.description);
       }
     }
   }
