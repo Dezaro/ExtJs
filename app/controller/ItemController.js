@@ -55,7 +55,10 @@ Ext.define('Application.controller.ItemController', {
           items: [
             {
               xtype: 'itemFrame',
-              id: 'framePanel-' + selection.data.item_id
+              id: 'framePanel-' + selection.data.item_id,
+              layout: {
+                align: 'stretch'
+              }
             }
           ]
         });
