@@ -2,11 +2,14 @@
 
 Ext.define('Application.view.item.iframe', {
   id: '',
-  extend: 'Ext.panel.Panel',
+  extend: 'Ext.container.Container',
   alias: 'widget.itemFrame',
   src: 'about:blank', //src: '/ExtJs/test.html',
-  minHeight: 768,
+  //minHeight: 768,
   border: false,
+  width: '100%',
+  height: '100%',
+  style: 'height: 100%;',
   layout: 'fit',
   loadingText: 'Loading ...',
   initComponent: function() {
@@ -15,10 +18,19 @@ Ext.define('Application.view.item.iframe', {
   },
   updateHTML: function() {
     this.html = '<iframe id="iframe-' + this.id + '"' +
-            ' style="overflow:auto; width: 100%; height: 100%;"' +
+            'style="overflow:auto; width: 100%; height: 100%;"' +
             ' frameborder="0" ' +
             ' src="' + this.src + '"' +
             ' allowtransparency="true"></iframe>';
+//    this.html = '<iframe \n\
+//                id="iframe-' + this.id + '"\n\
+//                style="overflow:auto; width: 100%; height: 100%;"\n\
+//                height="100%"\n\
+//                width="100%"\n\
+//                frameborder="0"\n\
+//                src="' + this.src + '"\n\
+//                allowtransparency="true">\n\
+//                </iframe>';
   },
   reload: function() {
     this.setSrc(this.src);

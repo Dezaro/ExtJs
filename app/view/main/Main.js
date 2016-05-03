@@ -41,11 +41,10 @@
     xtype: 'panel',
     region: 'center',
     // title: 'Ext 5.1.0 Panel',
-    border: true,
+    border: false,
     scrollable: false,
     layout: {
-      type: 'fit',
-      padding: 5
+      type: 'fit'
     },
 //    tbar: [
 //      '->',
@@ -97,6 +96,7 @@
     items: [
       {
         xtype: 'toolbar',
+        border: false,
         items: [
 //          {
 //            xtype: 'textfield',
