@@ -37,7 +37,7 @@
 //    ]
   };
 
-  var iframe = {
+  var tabPanel = {
     xtype: 'panel',
     region: 'center',
     // title: 'Ext 5.1.0 Panel',
@@ -72,7 +72,7 @@
     },
     items: [
       tree,
-      iframe
+      tabPanel
     ],
     //tbar: [btnLogout],
     bbar: ['Content appropriate for the current navigation'],

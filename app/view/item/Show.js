@@ -1,9 +1,10 @@
 /* global Ext */
-
+  
 Ext.define('Application.view.item.Show', {
   id: 'tabs12',
   extend: 'Ext.TabPanel',
   alias: 'widget.itemShow',
+  views: ['item.Frame'],
   reference: 'tabpanel',
   border: false,
   items: [{
@@ -12,7 +13,8 @@ Ext.define('Application.view.item.Show', {
       // icon: "resources/images/icons/fam/cog.gif",
       glyph: null
               // html: KitchenSink.DummyText.longText
-    }]
+    }
+  ]
 //  src: 'about:blank', //src: '/ExtJs/test.html',
 //  minHeight: 768,
 // // border: false,

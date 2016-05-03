@@ -31,7 +31,7 @@
 
       Ext.create('Ext.data.Store', {
         storeId: 'simpsonsStore',
-        fields: ['name', 'email', 'phone', 'birthDate'],
+        fields: ['name', 'email', 'phone', 'birthDate', 'action'],
         data: {'items': [
             {'name': 'Lisa', "email": "lisa@simpsons.com", "phone": "5551111224", "birthDate": "05/10/1990"},
             {'name': 'Lisa', "email": "lol@simpsons.com", "phone": "5551111224", "birthDate": "07/17/1992"},
@@ -51,23 +51,36 @@
       Ext.create('Ext.grid.Panel', {
         title: 'Simpsons',
         store: Ext.data.StoreManager.lookup('simpsonsStore'),
-   //     plugins: 'gridfilters',
+        //     plugins: 'gridfilters',
         columns: [
           {text: 'Name', dataIndex: 'name', editor: {
               xtype: 'textfield',
               allowBlank: false
             }},
           {text: 'Email', dataIndex: 'email', flex: 1, editor: 'textfield'},
-          {text: 'Phone', dataIndex: 'phone', filter: 'number'},
-          {text: 'Birth Date', dataIndex: 'birthDate', editor: 'datefield', renderer: Ext.util.Format.dateRenderer('m/d/Y')}
+          {text: 'Phone', dataIndex: 'phone', filter: 'number', editor: 'textfield'},
+          {text: 'Birth Date', dataIndex: 'birthDate', editor: 'datefield', renderer: Ext.util.Format.dateRenderer('m/d/Y')},
+          {
+            xtype: 'actioncolumn',
+            width: 30,
+            sortable: false,
+            menuDisabled: true,
+            items: [{
+                icon: "img/icon/delete_icon.png",
+                tooltip: 'Delete Record',
+                handler: function(grid, rowIndex) {
+                  grid.getStore().removeAt(rowIndex);
+                }
+              }]
+          }
         ],
-        selType: 'rowmodel',
-        plugins: [{
-            ptype: 'rowediting',
-            clicksToEdit: 2
-          }],
-//        selType: 'cellmodel',
-//        plugins: 'cellediting',
+//        selType: 'rowmodel',
+//        plugins: [{
+//            ptype: 'rowediting',
+//            clicksToEdit: 2
+//          }],
+        selType: 'cellmodel',
+        plugins: 'cellediting',
         autoWidth: true,
         tbar: [{
             xtype: 'button',
@@ -76,13 +89,36 @@
               var g = btn.up('grid');
               g.store.filter([{property: "name", anyMatch: true, value: 'Lisa'}, {property: "email", anyMatch: true, value: 'lisa@simpsons.com'}]);
             }
-          }, {
+          },
+//          {
+//            xtype: 'button',
+//            text: 'Click me',
+//            handler: function(btn) {
+//              win.show();
+//            }
+//          },
+          {
             xtype: 'button',
-            text: 'Click me',
+            icon: "img/icon/add_pic.png",
+            text: 'Add Record',
             handler: function(btn) {
-              win.show();
+              // Create a model instance
+              var g = btn.up('grid');
+              var rec = {
+                name: '',
+                email: '',
+                phone: 0,
+                birthDate: Ext.Date.clearTime(new Date())
+              };
+
+              g.getStore().insert(0, rec);
+              this.cellEditing.startEditByPosition({
+                row: 0,
+                column: 0
+              });
             }
-          }],
+          }
+        ],
         layout: 'fit',
         //     height: 200,
         //     width: 400,
