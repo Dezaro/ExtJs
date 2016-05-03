@@ -8,7 +8,7 @@ Ext.define('Application.controller.ItemController', {
   // Attach model classes to this controller
   models: ['Item'],
   // ..and last but not least - the view classes
-  views: ['item.List', 'item.Show'],
+  views: ['item.List', 'item.Show', 'item.iframe'],
   // Refs parameter defines references to certain
   // instances of components pointed by selector
   refs: [
@@ -48,21 +48,19 @@ Ext.define('Application.controller.ItemController', {
         }
       }
       if(!active && this.tabs.items.length <= this.maxTabs) {
-        this.tabs.add({id: selection.data.item_id, title: selection.data.name, closable: true,
-          loader: {
-                autoLoad:true,
-                url: selection.data.description,
-                contentType: 'javascript',
-                 scripts: true
-            },
-            listeners: {
-                activate: function(tab) {
-                    tab.loader.load();
-                }
+        this.tabs.add({
+          id: selection.data.item_id,
+          title: selection.data.name,
+          closable: true,
+          items: [
+            {
+              xtype: 'itemFrame',
+              id: selection.data.item_id
             }
-          });
-          //html: selection.data.description});
-        this.tabs.setActiveTab(this.tabs.items.length - 1);  
+          ]
+        });
+       // Ext.get('iframe-' + selection.data.item_id).dom.src = selection.raw.description;
+        this.tabs.setActiveTab(this.tabs.items.length - 1);
       }
     }
   }

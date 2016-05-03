@@ -1,7 +1,7 @@
 /* global Ext */
 
 Ext.define('Application.view.item.iframe', {
-  id: '12',
+  id: '',
   extend: 'Ext.panel.Panel',
   alias: 'widget.itemFrame',
   src: 'about:blank', //src: '/ExtJs/test.html',
