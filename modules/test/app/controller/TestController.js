@@ -5,9 +5,15 @@ Ext.define('ModuleTest.controller.TestController', {
   stores: ['Tests'],
   models: ['Test'],
   views: ['grid.testView'],
+  refs: [
+    {
+      ref: 'grid',
+      selector: '#testGridID'
+    }
+  ],
   init: function() {
     this.control({
-      '#testGridID': {
+      'grid': {
         selectionchange: this.gridSelectionChange
       }
     });

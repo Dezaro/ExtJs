@@ -9,6 +9,7 @@ Ext.define('Application.view.item.Show', {
   border: false,
   items: [{
       title: '',
+      border: false,
       icon: "img/icon/config1.png",
       // icon: "resources/images/icons/fam/cog.gif",
       glyph: null

@@ -12,6 +12,8 @@ Ext.define('ModuleTest.view.grid.testView', {
   collapsible: true,
   iconCls: 'icon-grid',
   frame: true,
+  autoScroll: true,
+  animScroll: true,
   width: 700,
   height: 500,
   resizable: true,
@@ -30,10 +32,12 @@ Ext.define('ModuleTest.view.grid.testView', {
   // Dispatch named listener and handler methods to this instance
   defaultListenerScope: true,
   tbar: [{
+      id: 'showFilersID',
       text: 'Show Filters...',
       tooltip: 'Show filter data for the store',
       handler: 'onShowFilters'
     }, {
+      id: 'clearFilersID',
       text: 'Clear Filters',
       tooltip: 'Clear all filters',
       handler: 'onClearFilters'

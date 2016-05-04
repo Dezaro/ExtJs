@@ -18,7 +18,7 @@ Ext.define('Application.view.item.iframe', {
   },
   updateHTML: function() {
     this.html = '<iframe id="iframe-' + this.id + '"' +
-            'style="overflow:auto; width: 100%; height: 100%;"' +
+            'style="overflow:auto; width: 100%; height: 100%;  border: none;"' +
             ' frameborder="0" ' +
             ' src="' + this.src + '"' +
             ' allowtransparency="true"></iframe>';

@@ -37,7 +37,6 @@ Ext.define('Application.controller.ItemController', {
   maxTabs: 5,
   onItemSelect: function(selModel, selection) {
     // Executed only when selection is a leaf
-    //(selection.data.leaf) ? Ext.get('iframe-12').dom.src = selection.raw.description : null;
     this.tabs = Ext.getCmp('tabs12');
     var active = false;
     if(selection.data.leaf) {
@@ -52,6 +51,7 @@ Ext.define('Application.controller.ItemController', {
           id: selection.data.item_id,
           title: selection.data.name,
           closable: true,
+          border: false,
           items: [
             {
               xtype: 'itemFrame',

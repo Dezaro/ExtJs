@@ -25,6 +25,7 @@
       title: '{name}'
     },
     title: 'Модули',
+    autoScroll: false,
     collapsible: true,
     collapseDirection: Ext.Component.DIRECTION_LEFT,
     collapsed: false,
@@ -42,6 +43,7 @@
     region: 'center',
     // title: 'Ext 5.1.0 Panel',
     border: false,
+    autoScroll: false,
     scrollable: false,
     layout: {
       type: 'fit'
@@ -63,7 +65,8 @@
   var panel = {
     xtype: 'panel',
     // title: 'Main Panel',
-    autoScroll: true,
+    autoScroll: false,
+    animScroll: true,
     border: false,
     layout: {
       type: 'border',
