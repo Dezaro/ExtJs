@@ -26,9 +26,9 @@
               text: 'Extshs test'
             }]
         });
-  //      Ext.onReady(function() {
-  //        win.show();
-  //      });
+        //      Ext.onReady(function() {
+        //        win.show();
+        //      });
 
         Ext.create('Ext.data.Store', {
           storeId: 'simpsonsStore',
@@ -88,12 +88,11 @@
                 }]
             }
           ],
-          viewConfig:{forceFit:true},
-  //        selType: 'rowmodel',
-  //        plugins: [{
-  //            ptype: 'rowediting',
-  //            clicksToEdit: 2
-  //          }],
+          //        selType: 'rowmodel',
+          //        plugins: [{
+          //            ptype: 'rowediting',
+          //            clicksToEdit: 2
+          //          }],
           selType: 'cellmodel',
           plugins: 'cellediting',
           autoWidth: true,
@@ -105,13 +104,13 @@
                 g.store.filter([{property: "name", anyMatch: true, value: 'Lisa'}, {property: "email", anyMatch: true, value: 'lisa@simpsons.com'}]);
               }
             },
-  //          {
-  //            xtype: 'button',
-  //            text: 'Click me',
-  //            handler: function(btn) {
-  //              win.show();
-  //            }
-  //          },
+            //          {
+            //            xtype: 'button',
+            //            text: 'Click me',
+            //            handler: function(btn) {
+            //              win.show();
+            //            }
+            //          },
             {
               xtype: 'button',
               icon: "img/icon/add_pic.png",
@@ -127,15 +126,15 @@
                 };
 
                 g.getStore().insert(0, rec);
-  //              this.cellEditing.startEditByPosition({
-  //                row: 0,
-  //                column: 0
-  //              });
+                //              this.cellEditing.startEditByPosition({
+                //                row: 0,
+                //                column: 0
+                //              });
               }
             }
           ],
           layout: 'fit',
-        //  height: 880,
+          //  height: 880,
           //     width: 400,
           dockedItems: [{
               xtype: 'pagingtoolbar',

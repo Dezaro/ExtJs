@@ -25,7 +25,7 @@ $array = '{
       {
         "item_id": "tab3",
         "name": "M1911 pistol",
-        "description": "The M1911 is a single-action, semi-automatic, magazine-fed, recoil-operated pistol chambered for the .45 ACP cartridge, which served as the standard-issue sidearm for the United States armed forces from 1911 to 1985. It was first used in later stages of the Philippine-American War, and was widely used in World War I, World War II, the Korean War, and the Vietnam War. The M1911 is still carried by some U.S. forces. Its formal designation as of 1940 was Automatic Pistol, Caliber .45, M1911 for the original Model of 1911 or Automatic Pistol, Caliber .45, M1911A1 for the M1911A1, adopted in 1924.",
+        "description": "modules/test",
         "leaf": true
       },
       {
