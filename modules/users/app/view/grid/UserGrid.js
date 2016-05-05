@@ -1,5 +1,8 @@
 /* global Ext */
-
+var rowEditing = Ext.create('Ext.grid.plugin.RowEditing', {
+  clicksToMoveEditor: 1,
+  autoCancel: false
+});
 Ext.define('UserApplication.view.grid.UserGrid', {
   id: 'usersGridID',
   extend: 'Ext.grid.Panel',
@@ -7,7 +10,7 @@ Ext.define('UserApplication.view.grid.UserGrid', {
   requires: [
     'UserApplication.store.UserStore'
   ],
-  title: '<span style="color: #525252;">User List</span>',
+  title: '<span style="color: #00008B;">User List</span>',
   iconCls: 'icon-grid',
   frame: true,
   autoScroll: true,
@@ -15,8 +18,13 @@ Ext.define('UserApplication.view.grid.UserGrid', {
   width: 700,
   height: 500,
   resizable: true,
-  plugins: ['viewport', 'cellediting'],
-  selType: 'cellmodel',
+  plugins: ['viewport', rowEditing], //'cellediting'],
+  // selType: 'cellmodel',
+  selType: 'rowmodel',
+//  plugins: ['viewport', {
+//      ptype: 'rowediting',
+//      clicksToEdit: 2
+//    }],
   emptyText: 'No Matching Records',
   loadMask: true,
   stateful: true,
@@ -28,11 +36,38 @@ Ext.define('UserApplication.view.grid.UserGrid', {
     autoDestroy: true
   },
   defaultListenerScope: true,
+  tbar: [
+    {
+      xtype: 'button',
+      icon: "img/add_pic.png",
+      text: 'Add Record',
+      handler: function(btn) {
+        // Create a model instance
+        var g = btn.up('grid');
+        var myStore = g.getStore();
+        var maxId = myStore.getAt(0).get('id'); // initialise to the first record's id value.
+        myStore.each(function(rec) // go through all the records
+        {
+          maxId = Math.max(maxId, rec.get('id'));
+        });
+        var rec = {
+          id: maxId + 1,
+          name: '',
+          address: 'example address',
+          email: 'example@email.com',
+          telephone: '0'
+        };
+
+        g.getStore().insert(0, rec);
+        rowEditing.startEdit(0, 0);
+        // g.getSelectionModel().setCurrentPosition({row: 0, column: 1});
+      }
+    }
+  ],
   columns: [{
       dataIndex: 'id',
       text: 'Id',
-      width: 50,
-      editor: 'textfield'
+      width: 80
     }, {
       dataIndex: 'name',
       text: 'Name',
@@ -41,17 +76,17 @@ Ext.define('UserApplication.view.grid.UserGrid', {
     }, {
       dataIndex: 'address',
       text: 'Address',
-      width: 90,
+      width: 300,
       editor: 'textfield'
     }, {
-      dataIndex: 'contact',
-      text: 'Contact',
-      width: 120,
+      dataIndex: 'email',
+      text: 'Email',
+      width: 200,
       editor: 'textfield'
     }, {
       dataIndex: 'telephone',
       text: 'Telephone',
-      width: 120,
+      width: 200,
       editor: 'textfield'
     },
     {
@@ -66,5 +101,16 @@ Ext.define('UserApplication.view.grid.UserGrid', {
             grid.getStore().removeAt(rowIndex);
           }
         }]
+    }],
+  dockedItems: [{
+      xtype: 'pagingtoolbar',
+      store: {
+        type: 'UserStore',
+        url: 'data/data.json',
+        autoLoad: true,
+        autoDestroy: true
+      },
+      dock: 'bottom',
+      displayInfo: true
     }]
 });
