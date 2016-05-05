@@ -11,7 +11,7 @@
     <div id="panel" style="width: 100%; height: 100%;">
       <script>
         /* global Ext */
-
+        Ext.QuickTips.init();
         var win = Ext.create('Ext.window.Window', {
           title: 'iframe Window',
           closable: true,
@@ -34,9 +34,9 @@
           storeId: 'simpsonsStore',
           fields: ['name', 'email', 'phone', 'birthDate', 'action'],
           data: {'items': [
-              {'name': 'Lisa', "email": "lisa@simpsons.com", "phone": "5551111224", "birthDate": "05/10/1990"},
-              {'name': 'Lisa', "email": "lol@simpsons.com", "phone": "5551111224", "birthDate": "07/17/1992"},
-              {'name': 'Bart', "email": "bart@simpsons.com", "phone": "5552221234", "birthDate": "05/04/1993"},
+              {'name': 'Lisa',  "email": "lisa@simpsons.com",  "phone": "5551111224", "birthDate": "05/10/1990"},
+              {'name': 'Lisa',  "email": "lol@simpsons.com",   "phone": "5551111224", "birthDate": "07/17/1992"},
+              {'name': 'Bart',  "email": "bart@simpsons.com",  "phone": "5552221234", "birthDate": "05/04/1993"},
               {'name': 'Homer', "email": "homer@simpsons.com", "phone": "5552221244", "birthDate": "04/19/1991"},
               {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
               {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
@@ -53,16 +53,6 @@
               {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
               {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
               {'name': 'Homer', "email": "homer@simpsons.com", "phone": "5552221244", "birthDate": "04/19/1991"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
               {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
               {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
               {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
@@ -90,10 +80,7 @@
           store: Ext.data.StoreManager.lookup('simpsonsStore'),
           //     plugins: 'gridfilters',
           columns: [
-            {text: 'Name', dataIndex: 'name', editor: {
-                xtype: 'textfield',
-                allowBlank: false
-              }},
+            {text: 'Name', dataIndex: 'name', editor:{xtype: 'textfield',allowBlank: false}},
             {text: 'Email', dataIndex: 'email', flex: 1, editor: 'textfield'},
             {text: 'Phone', dataIndex: 'phone', filter: 'number', editor: 'textfield'},
             {text: 'Birth Date', dataIndex: 'birthDate', editor: 'datefield', renderer: Ext.util.Format.dateRenderer('m/d/Y')},

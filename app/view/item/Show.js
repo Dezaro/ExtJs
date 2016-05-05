@@ -1,5 +1,5 @@
 /* global Ext */
-  
+
 Ext.define('Application.view.item.Show', {
   id: 'tabs12',
   extend: 'Ext.TabPanel',

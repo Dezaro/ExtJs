@@ -9,7 +9,6 @@ Ext.define('ModuleTest.view.grid.testView', {
     'ModuleTest.store.Tests'
   ],
   title: 'Products',
-  collapsible: true,
   iconCls: 'icon-grid',
   frame: true,
   autoScroll: true,
