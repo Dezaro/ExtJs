@@ -5,7 +5,6 @@ Ext.define('UserApplication.view.grid.UserGrid', {
   extend: 'Ext.grid.Panel',
   xtype: 'grid-filtering',
   requires: [
-    // 'Ext.grid.filters.Filters',
     'UserApplication.store.UserStore'
   ],
   title: '<span style="color: #525252;">User List</span>',
@@ -16,12 +15,11 @@ Ext.define('UserApplication.view.grid.UserGrid', {
   width: 700,
   height: 500,
   resizable: true,
-  plugins: ['viewport', 'cellediting'], // 'gridfilters',
+  plugins: ['viewport', 'cellediting'],
   selType: 'cellmodel',
   emptyText: 'No Matching Records',
   loadMask: true,
   stateful: true,
-  // Set a stateId so that this grid's state is persisted.
   stateId: 'stateful-filter-grid',
   store: {
     type: 'UserStore',
@@ -29,78 +27,32 @@ Ext.define('UserApplication.view.grid.UserGrid', {
     autoLoad: true,
     autoDestroy: true
   },
-  // Dispatch named listener and handler methods to this instance
   defaultListenerScope: true,
-//  tbar: [{
-//      id: 'showFilersID',
-//      text: 'Show Filters...',
-//      tooltip: 'Show filter data for the store',
-//      handler: 'onShowFilters'
-//    }, {
-//      id: 'clearFilersID',
-//      text: 'Clear Filters',
-//      tooltip: 'Clear all filters',
-//      handler: 'onClearFilters'
-//    }],
   columns: [{
       dataIndex: 'id',
       text: 'Id',
       width: 50,
       editor: 'textfield'
-              // Specify that this column has an associated Filter. This is
-              // processed by the gridfilters plugin. If this is a string,
-              // this is the type of filter to apply.
-//      filter: 'number'
     }, {
       dataIndex: 'name',
       text: 'Name',
       flex: 1,
       editor: {xtype: 'textfield', allowBlank: false}
-      // As an object, the type property indicates the type of filter to
-      // apply. All other properties configure that filter instance.
-//      filter: {
-//        type: 'string',
-//        itemDefaults: {
-//          emptyText: 'Search for...'
-//        }
-//      }
     }, {
       dataIndex: 'address',
       text: 'Address',
       width: 90,
       editor: 'textfield'
-              //     formatter: 'usMoney',
-//      filter: {
-//        type: 'string',
-//        itemDefaults: {
-//          emptyText: 'Search for...'
-//        }
-//      }
     }, {
       dataIndex: 'contact',
       text: 'Contact',
       width: 120,
       editor: 'textfield'
-//       filter: {
-//        type: 'string',
-//        itemDefaults: {
-//          emptyText: 'Search for...'
-//        }
-//      }
-              //  filter: 'list' // Use the unique field values for the pick list
     }, {
-      //  xtype: 'datecolumn',
       dataIndex: 'telephone',
       text: 'Telephone',
       width: 120,
       editor: 'textfield'
-//           filter: {
-//        type: 'string',
-//        itemDefaults: {
-//          emptyText: 'Search for...'
-//        }
-//      }
-              //  filter: true  // use dataIndex first then fallback to column type
     },
     {
       xtype: 'actioncolumn',
@@ -115,35 +67,4 @@ Ext.define('UserApplication.view.grid.UserGrid', {
           }
         }]
     }]
-//  onClearFilters: function() {
-//    // The "filters" property is added to the grid (this) by gridfilters
-//    this.filters.clearFilters();
-//  },
-//  onShowFilters: function() {
-//    var data = [];
-//
-//    // The actual record filters are placed on the Store.
-//    this.store.getFilters().each(function(filter) {
-//      data.push(filter.serialize());
-//    });
-//
-//    // Pretty it up for presentation
-//    data = Ext.JSON.encodeValue(data, '\n').replace(/^[ ]+/gm, function(s) {
-//      for(var r = '', i = s.length; i--; ) {
-//        r += '&#160;';
-//      }
-//      return r;
-//    });
-//    data = data.replace(/\n/g, '<br>');
-//
-//    Ext.Msg.alert('Filter Data', data);
-//  }
 });
-
-//Ext.define('ModuleTest.view.grid.testView', {
-//  extend: 'Ext.panel.Panel',
-//  xtype: 'grid-filtering',
-//  layout: 'fit',
-//  plugins: 'viewport',
-//  title: 'Show Panel'
-//});
