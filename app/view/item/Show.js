@@ -12,7 +12,14 @@ Ext.define('Application.view.item.Show', {
       border: false,
       icon: "img/icon/config1.png",
       // icon: "resources/images/icons/fam/cog.gif",
-      glyph: null
+      glyph: null,
+      items: [{
+          xtype: 'image',
+          width: 1000,
+          height: 350,
+          margin: 60,
+          src: 'img/icon/welcome.png'
+        }]
               // html: KitchenSink.DummyText.longText
     }
   ]

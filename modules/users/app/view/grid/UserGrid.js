@@ -3,6 +3,7 @@ var rowEditing = Ext.create('Ext.grid.plugin.RowEditing', {
   clicksToMoveEditor: 1,
   autoCancel: false
 });
+
 Ext.define('UserApplication.view.grid.UserGrid', {
   id: 'usersGridID',
   extend: 'Ext.grid.Panel',
@@ -53,6 +54,9 @@ Ext.define('UserApplication.view.grid.UserGrid', {
         var rec = {
           id: maxId + 1,
           name: '',
+          age: '0',
+          profession: 'example profession',
+          country: 'example country',
           address: 'example address',
           email: 'example@email.com',
           telephone: '0'
@@ -74,9 +78,24 @@ Ext.define('UserApplication.view.grid.UserGrid', {
       flex: 1,
       editor: {xtype: 'textfield', allowBlank: false}
     }, {
+      dataIndex: 'age',
+      text: 'Age',
+      width: 60,
+      editor: 'textfield'
+    }, {
+      dataIndex: 'profession',
+      text: 'Profession',
+      width: 220,
+      editor: 'textfield'
+    }, {
+      dataIndex: 'country',
+      text: 'Country',
+      width: 220,
+      editor: 'textfield'
+    }, {
       dataIndex: 'address',
       text: 'Address',
-      width: 300,
+      width: 320,
       editor: 'textfield'
     }, {
       dataIndex: 'email',

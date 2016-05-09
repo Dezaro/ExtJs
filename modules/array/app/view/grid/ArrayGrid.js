@@ -8,7 +8,7 @@ Ext.define('ArrayTest.view.grid.ArrayGrid', {
     // 'Ext.grid.filters.Filters',
     'ArrayTest.store.Companies'
   ],
-  title: '<span style="color: #525252;">User List</span>',
+  title: '<span style="color: #525252;">Test List</span>',
   iconCls: 'icon-grid',
   frame: true,
   autoScroll: true,

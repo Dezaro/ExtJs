@@ -6,6 +6,22 @@
   css.innerHTML = '.an-icon {background-image: url(img/icon/add.png);background-repeat: no-repeat;}';
   document.body.appendChild(css);
 
+  Ext.create('Ext.window.Window', {
+    id: 'winID',
+    title: 'Information',
+    closable: true,
+    closeAction: 'hide',
+    width: 400,
+    modal: true,
+    minWidth: 350,
+    height: 150,
+    layout: 'fit',
+    items: [{
+       // xtype: 'label',
+        html: '<div style="text-align: center; color: blue;"><b>Продукт, разработен от IT отдел на "Европът-2000" АД. <br>Година: 2016г.</b></div>'
+      }]
+  });
+
   var btnLogout = {
     text: 'logout',
     iconCls: 'an-icon',
@@ -15,7 +31,7 @@
   var btnInfo = {
     text: 'info',
     iconCls: 'an-icon',
-    handler: ''
+    handler: 'onInfoClick'
   };
 
   var tree = {

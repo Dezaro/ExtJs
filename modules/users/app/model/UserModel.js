@@ -2,5 +2,15 @@
 
 Ext.define('UserApplication.model.UserModel', {
   extend: 'UserApplication.model.Base',
-  fields: ['id', 'name', 'address', 'email', 'telephone', 'action']
+  fields: [
+    'id',
+    'name',
+    'age',
+    'profession',
+    'country',
+    'address',
+    'email',
+    'telephone',
+    'action'
+  ]
 });
