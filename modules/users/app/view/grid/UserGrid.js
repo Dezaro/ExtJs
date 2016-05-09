@@ -71,11 +71,12 @@ Ext.define('UserApplication.view.grid.UserGrid', {
   columns: [{
       dataIndex: 'id',
       text: 'Id',
-      width: 80
+      width: 30
     }, {
       dataIndex: 'name',
       text: 'Name',
-      flex: 1,
+      width: 150,
+   //   flex: 1,
       editor: {xtype: 'textfield', allowBlank: false}
     }, {
       dataIndex: 'age',
@@ -85,27 +86,27 @@ Ext.define('UserApplication.view.grid.UserGrid', {
     }, {
       dataIndex: 'profession',
       text: 'Profession',
-      width: 220,
+      width: 150,
       editor: 'textfield'
     }, {
       dataIndex: 'country',
       text: 'Country',
-      width: 220,
+      width: 130,
       editor: 'textfield'
     }, {
       dataIndex: 'address',
       text: 'Address',
-      width: 320,
+      width: 290,
       editor: 'textfield'
     }, {
       dataIndex: 'email',
       text: 'Email',
-      width: 200,
+      width: 180,
       editor: 'textfield'
     }, {
       dataIndex: 'telephone',
       text: 'Telephone',
-      width: 200,
+      width: 100,
       editor: 'textfield'
     },
     {

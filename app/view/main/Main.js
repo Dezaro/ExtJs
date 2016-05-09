@@ -3,7 +3,12 @@
 (function() {
   var css = document.createElement("style");
   css.type = "text/css";
-  css.innerHTML = '.an-icon {background-image: url(img/icon/add.png);background-repeat: no-repeat;}';
+  css.innerHTML = '.info-icon {background-image: url(img/icon/info.png);background-repeat: no-repeat;}\n\
+                   .logOut-icon {background-image: url(img/icon/logOut.png);background-repeat: no-repeat;}\n\
+                   .panel-title{background-image: url(img/icon/fon.jpg); color:white; height: 30px; text-indent: 10px; font-size: 16px; font-weight: bold;}\n\
+                   .container{display:block; margin:0; padding:0;}\n\
+                   .left-element{float:left; display:block; margin: 3px; padding:0;}\n\
+                   .right-element{float:right; display:block; margin: 3px; padding:0;}';
   document.body.appendChild(css);
 
   Ext.create('Ext.window.Window', {
@@ -17,20 +22,20 @@
     height: 150,
     layout: 'fit',
     items: [{
-       // xtype: 'label',
+        // xtype: 'label',
         html: '<div style="text-align: center; color: blue;"><b>Продукт, разработен от IT отдел на "Европът-2000" АД. <br>Година: 2016г.</b></div>'
       }]
   });
 
   var btnLogout = {
-    text: 'logout',
-    iconCls: 'an-icon',
+    text: '<b><span style="color: #1E90FF;">LogOut</span></b>',
+    iconCls: 'logOut-icon',
     handler: 'onClickButton'
   };
 
   var btnInfo = {
     text: 'info',
-    iconCls: 'an-icon',
+    iconCls: 'info-icon',
     handler: 'onInfoClick'
   };
 
@@ -112,7 +117,11 @@
       type: 'vbox',
       align: 'stretch'
     },
-    items: [
+    items: [{
+        xtype: 'title',
+        text: '<div class="container"><div class="left-element"> "Европът - 2000" АД</div><div class="right-element">Куриер - 2016</div></div>',
+        cls:'panel-title'
+    },
       {
         xtype: 'toolbar',
         border: false,
