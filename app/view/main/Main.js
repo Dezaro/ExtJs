@@ -3,8 +3,10 @@
 (function() {
   var css = document.createElement("style");
   css.type = "text/css";
-  css.innerHTML = '.info-icon {background-image: url(img/icon/info.png);background-repeat: no-repeat;}\n\
-                   .logOut-icon {background-image: url(img/icon/logOut.png);background-repeat: no-repeat;}\n\
+  css.innerHTML = '.info-icon {background-image: url(img/icon/info.png); background-repeat: no-repeat;}\n\
+                   .logOut-icon {background-image: url(img/icon/logOut.png); background-repeat: no-repeat;}\n\
+                   .pass-icon {background-image: url(img/icon/password.png); background-repeat: no-repeat;}\n\
+                   .office-icon {background-image: url(img/icon/building_edit.png); background-repeat: no-repeat;}\n\
                    .panel-title{background-image: url(img/icon/fon5.jpg); color:white; height: 38px; text-indent: 10px; font-size: 16px;}\n\
                    .container{display:block; margin:0; padding:0;}\n\
                    .left-element{float:left; display:block; margin-top: 5px;}\n\
@@ -30,7 +32,7 @@
   });
 
   var btnLogout = {
-    text: '<b><span style="color: #DC143C;">LogOut</span></b>',
+    text: '<b><span style="color: #DC143C;">Изход</span></b>',
     iconCls: 'logOut-icon',
     handler: 'onClickButton'
   };
@@ -45,7 +47,7 @@
   };
 
   var btnShow = {
-    text: '<b>ПОКАЖИ</b>',
+    text: '<b><span style="color: #083772;">ПОКАЖИ</span></b>',
     iconCls: 'book-icon',
     handler: 'onInfoClick'
   };
@@ -53,6 +55,18 @@
   var btnInfo = {
     text: 'info',
     iconCls: 'info-icon',
+    handler: 'onInfoClick'
+  };
+  
+   var changePassword = {
+    text: '<b><span style="color: #083772;">Смяна на парола</span></b>',
+    iconCls: 'pass-icon',
+    handler: 'onInfoClick'
+  };
+  
+    var changeOffice = {
+    text: '<b><span style="color: #083772;">Смяна на офис</span></b>',
+    iconCls: 'office-icon',
     handler: 'onInfoClick'
   };
 
@@ -115,7 +129,7 @@
       tabPanel
     ],
     //tbar: [btnLogout],
-    bbar: ['Content appropriate for the current navigation'],
+    bbar: ['Офис <b>Управление</b>', '->', 'продукт, разработен от <b>IT отдел</b> на <b>"Европът-2000" АД</b>'],
     flex: 1
   };
 
@@ -150,8 +164,15 @@
         xtype: 'toolbar',
         border: false,
         items: [
-          emptyBtn, '<b>БАРКОД: </b>', textField, btnShow,
+          emptyBtn, 
+          '<b><span style="color: #083772;">БАРКОД: </span></b>', 
+          textField,
+          btnShow,
           '->',
+          changeOffice, 
+          '-',
+          changePassword, 
+          '-', 
           btnLogout
         ]
       },
