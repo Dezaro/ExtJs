@@ -5,10 +5,12 @@
   css.type = "text/css";
   css.innerHTML = '.info-icon {background-image: url(img/icon/info.png);background-repeat: no-repeat;}\n\
                    .logOut-icon {background-image: url(img/icon/logOut.png);background-repeat: no-repeat;}\n\
-                   .panel-title{background-image: url(img/icon/fon.jpg); color:white; height: 30px; text-indent: 10px; font-size: 16px; font-weight: bold;}\n\
+                   .panel-title{background-image: url(img/icon/fon5.jpg); color:white; height: 38px; text-indent: 10px; font-size: 16px;}\n\
                    .container{display:block; margin:0; padding:0;}\n\
-                   .left-element{float:left; display:block; margin: 3px; padding:0;}\n\
-                   .right-element{float:right; display:block; margin: 3px; padding:0;}';
+                   .left-element{float:left; display:block; margin-top: 5px;}\n\
+                   .right-element{float:right; display:block; margin-top: 5px; margin-right: 5px;}\n\
+                   .middle-element{float:left; display:block; margin-left: 900px;}\n\
+                   .book-icon {background-image: url(img/icon/book_open.png);background-repeat: no-repeat;}';
   document.body.appendChild(css);
 
   Ext.create('Ext.window.Window', {
@@ -28,9 +30,24 @@
   });
 
   var btnLogout = {
-    text: '<b><span style="color: #1E90FF;">LogOut</span></b>',
+    text: '<b><span style="color: #DC143C;">LogOut</span></b>',
     iconCls: 'logOut-icon',
     handler: 'onClickButton'
+  };
+
+  var emptyBtn = {width: 0};
+
+  var textField = {
+    xtype: 'textfield',
+    width: 80,
+    name: 'bCode',
+    allowBlank: true
+  };
+
+  var btnShow = {
+    text: '<b>ПОКАЖИ</b>',
+    iconCls: 'book-icon',
+    handler: 'onInfoClick'
   };
 
   var btnInfo = {
@@ -117,22 +134,23 @@
       type: 'vbox',
       align: 'stretch'
     },
-    items: [{
+    items: [
+      {
         xtype: 'title',
-        text: '<div class="container"><div class="left-element"> "Европът - 2000" АД</div><div class="right-element">Куриер - 2016</div></div>',
-        cls:'panel-title'
-    },
+    //    text: 'dasds',
+        text: 
+              '<div class="container">\n\
+              <div class="left-element"> "Европът - 2000" АД</div>\n\
+              <div class="middle-element"><img style= "width: 75px; height: 30px;" src="img/icon/logo2.png"></div>\n\
+              <div class="right-element">Куриер - 2016</div>\n\
+            </div>',
+        cls: 'panel-title'
+      },
       {
         xtype: 'toolbar',
         border: false,
         items: [
-//          {
-//            xtype: 'textfield',
-//            name: 'info',
-//            fieldLabel: 'Info',
-//            labelWidth: 20
-//          },
-          btnInfo,
+          emptyBtn, '<b>БАРКОД: </b>', textField, btnShow,
           '->',
           btnLogout
         ]

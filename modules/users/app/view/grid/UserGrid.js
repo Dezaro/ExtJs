@@ -75,8 +75,8 @@ Ext.define('UserApplication.view.grid.UserGrid', {
     }, {
       dataIndex: 'name',
       text: 'Name',
-      width: 150,
-   //   flex: 1,
+    //  width: 150,
+      flex: 1,
       editor: {xtype: 'textfield', allowBlank: false}
     }, {
       dataIndex: 'age',
