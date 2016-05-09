@@ -2,12 +2,20 @@
 
 (function() {
 
+  var css = document.createElement("style");
+  css.type = "text/css";
+  css.innerHTML = '.container{display:block; margin:0; padding:0;}\n\
+                   .left-element{float:left; display:block; margin-top: 5px; margin-right: 5px; color: black;}\n\
+                   body { background-image: url("img/icon/fon-login.png"); 	background-repeat: no-repeat;';
+
+  document.body.appendChild(css);
+
   var userName = {
     xtype: 'textfield',
     id: 'uNameLog',
     name: 'username',
-    labelWidth: 55,
-    fieldLabel: 'Username',
+    labelWidth: 70,
+    fieldLabel: 'Потребител:',
     allowBlank: true
   };
 
@@ -16,13 +24,13 @@
     id: 'passLog',
     name: 'password',
     inputType: 'password',
-    labelWidth: 55,
-    fieldLabel: 'Password',
+    labelWidth: 70,
+    fieldLabel: 'Парола:',
     allowBlank: true
   };
 
   var btnLogin = {
-    text: 'Login',
+    text: '<b>Вход</b>',
     formBind: true,
     listeners: {
       click: 'onLoginClick'
@@ -53,7 +61,7 @@
     ],
     controller: 'login',
     bodyPadding: 10,
-    title: 'Login Window',
+    title: '<div class="container"><div class="left-element"><img style="width: 18px; height: 15px;" src="img/icon/login2.png"></div><div class="left-element">  Вход в системата</div></div>',
     closable: false,
     autoShow: true,
     layout: {
