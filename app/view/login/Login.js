@@ -5,7 +5,7 @@
   var css = document.createElement("style");
   css.type = "text/css";
   css.innerHTML = '.container{display:block; margin:0; padding:0;}\n\
-                   .left-element{float:left; display:block; margin-top: 5px; margin-right: 5px; color: black;}\n\
+                   .left-el{float:left; display:block; margin-top: 5px; margin-right: 5px; color: black;}\n\
                    body { background-image: url("img/icon/fon-login.png"); 	background-repeat: no-repeat;';
 
   document.body.appendChild(css);
@@ -16,7 +16,15 @@
     name: 'username',
     labelWidth: 70,
     fieldLabel: 'Потребител:',
-    allowBlank: true
+    allowBlank: true,
+    style: 'text-align: right',
+    listeners: {
+      specialkey: function(f, e) {
+        if(e.getKey() == e.ENTER) {
+          Ext.getCmp('passLog').focus(true,100);
+        }
+      }
+    }
   };
 
   var password = {
@@ -26,10 +34,19 @@
     inputType: 'password',
     labelWidth: 70,
     fieldLabel: 'Парола:',
-    allowBlank: true
+    allowBlank: true,
+    style: 'text-align: right',
+    listeners: {
+      specialkey: function(f, e) {
+        if(e.getKey() == e.ENTER) {
+          Ext.getCmp('btnLogin').fireEvent('click');
+        }
+      }
+    }
   };
 
   var btnLogin = {
+    id: 'btnLogin',
     text: '<b>Вход</b>',
     formBind: true,
     listeners: {
@@ -38,6 +55,7 @@
   };
 
   var loginForm = {
+    id: 'formID',
     xtype: 'form',
     border: false,
     bodyStyle: 'background:none; ',
@@ -61,8 +79,9 @@
     ],
     controller: 'login',
     bodyPadding: 10,
-    title: '<div class="container"><div class="left-element"><img style="width: 18px; height: 15px;" src="img/icon/login2.png"></div><div class="left-element">  Вход в системата</div></div>',
+    title: '<div class="container"><div class="left-el"><img style="width: 18px; height: 15px;" src="img/icon/login2.png"></div><div class="left-el">  Вход в системата</div></div>',
     closable: false,
+    enableKeyEvents: true,
     autoShow: true,
     layout: {
       type: 'vbox',
