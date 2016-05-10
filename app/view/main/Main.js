@@ -4,7 +4,7 @@
   
   var css = document.createElement("style");
   css.type = "text/css";
-  css.innerHTML = '.panel-title{background-image: url(img/icon/fon5.jpg); color:white; height: 38px; text-indent: 10px; font-size: 16px;}\n\
+  css.innerHTML = '.panel-title{background-image: url(img/icon/fon5.jpg); color:white; height: 36px; text-indent: 10px; font-size: 16px;}\n\
                    .container{display:block; margin:0; padding:0;}\n\
                    .left-element{float:left; display:block; margin-top: 5px;}\n\
                    .right-element{float:right; display:block; margin-top: 5px; margin-right: 5px;}\n\
@@ -48,11 +48,11 @@
     handler: 'onInfoClick'
   };
 
-  var btnInfo = {
-    text: 'info',
-    icon: 'img/icon/info.png',
-    handler: 'onInfoClick'
-  };
+//  var btnInfo = {
+//    text: 'info',
+//    icon: 'img/icon/info.png',
+//    handler: 'onInfoClick'
+//  };
 
   var changePassword = {
     text: '<b><span style="color: #083772;">Смяна на парола</span></b>',

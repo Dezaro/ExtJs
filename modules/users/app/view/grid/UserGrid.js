@@ -1,7 +1,20 @@
 /* global Ext */
 var rowEditing = Ext.create('Ext.grid.plugin.RowEditing', {
   clicksToMoveEditor: 1,
-  autoCancel: false
+  autoCancel: false,
+  saveBtnText: 'Update',
+  cancelBtnText: 'Cancel', // по default бутоните са update и cancel
+  listeners: {
+    edit: function(editor, context, record) {
+      Ext.Msg.alert('Edit data', 'Name: ' + context.record.data.name + ' <br /> Age: ' + context.record.data.age + '<br /> Profession: ' +
+              context.record.data.profession + '<br /> Country: ' + context.record.data.country + '<br /> Address: '
+              + context.record.data.address + '<br /> Email: ' + context.record.data.email + '<br /> Telephone: ' + context.record.data.telephone);
+      // console.log(context.record.data.name); //Contains the variables that should have been in the e var
+    },
+    cancelEdit: function() {
+      Ext.Msg.alert('Hi', 'You click cancel!');
+    }
+  }
 });
 
 Ext.define('UserApplication.view.grid.UserGrid', {
@@ -75,7 +88,7 @@ Ext.define('UserApplication.view.grid.UserGrid', {
     }, {
       dataIndex: 'name',
       text: 'Name',
-    //  width: 150,
+      //  width: 150,
       flex: 1,
       editor: {xtype: 'textfield', allowBlank: false}
     }, {
