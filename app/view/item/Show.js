@@ -15,10 +15,10 @@ Ext.define('Application.view.item.Show', {
       glyph: null,
       items: [{
           xtype: 'image',
-          width: 1000,
-          height: 350,
-          margin: 60,
-          src: 'img/icon/welcome.png'
+          width: 800,
+          height: 450,
+          style: 'margin-left: 15%;',
+          src: 'img/icon/evropat.jpg'
         }]
               // html: KitchenSink.DummyText.longText
     }

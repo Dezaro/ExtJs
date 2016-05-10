@@ -19,11 +19,7 @@
     allowBlank: true,
     style: 'text-align: right',
     listeners: {
-      specialkey: function(f, e) {
-        if(e.getKey() == e.ENTER) {
-          Ext.getCmp('passLog').focus(true,100);
-        }
-      }
+      specialkey: 'changeFocus'
     }
   };
 
@@ -37,11 +33,7 @@
     allowBlank: true,
     style: 'text-align: right',
     listeners: {
-      specialkey: function(f, e) {
-        if(e.getKey() == e.ENTER) {
-          Ext.getCmp('btnLogin').fireEvent('click');
-        }
-      }
+      specialkey: 'onEnter'
     }
   };
 

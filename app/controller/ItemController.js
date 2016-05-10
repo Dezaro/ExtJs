@@ -28,14 +28,17 @@ Ext.define('Application.controller.ItemController', {
   init: function() {
     this.control({
       'itemList': {
-        // Action to be performed on select
-        select: this.onItemSelect
-      }
+        itemclick: this.onItemClick
+        }
+//      'itemList': {
+//        // Action to be performed on select
+//        select: this.onItemSelect
+//      }
     });
   },
   tabs: null,
   maxTabs: 5,
-  onItemSelect: function(selModel, selection) {
+  onItemClick: function(selModel, selection) {
     // Executed only when selection is a leaf
     this.tabs = Ext.getCmp('tabs12');
     var active = false;
@@ -43,6 +46,7 @@ Ext.define('Application.controller.ItemController', {
       for(var i = 0; i < this.tabs.items.length; ++i) {
         if(selection.data.item_id === this.tabs.items.items[i].id) {
           this.tabs.setActiveTab(i);
+          Ext.getCmp('framePanel-' + selection.data.item_id).setSrc(selection.raw.description);
           active = true;
         }
       }

@@ -10,6 +10,7 @@ Ext.define('Application.view.main.MainController', {
     this.getView().destroy();
     // Add the Login Window
     Ext.widget('login');
+    Ext.getCmp('uNameLog').focus(true, 100);
   },
   onInfoClick: function(){
     Ext.getCmp('winID').show();

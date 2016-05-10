@@ -22,7 +22,13 @@ Ext.define('MyApplication', {
     // This ternary operator determines the value of the loggedIn key.
     // If loggedIn isn't true, we display the login window,
     // otherwise, we display the main view
-    Ext.widget(loggedIn ? 'app-main' : 'login');
+    // Ext.widget(loggedIn ? 'app-main' : 'login');
+    if(loggedIn) {
+      Ext.widget('app-main');
+    } else {
+      Ext.widget('login');
+      Ext.getCmp('uNameLog').focus(true, 100);
+    }
   }
 });
 

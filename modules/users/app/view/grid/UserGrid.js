@@ -11,7 +11,7 @@ Ext.define('UserApplication.view.grid.UserGrid', {
   requires: [
     'UserApplication.store.UserStore'
   ],
-  title: '<span style="color: #00008B;">User List</span>',
+  title: '<span style="color: #083772;">User List</span>',
   iconCls: 'icon-grid',
   frame: true,
   autoScroll: true,
