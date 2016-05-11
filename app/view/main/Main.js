@@ -8,7 +8,8 @@
                    .container{display:block; margin:0; padding:0;}\n\
                    .left-element{float:left; display:block; margin-top: 5px;}\n\
                    .right-element{float:right; display:block; margin-top: 5px; margin-right: 5px;}\n\
-                   .middle-element{float:left; display:block; margin-left: 900px;}';
+                   .middle-element{float:left; display:block; margin-left: 900px;}\n\
+                   .textColor {text-align: center; color: #083772; }';
 
   document.body.appendChild(css);
 
@@ -23,7 +24,7 @@
     height: 150,
     layout: 'fit',
     items: [{
-        html: '<div style="text-align: center; color: #083772;"><b>Продукт, разработен от IT отдел на "Европът-2000" АД. <br>Година: 2016г.</b><br><img src="img/icon/logo2.png"></div>'
+        html: '<div class="textColor"><b>Продукт, разработен от IT отдел на "Европът-2000" АД. <br>Година: 2016г.</b><br><img src="img/icon/logo2.png"></div>'
       }]
   });
 
@@ -64,7 +65,7 @@
 
   var btnChange = {
     id: 'btnChage',
-    text: '<span style="color: #083772;"><b>Потвърди</b></span>',
+    text: '<span class="textColor"><b>Потвърди</b></span>',
     icon: 'img/icon/tick.gif',
     formBind: true,
     listeners: {
@@ -74,7 +75,7 @@
 
   var btnCancel = {
     id: 'btnCancel',
-    text: '<span style="color: #083772;"><b>Откажи</b></span>',
+    text: '<span class="textColor"><b>Откажи</b></span>',
     icon: 'img/icon/cancel-icon.png',
     formBind: true,
     listeners: {
@@ -107,6 +108,7 @@
     layout: 'fit',
     items: [formPanel]
   });
+  
   var btnLogout = {
     text: '<b><span style="color: #DC143C;">Изход</span></b>',
     icon: 'img/icon/logOut.png',
@@ -123,7 +125,7 @@
   };
 
   var btnShow = {
-    text: '<b><span style="color: #083772;">ПОКАЖИ</span></b>',
+    text: '<b><span class="textColor">ПОКАЖИ</span></b>',
     icon: 'img/icon/book_open.png',
     handler: 'onInfoClick'
   };
@@ -135,13 +137,13 @@
 //  };
 
   var changePassword = {
-    text: '<b><span style="color: #083772;">Смяна на парола</span></b>',
+    text: '<b><span class="textColor">Смяна на парола</span></b>',
     icon: 'img/icon/password.png',
-    handler: 'onChangePass'
+    handler: 'onChangePassClick'
   };
 
   var changeOffice = {
-    text: '<b><span style="color: #083772;">Смяна на офис</span></b>',
+    text: '<b><span class="textColor">Смяна на офис</span></b>',
     icon: 'img/icon/building_edit.png',
     handler: 'onInfoClick'
   };
@@ -229,7 +231,7 @@
         border: false,
         items: [
           emptyBtn,
-          '<b><span style="color: #083772;">БАРКОД: </span></b>',
+          '<b><span class="textColor">БАРКОД: </span></b>',
           textField,
           btnShow,
           '->',

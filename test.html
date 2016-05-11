@@ -115,6 +115,7 @@
           //          }],
           selType: 'cellmodel',
           plugins: 'cellediting',
+          emptyText: 'Няма записи',
           autoWidth: true,
           autoScroll: true,
           tbar: [{
@@ -155,13 +156,17 @@
             }
           ],
           layout: 'fit',
-          //  height: 880,
+          height: 872,
           //     width: 400,
           dockedItems: [{
               xtype: 'pagingtoolbar',
               store: Ext.data.StoreManager.lookup('simpsonsStore'), // same store GridPanel is using
               dock: 'bottom',
-              displayInfo: true
+              displayInfo: true,
+              displayMsg: 'Записи от {0} до {1} от общо {2}',
+              beforePageText: 'страница',
+              afterPageText: 'от {0}',
+              emptyMsg: "Няма записи"
             }],
           renderTo: Ext.getBody()
         });

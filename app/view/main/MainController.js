@@ -16,7 +16,7 @@ Ext.define('Application.view.main.MainController', {
     Ext.getCmp('winID').show();
     // win.show();
   },
-  onChangePass: function() {
+  onChangePassClick: function() {
     Ext.getCmp('changePassWindow').show();
     //  changePassWindow.show();
   },
