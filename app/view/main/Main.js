@@ -1,7 +1,7 @@
 /* global Ext */
 
 (function() {
-  
+
   var css = document.createElement("style");
   css.type = "text/css";
   css.innerHTML = '.panel-title{background-image: url(img/icon/fon5.jpg); color:white; height: 36px; text-indent: 10px; font-size: 16px;}\n\
@@ -12,7 +12,7 @@
 
   document.body.appendChild(css);
 
-  Ext.create('Ext.window.Window', {
+  var win = Ext.create('Ext.window.Window', {
     id: 'winID',
     title: 'Информация',
     closable: true,
@@ -27,6 +27,86 @@
       }]
   });
 
+  var oldPassword = {
+    xtype: 'textfield',
+    id: 'oldPassID',
+    name: 'oldPass',
+    margin: '10 0 5 0',
+    labelWidth: 150,
+    width: 300,
+    fieldLabel: 'Стара парола:',
+    allowBlank: true,
+    style: 'text-align: right'
+  };
+
+  var newPassword = {
+    xtype: 'textfield',
+    id: 'newPassID',
+    name: 'newPass',
+    margin: '0 0 5 0',
+    labelWidth: 150,
+    width: 300,
+    fieldLabel: 'Нова парола:',
+    allowBlank: true,
+    style: 'text-align: right'
+  };
+
+  var repeatPassword = {
+    xtype: 'textfield',
+    id: 'repeatPassID',
+    name: 'repeatPass',
+    labelWidth: 150,
+    width: 300,
+    fieldLabel: 'Повторете паролата:',
+    allowBlank: true,
+    style: 'text-align: right'
+  };
+
+  var btnChange = {
+    id: 'btnChage',
+    text: '<span style="color: #083772;"><b>Потвърди</b></span>',
+    icon: 'img/icon/tick.gif',
+    formBind: true,
+    listeners: {
+      click: 'onConfirmClick'
+    }
+  };
+
+  var btnCancel = {
+    id: 'btnCancel',
+    text: '<span style="color: #083772;"><b>Откажи</b></span>',
+    icon: 'img/icon/cancel-icon.png',
+    formBind: true,
+    listeners: {
+      click: 'onCancelClick'
+    }
+  };
+
+  var formPanel = {
+    id: 'formPanel',
+    xtype: 'form',
+    border: false,
+    bodyStyle: 'background:none; ',
+    reference: 'form',
+    items: [oldPassword, newPassword, repeatPassword],
+    buttons: [
+      btnChange, btnCancel
+    ],
+    buttonAlign: 'center'
+  };
+
+  var changePassWindow = Ext.create('Ext.window.Window', {
+    id: 'changePassWindow',
+    title: 'Промяна на парола',
+    closable: true,
+    closeAction: 'hide',
+    width: 330,
+    modal: true,
+    minWidth: 300,
+    height: 160,
+    layout: 'fit',
+    items: [formPanel]
+  });
   var btnLogout = {
     text: '<b><span style="color: #DC143C;">Изход</span></b>',
     icon: 'img/icon/logOut.png',
@@ -57,7 +137,7 @@
   var changePassword = {
     text: '<b><span style="color: #083772;">Смяна на парола</span></b>',
     icon: 'img/icon/password.png',
-    handler: 'onInfoClick'
+    handler: 'onChangePass'
   };
 
   var changeOffice = {
@@ -80,7 +160,7 @@
     floatable: false,
     region: 'west',
     width: 250,
-    split: true 
+    split: true
   };
 
   var tabPanel = {
