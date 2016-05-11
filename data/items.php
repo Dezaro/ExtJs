@@ -25,7 +25,7 @@ $array = '{
       {
         "item_id": "tab3",
         "name": "M1911 pistol",
-        "description": "modules/test",
+        "description": "Application.view.grid.testView",
         "leaf": true
       },
       {

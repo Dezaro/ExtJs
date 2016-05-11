@@ -1,26 +1,30 @@
 /* global Ext */
 
-Ext.define('ModuleTest.view.grid.testView', {
+Ext.define('Application.view.grid.testView', {
   id: 'testGridID',
   extend: 'Ext.grid.Panel',
   xtype: 'grid-filtering',
   requires: [
     'Ext.grid.filters.Filters',
-    'ModuleTest.store.Tests'
+    'Application.store.Tests'
   ],
   title: 'Продукти',
   iconCls: 'icon-grid',
   frame: true,
   autoScroll: true,
   animScroll: true,
-  width: 700,
-  height: 500,
-  resizable: true,
-  plugins: ['gridfilters', 'viewport'],
+//  width: 700,
+//  height: 500,
+  resizable: false,
+  plugins: ['gridfilters'],
   emptyText: 'No Matching Records',
   loadMask: true,
   stateful: true,
-  renderTo: 'daID',
+//  layout: {
+//    type: 'fit'
+//  },
+  region: 'center',
+  layout: 'fit',
   // Set a stateId so that this grid's state is persisted.
   stateId: 'stateful-filter-grid',
   store: {

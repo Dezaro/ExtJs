@@ -7,6 +7,9 @@ Ext.define('Application.controller.ItemController', {
   stores: ['Items'],
   // Attach model classes to this controller
   models: ['Item'],
+//  requires: [
+//    'Application.modules.test.app.view.grid.testView'
+//  ],
   // ..and last but not least - the view classes
   views: ['item.List', 'item.Show', 'item.iframe'],
   // Refs parameter defines references to certain
@@ -29,7 +32,7 @@ Ext.define('Application.controller.ItemController', {
     this.control({
       'itemList': {
         itemclick: this.onItemClick
-        }
+      }
 //      'itemList': {
 //        // Action to be performed on select
 //        select: this.onItemSelect
@@ -51,23 +54,27 @@ Ext.define('Application.controller.ItemController', {
         }
       }
       if(!active && this.tabs.items.length <= this.maxTabs) {
+        var view = Ext.create(selection.raw.description);
         this.tabs.add({
           id: selection.data.item_id,
           title: selection.data.name,
           closable: true,
           border: false,
+          layout: 'fit',
           items: [
-            {
-              xtype: 'itemFrame',
-              id: 'framePanel-' + selection.data.item_id,
-              layout: {
-                align: 'stretch'
-              }
-            }
+            view
+//            {
+//              xtype: 'itemFrame',
+//              id: 'framePanel-' + selection.data.item_id,
+//              layout: {
+//                align: 'stretch'
+//              }
+//            }
+
           ]
         });
         this.tabs.setActiveTab(this.tabs.items.length - 1);
-        Ext.getCmp('framePanel-' + selection.data.item_id).setSrc(selection.raw.description);
+        //  Ext.getCmp('framePanel-' + selection.data.item_id).setSrc(selection.raw.description);
       }
     }
   }
