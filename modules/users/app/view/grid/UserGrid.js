@@ -39,7 +39,7 @@ Ext.define('UserApplication.view.grid.UserGrid', {
 //      ptype: 'rowediting',
 //      clicksToEdit: 2
 //    }],
-  emptyText: 'No Matching Records',
+  emptyText: 'Няма записи',
   loadMask: true,
   stateful: true,
   stateId: 'stateful-filter-grid',
@@ -119,7 +119,11 @@ Ext.define('UserApplication.view.grid.UserGrid', {
         autoDestroy: true
       },
       dock: 'bottom',
-      displayInfo: true
+      displayInfo: true,
+      displayMsg: 'Записи от {0} до {1} от общо {2}',
+      beforePageText: 'страница',
+      afterPageText: 'от {0}',
+      emptyMsg: "Няма записи"
     }],
   onAddClick: function(btn) {
     // Create a model instance

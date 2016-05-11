@@ -12,7 +12,20 @@ Ext.define('Application.view.main.MainController', {
     Ext.widget('login');
     Ext.getCmp('uNameLog').focus(true, 100);
   },
-  onInfoClick: function(){
+  onInfoClick: function() {
     Ext.getCmp('winID').show();
+    // win.show();
+  },
+  onChangePassClick: function() {
+    Ext.getCmp('changePassWindow').show();
+    //  changePassWindow.show();
+  },
+  onConfirmClick: function() {
+    Ext.getCmp('changePassWindow').hide();
+    //  changePassWindow.show();
+  },
+  onCancelClick: function() {
+    Ext.getCmp('changePassWindow').hide();
+    //  changePassWindow.show();
   }
 });
