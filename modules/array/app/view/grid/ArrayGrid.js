@@ -8,7 +8,7 @@ Ext.define('ArrayTest.view.grid.ArrayGrid', {
     // 'Ext.grid.filters.Filters',
     'ArrayTest.store.Companies'
   ],
-  title: '<span style="color: #525252;">Test List</span>',
+  title: '<span style="color: #525252;">Тест</span>',
   iconCls: 'icon-grid',
   frame: true,
   autoScroll: true,
@@ -44,7 +44,7 @@ Ext.define('ArrayTest.view.grid.ArrayGrid', {
 //    }],
   columns: [{
       dataIndex: 'id',
-      text: 'Id',
+      text: 'ID',
       width: 50,
       editor: 'textfield'
               // Specify that this column has an associated Filter. This is
@@ -53,7 +53,7 @@ Ext.define('ArrayTest.view.grid.ArrayGrid', {
 //      filter: 'number'
     }, {
       dataIndex: 'name',
-      text: 'Name',
+      text: 'Име',
       flex: 1,
       editor: {xtype: 'textfield', allowBlank: false}
       // As an object, the type property indicates the type of filter to
@@ -66,7 +66,7 @@ Ext.define('ArrayTest.view.grid.ArrayGrid', {
 //      }
     }, {
       dataIndex: 'address',
-      text: 'Address',
+      text: 'Адрес',
       width: 90,
       editor: 'textfield'
               //     formatter: 'usMoney',
@@ -78,7 +78,7 @@ Ext.define('ArrayTest.view.grid.ArrayGrid', {
 //      }
     }, {
       dataIndex: 'contact',
-      text: 'Contact',
+      text: 'Контакт',
       width: 120,
       editor: 'textfield'
 //       filter: {
@@ -91,7 +91,7 @@ Ext.define('ArrayTest.view.grid.ArrayGrid', {
     }, {
       //  xtype: 'datecolumn',
       dataIndex: 'telephone',
-      text: 'Telephone',
+      text: 'Телефон',
       width: 120,
       editor: 'textfield'
 //           filter: {
@@ -109,12 +109,22 @@ Ext.define('ArrayTest.view.grid.ArrayGrid', {
       menuDisabled: true,
       items: [{
           icon: "img/delete_icon.png",
-          tooltip: 'Delete Record',
-          handler: function(grid, rowIndex) {
-            grid.getStore().removeAt(rowIndex);
-          }
+          tooltip: 'Изтрий записа',
+          handler: 'onDeleteClick'
         }]
-    }]
+    }],
+    onDeleteClick: function(grid, rowIndex) {
+    var msgBox = Ext.MessageBox;
+    msgBox.buttonText = {
+      yes: '<span style="color: #083772"><b>Да</b></span>',
+      no: '<span style="color: #083772"><b>Не</b></span>'
+    };
+    msgBox.confirm('Изтриване', 'Сигурни ли сте, че искате да изтриете записа?', function(confirmation) {
+      if(confirmation === 'yes') {
+        grid.getStore().removeAt(rowIndex);
+      }
+    });
+  }
 //  onClearFilters: function() {
 //    // The "filters" property is added to the grid (this) by gridfilters
 //    this.filters.clearFilters();

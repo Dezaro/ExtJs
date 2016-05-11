@@ -14,7 +14,7 @@
 
   Ext.create('Ext.window.Window', {
     id: 'winID',
-    title: 'Information',
+    title: 'Информация',
     closable: true,
     closeAction: 'hide',
     width: 400,
@@ -23,7 +23,7 @@
     height: 150,
     layout: 'fit',
     items: [{
-        html: '<div style="text-align: center; color: blue;"><b>Продукт, разработен от IT отдел на "Европът-2000" АД. <br>Година: 2016г.</b></div>'
+        html: '<div style="text-align: center; color: #083772;"><b>Продукт, разработен от IT отдел на "Европът-2000" АД. <br>Година: 2016г.</b><br><img src="img/icon/logo2.png"></div>'
       }]
   });
 

@@ -8,7 +8,7 @@ Ext.define('ModuleTest.view.grid.testView', {
     'Ext.grid.filters.Filters',
     'ModuleTest.store.Tests'
   ],
-  title: 'Products',
+  title: 'Продукти',
   iconCls: 'icon-grid',
   frame: true,
   autoScroll: true,
@@ -32,18 +32,18 @@ Ext.define('ModuleTest.view.grid.testView', {
   defaultListenerScope: true,
   tbar: [{
       id: 'showFilersID',
-      text: 'Show Filters...',
-      tooltip: 'Show filter data for the store',
+      text: 'Покажи филтри...',
+      tooltip: 'Покажи използваните филтри',
       handler: 'onShowFilters'
     }, {
       id: 'clearFilersID',
-      text: 'Clear Filters',
-      tooltip: 'Clear all filters',
+      text: 'Изчисти филтрите',
+      tooltip: 'Изчисти всички филтри',
       handler: 'onClearFilters'
     }],
   columns: [{
       dataIndex: 'id',
-      text: 'Id',
+      text: 'ID',
       width: 50,
       // Specify that this column has an associated Filter. This is
       // processed by the gridfilters plugin. If this is a string,
@@ -51,36 +51,36 @@ Ext.define('ModuleTest.view.grid.testView', {
       filter: 'number'
     }, {
       dataIndex: 'company',
-      text: 'Company',
+      text: 'Компания',
       flex: 1,
       // As an object, the type property indicates the type of filter to
       // apply. All other properties configure that filter instance.
       filter: {
         type: 'string',
         itemDefaults: {
-          emptyText: 'Search for...'
+          emptyText: 'Търси за...'
         }
       }
     }, {
       dataIndex: 'price',
-      text: 'Price',
+      text: 'Цена',
       width: 90,
       formatter: 'usMoney',
       filter: 'number'
     }, {
       dataIndex: 'size',
-      text: 'Size',
+      text: 'Размер',
       width: 120,
       filter: 'list' // Use the unique field values for the pick list
     }, {
       xtype: 'datecolumn',
       dataIndex: 'date',
-      text: 'Date',
+      text: 'Дата',
       width: 120,
       filter: true  // use dataIndex first then fallback to column type
     }, {
       dataIndex: 'visible',
-      text: 'Visible',
+      text: 'Видимост',
       width: 80,
       filter: 'boolean'
     }],
@@ -105,7 +105,7 @@ Ext.define('ModuleTest.view.grid.testView', {
     });
     data = data.replace(/\n/g, '<br>');
 
-    Ext.Msg.alert('Filter Data', data);
+    Ext.Msg.alert('Филтър данни', data);
   }
 });
 

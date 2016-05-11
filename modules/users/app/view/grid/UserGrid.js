@@ -2,17 +2,17 @@
 var rowEditing = Ext.create('Ext.grid.plugin.RowEditing', {
   clicksToMoveEditor: 1,
   autoCancel: false,
-  saveBtnText: 'Update',
-  cancelBtnText: 'Cancel', // по default бутоните са update и cancel
+  saveBtnText: 'Редактирай',
+  cancelBtnText: 'Отказ', // по default бутоните са update и cancel
   listeners: {
     edit: function(editor, context, record) {
-      Ext.Msg.alert('Edit data', 'Name: ' + context.record.data.name + ' <br /> Age: ' + context.record.data.age + '<br /> Profession: ' +
-              context.record.data.profession + '<br /> Country: ' + context.record.data.country + '<br /> Address: '
-              + context.record.data.address + '<br /> Email: ' + context.record.data.email + '<br /> Telephone: ' + context.record.data.telephone);
+      Ext.Msg.alert('Редактирани данни', 'Име: ' + context.record.data.name + ' <br /> Възраст: ' + context.record.data.age + '<br /> Професия: ' +
+              context.record.data.profession + '<br /> Държава: ' + context.record.data.country + '<br /> Адрес: '
+              + context.record.data.address + '<br /> Ел.поща: ' + context.record.data.email + '<br /> Телефон: ' + context.record.data.telephone);
       // console.log(context.record.data.name); //Contains the variables that should have been in the e var
     },
     cancelEdit: function() {
-      Ext.Msg.alert('Hi', 'You click cancel!');
+      Ext.Msg.alert('Внимание', 'Редактирането е отказано!');
     }
   }
 });
@@ -24,7 +24,7 @@ Ext.define('UserApplication.view.grid.UserGrid', {
   requires: [
     'UserApplication.store.UserStore'
   ],
-  title: '<span style="color: #083772;">User List</span>',
+  title: '<span style="color: #083772;">Списък с потребители</span>',
   iconCls: 'icon-grid',
   frame: true,
   autoScroll: true,
@@ -54,71 +54,48 @@ Ext.define('UserApplication.view.grid.UserGrid', {
     {
       xtype: 'button',
       icon: "img/add_pic.png",
-      text: 'Add Record',
-      handler: function(btn) {
-        // Create a model instance
-        var g = btn.up('grid');
-        var myStore = g.getStore();
-        var maxId = myStore.getAt(0).get('id'); // initialise to the first record's id value.
-        myStore.each(function(rec) // go through all the records
-        {
-          maxId = Math.max(maxId, rec.get('id'));
-        });
-        var rec = {
-          id: maxId + 1,
-          name: '',
-          age: '0',
-          profession: 'example profession',
-          country: 'example country',
-          address: 'example address',
-          email: 'example@email.com',
-          telephone: '0'
-        };
-
-        g.getStore().insert(0, rec);
-        rowEditing.startEdit(0, 0);
-        // g.getSelectionModel().setCurrentPosition({row: 0, column: 1});
-      }
+      text: 'Добави потребител',
+      handler: 'onAddClick'
     }
   ],
   columns: [{
       dataIndex: 'id',
-      text: 'Id',
+      text: 'ID',
       width: 30
     }, {
       dataIndex: 'name',
-      text: 'Name',
+      text: 'Име',
       //  width: 150,
       flex: 1,
       editor: {xtype: 'textfield', allowBlank: false}
     }, {
       dataIndex: 'age',
-      text: 'Age',
+      text: 'Възраст',
       width: 60,
       editor: 'textfield'
     }, {
       dataIndex: 'profession',
-      text: 'Profession',
+      text: 'Професия',
       width: 150,
       editor: 'textfield'
     }, {
       dataIndex: 'country',
-      text: 'Country',
+      text: 'Държава',
       width: 130,
       editor: 'textfield'
     }, {
       dataIndex: 'address',
-      text: 'Address',
+      text: 'Адрес',
       width: 290,
       editor: 'textfield'
     }, {
       dataIndex: 'email',
-      text: 'Email',
+      text: 'Ел.поща',
       width: 180,
       editor: 'textfield'
     }, {
       dataIndex: 'telephone',
-      text: 'Telephone',
+      text: 'Телефон',
       width: 100,
       editor: 'textfield'
     },
@@ -129,10 +106,8 @@ Ext.define('UserApplication.view.grid.UserGrid', {
       menuDisabled: true,
       items: [{
           icon: "img/delete_icon.png",
-          tooltip: 'Delete Record',
-          handler: function(grid, rowIndex) {
-            grid.getStore().removeAt(rowIndex);
-          }
+          tooltip: 'Изтрий записа',
+          handler: 'onDeleteClick'
         }]
     }],
   dockedItems: [{
@@ -145,5 +120,41 @@ Ext.define('UserApplication.view.grid.UserGrid', {
       },
       dock: 'bottom',
       displayInfo: true
-    }]
+    }],
+  onAddClick: function(btn) {
+    // Create a model instance
+    var g = btn.up('grid');
+    var myStore = g.getStore();
+    var maxId = myStore.getAt(0).get('id'); // initialise to the first record's id value.
+    myStore.each(function(rec) // go through all the records
+    {
+      maxId = Math.max(maxId, rec.get('id'));
+    });
+    var rec = {
+      id: maxId + 1,
+      name: '',
+      age: '0',
+      profession: 'example profession',
+      country: 'example country',
+      address: 'example address',
+      email: 'example@email.com',
+      telephone: '0'
+    };
+
+    g.getStore().insert(0, rec);
+    rowEditing.startEdit(0, 0);
+    // g.getSelectionModel().setCurrentPosition({row: 0, column: 1});
+  },
+  onDeleteClick: function(grid, rowIndex) {
+    var msgBox = Ext.MessageBox;
+    msgBox.buttonText = {
+      yes: '<span style="color: #083772"><b>Да</b></span>',
+      no: '<span style="color: #083772"><b>Не</b></span>'
+    };
+    msgBox.confirm('Изтриване', 'Сигурни ли сте, че искате да изтриете записа?', function(confirmation) {
+      if(confirmation === 'yes') {
+        grid.getStore().removeAt(rowIndex);
+      }
+    });
+  }
 });

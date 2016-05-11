@@ -34,9 +34,9 @@
           storeId: 'simpsonsStore',
           fields: ['name', 'email', 'phone', 'birthDate', 'action'],
           data: {'items': [
-              {'name': 'Lisa',  "email": "lisa@simpsons.com",  "phone": "5551111224", "birthDate": "05/10/1990"},
-              {'name': 'Lisa',  "email": "lol@simpsons.com",   "phone": "5551111224", "birthDate": "07/17/1992"},
-              {'name': 'Bart',  "email": "bart@simpsons.com",  "phone": "5552221234", "birthDate": "05/04/1993"},
+              {'name': 'Lisa', "email": "lisa@simpsons.com", "phone": "5551111224", "birthDate": "05/10/1990"},
+              {'name': 'Lisa', "email": "lol@simpsons.com", "phone": "5551111224", "birthDate": "07/17/1992"},
+              {'name': 'Bart', "email": "bart@simpsons.com", "phone": "5552221234", "birthDate": "05/04/1993"},
               {'name': 'Homer', "email": "homer@simpsons.com", "phone": "5552221244", "birthDate": "04/19/1991"},
               {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
               {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
@@ -80,10 +80,10 @@
           store: Ext.data.StoreManager.lookup('simpsonsStore'),
           //     plugins: 'gridfilters',
           columns: [
-            {text: 'Name', dataIndex: 'name', editor:{xtype: 'textfield',allowBlank: false}},
+            {text: 'Име', dataIndex: 'name', editor: {xtype: 'textfield', allowBlank: false}},
             {text: 'Email', dataIndex: 'email', flex: 1, editor: 'textfield'},
-            {text: 'Phone', dataIndex: 'phone', filter: 'number', editor: 'textfield'},
-            {text: 'Birth Date', dataIndex: 'birthDate', editor: 'datefield', renderer: Ext.util.Format.dateRenderer('m/d/Y')},
+            {text: 'Телефон', dataIndex: 'phone', filter: 'number', editor: 'textfield'},
+            {text: 'Дата на раждане', dataIndex: 'birthDate', editor: 'datefield', renderer: Ext.util.Format.dateRenderer('m/d/Y')},
             {
               xtype: 'actioncolumn',
               width: 30,
@@ -91,9 +91,19 @@
               menuDisabled: true,
               items: [{
                   icon: "img/icon/delete_icon.png",
-                  tooltip: 'Delete Record',
+                  tooltip: 'Изтрий запис',
                   handler: function(grid, rowIndex) {
-                    grid.getStore().removeAt(rowIndex);
+                    var msgBox = Ext.MessageBox;
+                    msgBox.buttonText = {
+                      yes: '<span style="color: #083772"><b>Да</b></span>',
+                      no: '<span style="color: #083772"><b>Не</b></span>'
+                    };
+                    msgBox.confirm('Изтриване', 'Сигурни ли сте, че искате да изтриете записа?', function(confirmation) {
+                      if(confirmation === 'yes') {
+                        grid.getStore().removeAt(rowIndex);
+                      }
+                    });
+
                   }
                 }]
             }
@@ -109,7 +119,7 @@
           autoScroll: true,
           tbar: [{
               xtype: 'button',
-              text: 'Filter',
+              text: 'Филтър',
               handler: function(btn) {
                 var g = btn.up('grid');
                 g.store.filter([{property: "name", anyMatch: true, value: 'Lisa'}, {property: "email", anyMatch: true, value: 'lisa@simpsons.com'}]);
@@ -125,7 +135,7 @@
             {
               xtype: 'button',
               icon: "img/icon/add_pic.png",
-              text: 'Add Record',
+              text: 'Добави запис',
               handler: function(btn) {
                 // Create a model instance
                 var g = btn.up('grid');
