@@ -1,5 +1,6 @@
 /* global Ext */
-var rowEditing = Ext.create('Ext.grid.plugin.RowEditing', {
+var rowEditing = {
+  ptype: 'rowediting',
   clicksToMoveEditor: 1,
   autoCancel: false,
   saveBtnText: 'Редактирай',
@@ -15,27 +16,27 @@ var rowEditing = Ext.create('Ext.grid.plugin.RowEditing', {
       Ext.Msg.alert('Внимание', 'Редактирането е отказано!');
     }
   }
-});
+};
 
-Ext.define('UserApplication.view.grid.UserGrid', {
+Ext.define('Application.view.users.UserGrid', {
   id: 'usersGridID',
   extend: 'Ext.grid.Panel',
   xtype: 'grid-filtering',
   requires: [
-    'UserApplication.store.UserStore'
+    'Application.view.users.UserStore'
   ],
   title: '<span style="color: #083772;">Списък с потребители</span>',
   iconCls: 'icon-grid',
   frame: true,
   autoScroll: true,
   animScroll: true,
-      layout: {
-        type: 'fit'
-    },
+  layout: {
+    type: 'fit'
+  },
 //  width: 700,
 //  height: 500,
   resizable: true,
-  plugins: ['viewport', rowEditing], //'cellediting'],
+  plugins: [rowEditing], //'cellediting'],
   // selType: 'cellmodel',
   selType: 'rowmodel',
 //  plugins: ['viewport', {
@@ -56,7 +57,7 @@ Ext.define('UserApplication.view.grid.UserGrid', {
   tbar: [
     {
       xtype: 'button',
-      icon: "img/add_pic.png",
+      icon: "img/icon/add_pic.png",
       text: 'Добави потребител',
       handler: 'onAddClick'
     }
@@ -108,7 +109,7 @@ Ext.define('UserApplication.view.grid.UserGrid', {
       sortable: false,
       menuDisabled: true,
       items: [{
-          icon: "img/delete_icon.png",
+          icon: "img/icon/delete_icon.png",
           tooltip: 'Изтрий записа',
           handler: 'onDeleteClick'
         }]
@@ -149,7 +150,8 @@ Ext.define('UserApplication.view.grid.UserGrid', {
     };
 
     g.getStore().insert(0, rec);
-    rowEditing.startEdit(0, 0);
+    var plugin = g.editingPlugin;
+    plugin.startEdit(0, 0);
     // g.getSelectionModel().setCurrentPosition({row: 0, column: 1});
   },
   onDeleteClick: function(grid, rowIndex) {
@@ -165,3 +167,5 @@ Ext.define('UserApplication.view.grid.UserGrid', {
     });
   }
 });
+
+

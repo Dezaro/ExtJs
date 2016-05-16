@@ -1,13 +1,13 @@
 /* global Ext */
 
-Ext.define('ArrayTest.view.grid.ArrayGrid', {
-  id: 'arrayGridID',
+Ext.define('Application.view.Simpsons.Simpsons', {
+  id: 'simpsonsGridID',
   extend: 'Ext.grid.Panel',
   xtype: 'grid-filtering',
   requires: [
-    'ArrayTest.store.Companies'
+    'Application.view.Simpsons.SimpsonsStore'
   ],
-  title: '<span style="color: #525252;">Тест</span>',
+  title: '<span style="color: #525252;">Simpsons</span>',
   iconCls: 'icon-grid',
   frame: true,
   autoScroll: true,
@@ -15,7 +15,7 @@ Ext.define('ArrayTest.view.grid.ArrayGrid', {
   width: 700,
   height: 500,
   resizable: true,
-  plugins: ['viewport', 'cellediting'],
+  plugins: ['cellediting'],
   selType: 'cellmodel',
   emptyText: 'Няма записи',
   loadMask: true,
@@ -23,13 +23,20 @@ Ext.define('ArrayTest.view.grid.ArrayGrid', {
   // Set a stateId so that this grid's state is persisted.
   stateId: 'stateful-filter-grid',
   store: {
-    type: 'Companies',
-    url: 'data/grid-filter.json',
+    type: 'SimpsonsStore',
+    url: 'data/simpsons-data.json',
     autoLoad: true,
     autoDestroy: true
   },
   // Dispatch named listener and handler methods to this instance
   defaultListenerScope: true,
+  tbar: [{
+      xtype: 'button',
+      text: '<span style="color: #083772"><b>Филтър</b></span>',
+      icon: 'img/icon/filter.png',
+      handler: 'onFilterClick'
+    }
+  ],
   columns: [{
       dataIndex: 'id',
       text: 'ID',
@@ -41,20 +48,20 @@ Ext.define('ArrayTest.view.grid.ArrayGrid', {
       flex: 1,
       editor: {xtype: 'textfield', allowBlank: false}
     }, {
-      dataIndex: 'address',
-      text: 'Адрес',
-      width: 90,
-      editor: 'textfield'
-    }, {
-      dataIndex: 'contact',
-      text: 'Контакт',
-      width: 120,
+      dataIndex: 'email',
+      text: 'Ел.поща',
+      flex: 1,
       editor: 'textfield'
     }, {
       dataIndex: 'telephone',
       text: 'Телефон',
       width: 120,
       editor: 'textfield'
+    }, {
+      dataIndex: 'birthDate',
+      text: 'Дата на раждане',
+      editor: 'datefield',
+      renderer: Ext.util.Format.dateRenderer('m/d/Y')
     },
     {
       xtype: 'actioncolumn',
@@ -62,7 +69,7 @@ Ext.define('ArrayTest.view.grid.ArrayGrid', {
       sortable: false,
       menuDisabled: true,
       items: [{
-          icon: "img/delete_icon.png",
+          icon: "img/icon/delete_icon.png",
           tooltip: 'Изтрий записа',
           handler: 'onDeleteClick'
         }]
@@ -70,8 +77,8 @@ Ext.define('ArrayTest.view.grid.ArrayGrid', {
   dockedItems: [{
       xtype: 'pagingtoolbar',
       store: {
-        type: 'Companies',
-        url: 'data/grid-filter.json',
+        type: 'SimpsonsStore',
+        url: 'data/simpsons-data.json',
         autoLoad: true,
         autoDestroy: true
       },
@@ -93,5 +100,11 @@ Ext.define('ArrayTest.view.grid.ArrayGrid', {
         grid.getStore().removeAt(rowIndex);
       }
     });
+  },
+  onFilterClick: function(btn) {
+    var g = btn.up('grid');
+    g.store.filter([{property: "name", anyMatch: true, value: 'Lisa'}, {property: "email", anyMatch: true, value: 'lisa@simpsons.com'}]);
   }
 });
+
+

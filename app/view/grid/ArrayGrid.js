@@ -1,11 +1,11 @@
 /* global Ext */
 
-Ext.define('ArrayTest.view.grid.ArrayGrid', {
+Ext.define('Application.view.grid.ArrayGrid', {
   id: 'arrayGridID',
   extend: 'Ext.grid.Panel',
   xtype: 'grid-filtering',
   requires: [
-    'ArrayTest.store.Companies'
+    'Application.store.Companies'
   ],
   title: '<span style="color: #525252;">Тест</span>',
   iconCls: 'icon-grid',
@@ -15,7 +15,7 @@ Ext.define('ArrayTest.view.grid.ArrayGrid', {
   width: 700,
   height: 500,
   resizable: true,
-  plugins: ['viewport', 'cellediting'],
+  plugins: ['cellediting'],
   selType: 'cellmodel',
   emptyText: 'Няма записи',
   loadMask: true,
@@ -24,7 +24,7 @@ Ext.define('ArrayTest.view.grid.ArrayGrid', {
   stateId: 'stateful-filter-grid',
   store: {
     type: 'Companies',
-    url: 'data/grid-filter.json',
+    url: 'data/array-grid.json',
     autoLoad: true,
     autoDestroy: true
   },
@@ -62,7 +62,7 @@ Ext.define('ArrayTest.view.grid.ArrayGrid', {
       sortable: false,
       menuDisabled: true,
       items: [{
-          icon: "img/delete_icon.png",
+          icon: "img/icon/delete_icon.png",
           tooltip: 'Изтрий записа',
           handler: 'onDeleteClick'
         }]
@@ -71,7 +71,7 @@ Ext.define('ArrayTest.view.grid.ArrayGrid', {
       xtype: 'pagingtoolbar',
       store: {
         type: 'Companies',
-        url: 'data/grid-filter.json',
+        url: 'data/array-grid.json',
         autoLoad: true,
         autoDestroy: true
       },

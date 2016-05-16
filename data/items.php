@@ -7,14 +7,14 @@ $array = '{
     "children": [
       {
         "item_id": "tab1",
-        "name": "RPG-7",
-        "description": "test.html",
+        "name": "Simpsons",
+        "description": "Application.view.Simpsons.Simpsons",
         "leaf": true
       },
       {
         "item_id": "tab2",
         "name": "Users",
-        "description": "modules/users",
+        "description": "Application.view.users.UserGrid",
         "leaf": true
       }
     ]
@@ -31,7 +31,7 @@ $array = '{
       {
         "item_id": "tab4",
         "name": "Glock",
-        "description": "The Glock pistol, sometimes referred to by the manufacturer as Glock \"Safe Action\" Pistol, is a series of semi-automatic pistols designed and produced by Glock Ges.m.b.H., located in Deutsch-Wagram, Austria. The companys founder, engineer Gaston Glock, had no experience with firearm design or manufacture at the time their first pistol, the Glock 17, was being prototyped.",
+        "description": "Application.view.grid.ArrayGrid",
         "leaf": true
       }
     ]

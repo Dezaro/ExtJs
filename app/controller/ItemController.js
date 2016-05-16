@@ -48,8 +48,20 @@ Ext.define('Application.controller.ItemController', {
     if(selection.data.leaf) {
       for(var i = 0; i < this.tabs.items.length; ++i) {
         if(selection.data.item_id === this.tabs.items.items[i].id) {
+          var tabToDestroy = Ext.getCmp(selection.data.item_id);
+          tabToDestroy.remove(selection.raw.description);
+          tabToDestroy.destroy();
+          var view = Ext.create(selection.raw.description);
+          this.tabs.insert(i, {
+            id: selection.data.item_id,
+            title: selection.data.name,
+            closable: true,
+            border: false,
+            layout: 'fit',
+            items: [view]
+          });
           this.tabs.setActiveTab(i);
-          Ext.getCmp('framePanel-' + selection.data.item_id).setSrc(selection.raw.description);
+          //   Ext.getCmp('framePanel-' + selection.data.item_id).setSrc(selection.raw.description);
           active = true;
         }
       }
