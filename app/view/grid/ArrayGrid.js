@@ -5,7 +5,8 @@ Ext.define('Application.view.grid.ArrayGrid', {
   extend: 'Ext.grid.Panel',
   xtype: 'grid-filtering',
   requires: [
-    'Application.store.Companies'
+    'Application.store.Companies',
+    'Application.view.define.MyMessageBox'
   ],
   title: '<span style="color: #525252;">Тест</span>',
   iconCls: 'icon-grid',
@@ -83,15 +84,43 @@ Ext.define('Application.view.grid.ArrayGrid', {
       emptyMsg: "Няма записи"
     }],
   onDeleteClick: function(grid, rowIndex) {
-    var msgBox = Ext.MessageBox;
-    msgBox.buttonText = {
+//    var msgBox = Ext.MessageBox;
+//    msgBox.buttonText = {
+//      yes: '<span style="color: #083772"><b>Да</b></span>',
+//      no: '<span style="color: #083772"><b>Не</b></span>'
+//    };
+//    msgBox.confirm('Изтриване', 'Сигурни ли сте, че искате да изтриете записа?', function(confirmation) {
+//      if(confirmation === 'yes') {
+//        grid.getStore().removeAt(rowIndex);
+//      }
+//    });
+
+    var msg = Ext.create('Application.view.define.MyMessageBox', {
+      renderMask: this
+    });
+    msg.buttonText = {
       yes: '<span style="color: #083772"><b>Да</b></span>',
       no: '<span style="color: #083772"><b>Не</b></span>'
     };
-    msgBox.confirm('Изтриване', 'Сигурни ли сте, че искате да изтриете записа?', function(confirmation) {
-      if(confirmation === 'yes') {
-        grid.getStore().removeAt(rowIndex);
-      }
+    msg.show({
+      modal: false,
+      fixed: true,
+      title: 'Изтриване',
+      msg: 'Сигурни ли сте, че искате да изтриете записа?',
+      buttonText: {
+        yes: '<span style="color: #083772"><b>Да</b></span>',
+        no: '<span style="color: #083772"><b>Не</b></span>'
+      },
+      fn: function(btn) {
+        if(btn === 'yes') {
+          grid.getStore().removeAt(rowIndex);
+        }
+        msg.hideMask();
+      },
+      scope: this,
+      icon: Ext.MessageBox.QUESTION
     });
+
+    msg.alignTo(this.el, 'c-c');
   }
 });

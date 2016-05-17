@@ -10,166 +10,89 @@
   <body> 
     <div id="panel" style="width: 100%; height: 100%;">
       <script>
-        /* global Ext */
-        Ext.QuickTips.init();
-        var win = Ext.create('Ext.window.Window', {
-          title: 'iframe Window',
-          closable: true,
-          closeAction: 'hide',
-          width: 400,
-          modal: true,
-          minWidth: 350,
-          height: 150,
-          layout: 'fit',
-          items: [{
-              xtype: 'label',
-              text: 'Extshs test'
-            }]
-        });
-        //      Ext.onReady(function() {
-        //        win.show();
-        //      });
-
-        Ext.create('Ext.data.Store', {
-          storeId: 'simpsonsStore',
-          fields: ['name', 'email', 'phone', 'birthDate', 'action'],
-          data: {'items': [
-              {'name': 'Lisa', "email": "lisa@simpsons.com", "phone": "5551111224", "birthDate": "05/10/1990"},
-              {'name': 'Lisa', "email": "lol@simpsons.com", "phone": "5551111224", "birthDate": "07/17/1992"},
-              {'name': 'Bart', "email": "bart@simpsons.com", "phone": "5552221234", "birthDate": "05/04/1993"},
-              {'name': 'Homer', "email": "homer@simpsons.com", "phone": "5552221244", "birthDate": "04/19/1991"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Homer', "email": "homer@simpsons.com", "phone": "5552221244", "birthDate": "04/19/1991"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"},
-              {'name': 'Marge', "email": "marge@simpsons.com", "phone": "5552221254", "birthDate": "10/20/1994"}
-            ]},
-          proxy: {
-            type: 'memory',
-            reader: {
-              type: 'json',
-              rootProperty: 'items'
+        Ext.define('MyMessageBox', {
+          extend: 'Ext.window.MessageBox',
+          alias: 'widget.defMsgBox',
+          modal: false,
+          renderMask: null,
+          initComponent: function() {
+            this.callParent();
+            this.showMask();
+          },
+          showMask: function() {
+            if(this.renderMask !== null) {
+              this.renderMask.el.mask();
+            }
+          },
+          hideMask: function() {
+            if(this.renderMask !== null) {
+              this.renderMask.el.unmask();
             }
           }
         });
 
-        Ext.create('Ext.grid.Panel', {
-          title: 'Simpsons',
-          store: Ext.data.StoreManager.lookup('simpsonsStore'),
-          //     plugins: 'gridfilters',
-          columns: [
-            {text: 'Име', dataIndex: 'name', editor: {xtype: 'textfield', allowBlank: false}},
-            {text: 'Email', dataIndex: 'email', flex: 1, editor: 'textfield'},
-            {text: 'Телефон', dataIndex: 'phone', filter: 'number', editor: 'textfield'},
-            {text: 'Дата на раждане', dataIndex: 'birthDate', editor: 'datefield', renderer: Ext.util.Format.dateRenderer('m/d/Y')},
-            {
-              xtype: 'actioncolumn',
-              width: 30,
-              sortable: false,
-              menuDisabled: true,
-              items: [{
-                  icon: "img/icon/delete_icon.png",
-                  tooltip: 'Изтрий запис',
-                  handler: function(grid, rowIndex) {
-                    var msgBox = Ext.MessageBox;
-                    msgBox.buttonText = {
-                      yes: '<span style="color: #083772"><b>Да</b></span>',
-                      no: '<span style="color: #083772"><b>Не</b></span>'
-                    };
-                    msgBox.confirm('Изтриване', 'Сигурни ли сте, че искате да изтриете записа?', function(confirmation) {
-                      if(confirmation === 'yes') {
-                        grid.getStore().removeAt(rowIndex);
-                      }
-                    });
-
-                  }
-                }]
-            }
-          ],
-          //        selType: 'rowmodel',
-          //        plugins: [{
-          //            ptype: 'rowediting',
-          //            clicksToEdit: 2
-          //          }],
-          selType: 'cellmodel',
-          plugins: 'cellediting',
-          emptyText: 'Няма записи',
-          autoWidth: true,
-          autoScroll: true,
-          tbar: [{
-              xtype: 'button',
-              text: 'Филтър',
-              handler: function(btn) {
-                var g = btn.up('grid');
-                g.store.filter([{property: "name", anyMatch: true, value: 'Lisa'}, {property: "email", anyMatch: true, value: 'lisa@simpsons.com'}]);
-              }
-            },
-            //          {
-            //            xtype: 'button',
-            //            text: 'Click me',
-            //            handler: function(btn) {
-            //              win.show();
-            //            }
-            //          },
-            {
-              xtype: 'button',
-              icon: "img/icon/add_pic.png",
-              text: 'Добави запис',
-              handler: function(btn) {
-                // Create a model instance
-                var g = btn.up('grid');
-                var rec = {
-                  name: '',
-                  email: '',
-                  phone: 0,
-                  birthDate: Ext.Date.clearTime(new Date())
-                };
-
-                g.getStore().insert(0, rec);
-                //              this.cellEditing.startEditByPosition({
-                //                row: 0,
-                //                column: 0
-                //              });
-              }
-            }
-          ],
+        var myPanel = Ext.create('Ext.panel.Panel', {
+          title: 'West Region is collapsible',
+          region: 'west',
+          width: 400,
+          id: 'west-region-container',
           layout: 'fit',
-          height: 872,
-          //     width: 400,
-          dockedItems: [{
-              xtype: 'pagingtoolbar',
-              store: Ext.data.StoreManager.lookup('simpsonsStore'), // same store GridPanel is using
-              dock: 'bottom',
-              displayInfo: true,
-              displayMsg: 'Записи от {0} до {1} от общо {2}',
-              beforePageText: 'страница',
-              afterPageText: 'от {0}',
-              emptyMsg: "Няма записи"
+          tbar: [
+            {
+              xtype: 'button',
+              text: 'press',
+              handler: onClick
+            }
+          ]
+        });
+        Ext.create('Ext.panel.Panel', {
+          width: 600,
+          height: 400,
+          title: 'Border Layout',
+          layout: 'border',
+          items: [
+            myPanel, {
+              title: 'Center Region',
+              region: 'center',
+              xtype: 'panel',
+              layout: 'fit'
             }],
           renderTo: Ext.getBody()
         });
+        function onClick() {
+
+          var msg = Ext.create('MyMessageBox', {
+            renderMask: myPanel
+          });
+          msg.buttonText = {
+            yes: '<span style="color: #083772"><b>Да</b></span>',
+            no: '<span style="color: #083772"><b>Не</b></span>'
+          };
+          msg.show({
+            modal: false,
+            fixed: true,
+            title: 'Изтриване',
+            msg: 'Сигурни ли сте, че искате да изтриете записа?',
+            // buttons: Ext.MessageBox.YESNO,
+            // fn: removeSelectedItem,
+            buttonText: {
+              yes: '<span style="color: #083772"><b>Да</b></span>',
+              no: '<span style="color: #083772"><b>Не</b></span>'
+            },
+            fn: function(btn) {
+              msg.hideMask();
+            },
+            scope: this,
+            icon: Ext.MessageBox.QUESTION
+          });
+
+          msg.alignTo(myPanel.el, 'c-c');
+//           msg.alignTo(Ext.getCmp('west-region-container').el, 'c-c');
+
+        }
+//        myPanel.el.on('tap', function() {
+//          Ext.Msg.alert('Tap OK.');
+//        });
       </script> 
     </div>
   </body>
