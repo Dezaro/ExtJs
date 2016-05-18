@@ -13,7 +13,8 @@ Ext.define('Application.view.Simpsons.Simpsons', {
   autoScroll: true,
   animScroll: true,
   width: 700,
-  height: 500,
+  height: 500, 
+  constrain: true,
   resizable: true,
   plugins: ['cellediting'],
   selType: 'cellmodel',
@@ -91,6 +92,8 @@ Ext.define('Application.view.Simpsons.Simpsons', {
     }],
   onDeleteClick: function(grid, rowIndex) {
     var msgBox = Ext.MessageBox;
+    msgBox.config.constrain = true;
+    console.log(msgBox);
     msgBox.buttonText = {
       yes: '<span style="color: #083772"><b>Да</b></span>',
       no: '<span style="color: #083772"><b>Не</b></span>'

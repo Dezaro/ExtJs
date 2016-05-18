@@ -73,8 +73,14 @@ Ext.define('Application.controller.ItemController', {
           closable: true,
           border: false,
           layout: 'fit',
+          constrain: true,
           items: [
-            view
+            {
+              xtype: 'panel',
+              constrain: true,
+              layout: 'fit',
+              items: [view]
+            }
 //            {
 //              xtype: 'itemFrame',
 //              id: 'framePanel-' + selection.data.item_id,

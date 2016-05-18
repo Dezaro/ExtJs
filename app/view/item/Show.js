@@ -5,20 +5,65 @@ Ext.define('Application.view.item.Show', {
   extend: 'Ext.TabPanel',
   alias: 'widget.itemShow',
   views: ['item.Frame'],
+  requires: [
+    'Application.view.item.ShowController'],
+  controller: 'show',
+  constrain: true,
+  // handler: 'confirmTabChange',
   reference: 'tabpanel',
   border: false,
   items: [{
       title: '',
+      html: '<p>sadasdada</p>',
       border: false,
       icon: "img/icon/config1.png",
       // icon: "resources/images/icons/fam/cog.gif",
       glyph: null,
-      items: [{
+      items: [
+        {
+          xtype: 'window',
+          title: 'Hello',
+          height: 200,
+          width: 400,
+          layout: 'fit',
+          modal: true,
+          autoShow: true,
+          constrain: true,
+          items: [{
+              xtype: 'button',
+              icon: "img/icon/delete_icon.png",
+              tooltip: 'Изтрий записа',
+              handler: function(grid, rowIndex) {
+                var msg = Ext.create('Application.view.define.MyMessageBox', {
+                  constrain: true
+                });
+                msg.buttonText = {
+                  yes: '<span style="color: #083772"><b>Да</b></span>',
+                  no: '<span style="color: #083772"><b>Не</b></span>'
+                };
+                msg.show({
+                  modal: true,
+                  fixed: true,
+                  constrain: true,
+                  title: 'Изтриване',
+                  msg: 'Сигурни ли сте, че искате да изтриете записа?',
+                  buttonText: {
+                    yes: '<span style="color: #083772"><b>Да</b></span>',
+                    no: '<span style="color: #083772"><b>Не</b></span>'
+                  },
+                 
+                  scope: this,
+                  icon: Ext.MessageBox.QUESTION
+                });
+              }
+            }]
+        },
+        {
           xtype: 'image',
           width: 800,
           height: 450,
           style: 'margin-left: 15%;',
-          src: 'img/icon/evropat.jpg'
+          src: 'img/icon/evropat1.jpg'
         }]
               // html: KitchenSink.DummyText.longText
     }

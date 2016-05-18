@@ -3,7 +3,8 @@
 Ext.define('Application.view.define.MyMessageBox', {
   extend: 'Ext.window.MessageBox',
   alias: 'widget.defMsgBox',
-  modal: false,
+  modal: true,
+  constrainHeader: true,
   renderMask: null,
   initComponent: function() {
     this.callParent();

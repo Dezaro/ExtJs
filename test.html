@@ -8,92 +8,80 @@
     <script type="text/javascript" src="ext-5.1.0/ext-theme-classic/build/ext-theme-classic.js"></script>
   </head>
   <body> 
-    <div id="panel" style="width: 100%; height: 100%;">
-      <script>
-        Ext.define('MyMessageBox', {
-          extend: 'Ext.window.MessageBox',
-          alias: 'widget.defMsgBox',
-          modal: false,
-          renderMask: null,
+    <div id="container"></div>
+    <script>
+      Ext.onReady(function() {
+
+        Ext.Loader.setConfig({
+          enabled: true
+        });
+
+        Ext.define('SysOpv.view.edit.Band', {
+          extend: 'Ext.window.Window',
+          alias: 'widget.editband',
+          title: 'Setup',
+          layout: 'fit',
+          constrain: true,
+          modal: true,
           initComponent: function() {
-            this.callParent();
-            this.showMask();
+            this.items = [{
+                xtype: 'form',
+                bodyPadding: 10,
+                items: [{
+                    xtype: 'textfield',
+                    name: 'name',
+                    fieldLabel: 'Name'
+                  }]
+              }];
+
+            this.buttons = [{
+                text: 'Save',
+                action: 'save'
+              }, {
+                text: 'Cancel',
+                scope: this,
+                handler: this.close
+              }];
+
+            this.callParent(arguments);
+          }
+        });
+
+        Ext.create('Ext.TabPanel', {
+          renderTo: 'container',
+          items: [
+            {
+              title: 'Tab 1',
+              itemId: 'tab1',
+              layout: 'fit',
+              items: [
+                {xtype: 'button', text: 'Show window', handler: function() {
+                    var w = Ext.widget('editband');
+                    this.up('tabpanel').showWindow(this.up('#tab1'), w);
+                  }}
+              ]
+            },
+            {title: 'Tab 2'}
+          ],
+          height: 400,
+          showWindow: function(tab, w) {
+            tab.add(w);
+            tab.popup = w;
+            w.on('close', function() {
+              delete this.popup;
+            }, tab, {single: true});
+            w.show();
           },
-          showMask: function() {
-            if(this.renderMask !== null) {
-              this.renderMask.el.mask();
-            }
-          },
-          hideMask: function() {
-            if(this.renderMask !== null) {
-              this.renderMask.el.unmask();
+          listeners: {
+            tabchange: function(panel, tab) {
+              if(tab.popup !== undefined) {
+                tab.popup.show();
+              }
             }
           }
         });
 
-        var myPanel = Ext.create('Ext.panel.Panel', {
-          title: 'West Region is collapsible',
-          region: 'west',
-          width: 400,
-          id: 'west-region-container',
-          layout: 'fit',
-          tbar: [
-            {
-              xtype: 'button',
-              text: 'press',
-              handler: onClick
-            }
-          ]
-        });
-        Ext.create('Ext.panel.Panel', {
-          width: 600,
-          height: 400,
-          title: 'Border Layout',
-          layout: 'border',
-          items: [
-            myPanel, {
-              title: 'Center Region',
-              region: 'center',
-              xtype: 'panel',
-              layout: 'fit'
-            }],
-          renderTo: Ext.getBody()
-        });
-        function onClick() {
-
-          var msg = Ext.create('MyMessageBox', {
-            renderMask: myPanel
-          });
-          msg.buttonText = {
-            yes: '<span style="color: #083772"><b>Да</b></span>',
-            no: '<span style="color: #083772"><b>Не</b></span>'
-          };
-          msg.show({
-            modal: false,
-            fixed: true,
-            title: 'Изтриване',
-            msg: 'Сигурни ли сте, че искате да изтриете записа?',
-            // buttons: Ext.MessageBox.YESNO,
-            // fn: removeSelectedItem,
-            buttonText: {
-              yes: '<span style="color: #083772"><b>Да</b></span>',
-              no: '<span style="color: #083772"><b>Не</b></span>'
-            },
-            fn: function(btn) {
-              msg.hideMask();
-            },
-            scope: this,
-            icon: Ext.MessageBox.QUESTION
-          });
-
-          msg.alignTo(myPanel.el, 'c-c');
-//           msg.alignTo(Ext.getCmp('west-region-container').el, 'c-c');
-
-        }
-//        myPanel.el.on('tap', function() {
-//          Ext.Msg.alert('Tap OK.');
-//        });
-      </script> 
-    </div>
-  </body>
+      });
+    </script> 
+</body>
 </html>
