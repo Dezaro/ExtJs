@@ -10,12 +10,12 @@ Ext.define('Application.view.item.Show', {
   items: [
     {
       id: 'tab0',
-//      tbar: [
-//        {
-//          xtype: 'button',
-//          icon: "img/icon/delete_icon.png",
-//          tooltip: 'show',
-//          handler: function(grid, rowIndex) {
+      tbar: [
+        {
+          xtype: 'button',
+          icon: "img/icon/delete_icon.png",
+          tooltip: 'show',
+          handler: function(grid, rowIndex) {
 //            var s = Ext.create('Application.view.custom.customMsgBox', {
 //              modal: false,
 //              title: 'Изтриване',
@@ -33,14 +33,28 @@ Ext.define('Application.view.item.Show', {
 //              icon: Ext.MessageBox.QUESTION
 //            });
 //            s.show();
-//          }
-//        }
-//      ],
+            var test = Ext.create('Application.view.custom.customWindow', {
+              //closable: false
+            });
+            test.show();
+          }
+        }
+      ],
       title: '',
       border: false,
       icon: "img/icon/config1.png",
       glyph: null,
       items: [
+//        {
+//          xtype: 'window',
+//          title: 'New Window!',
+//          constrain: true,
+//          autoShow: true,
+//          closable: true,
+//          modal: true,
+//          height: 350,
+//          width: 400
+//        },
         {
           xtype: 'image',
           width: 800,
