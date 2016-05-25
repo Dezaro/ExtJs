@@ -152,19 +152,24 @@ Ext.define('Application.view.users.UserGrid', {
     g.getStore().insert(0, rec);
     var plugin = g.editingPlugin;
     plugin.startEdit(0, 0);
-    // g.getSelectionModel().setCurrentPosition({row: 0, column: 1});
   },
   onDeleteClick: function(grid, rowIndex) {
-    var msgBox = Ext.MessageBox;
-    msgBox.buttonText = {
-      yes: '<span style="color: #083772"><b>Да</b></span>',
-      no: '<span style="color: #083772"><b>Не</b></span>'
-    };
-    msgBox.confirm('Изтриване', 'Сигурни ли сте, че искате да изтриете записа?', function(confirmation) {
-      if(confirmation === 'yes') {
-        grid.getStore().removeAt(rowIndex);
-      }
+    var msgBox = Ext.create('Application.view.custom.customMsgBox', {
+      modal: false,
+      title: 'Изтриване',
+      msg: 'Сигурни ли сте, че искате да изтриете записа?',
+      buttonText: {
+        yes: '<span style="color: #083772"><b>Да</b></span>',
+        no: '<span style="color: #083772"><b>Не</b></span>'
+      },
+      fn: function(btn, text, ob) {
+        if(btn === 'yes') {
+          grid.getStore().removeAt(rowIndex);
+        }
+      },
+      icon: Ext.MessageBox.QUESTION
     });
+    msgBox.show();
   }
 });
 

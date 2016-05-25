@@ -13,7 +13,7 @@ Ext.define('Application.view.Simpsons.Simpsons', {
   autoScroll: true,
   animScroll: true,
   width: 700,
-  height: 500, 
+  height: 500,
   constrain: true,
   resizable: true,
   plugins: ['cellediting'],
@@ -21,7 +21,6 @@ Ext.define('Application.view.Simpsons.Simpsons', {
   emptyText: 'Няма записи',
   loadMask: true,
   stateful: true,
-  // Set a stateId so that this grid's state is persisted.
   stateId: 'stateful-filter-grid',
   store: {
     type: 'SimpsonsStore',
@@ -29,7 +28,6 @@ Ext.define('Application.view.Simpsons.Simpsons', {
     autoLoad: true,
     autoDestroy: true
   },
-  // Dispatch named listener and handler methods to this instance
   defaultListenerScope: true,
   tbar: [{
       xtype: 'button',
@@ -91,18 +89,22 @@ Ext.define('Application.view.Simpsons.Simpsons', {
       emptyMsg: "Няма записи"
     }],
   onDeleteClick: function(grid, rowIndex) {
-    var msgBox = Ext.MessageBox;
-    msgBox.config.constrain = true;
-    console.log(msgBox);
-    msgBox.buttonText = {
-      yes: '<span style="color: #083772"><b>Да</b></span>',
-      no: '<span style="color: #083772"><b>Не</b></span>'
-    };
-    msgBox.confirm('Изтриване', 'Сигурни ли сте, че искате да изтриете записа?', function(confirmation) {
-      if(confirmation === 'yes') {
-        grid.getStore().removeAt(rowIndex);
-      }
+    var msgBox = Ext.create('Application.view.custom.customMsgBox', {
+      modal: false,
+      title: 'Изтриване',
+      msg: 'Сигурни ли сте, че искате да изтриете записа?',
+      buttonText: {
+        yes: '<span style="color: #083772"><b>Да</b></span>',
+        no: '<span style="color: #083772"><b>Не</b></span>'
+      },
+      fn: function(btn, text, ob) {
+        if(btn === 'yes') {
+          grid.getStore().removeAt(rowIndex);
+        }
+      },
+      icon: Ext.MessageBox.QUESTION
     });
+    msgBox.show();
   },
   onFilterClick: function(btn) {
     var g = btn.up('grid');

@@ -5,8 +5,7 @@ Ext.define('Application.view.grid.ArrayGrid', {
   extend: 'Ext.grid.Panel',
   xtype: 'grid-filtering',
   requires: [
-    'Application.store.Companies',
-    'Application.view.define.MyMessageBox'
+    'Application.store.Companies'
   ],
   title: '<span style="color: #525252;">Тест</span>',
   iconCls: 'icon-grid',
@@ -21,7 +20,6 @@ Ext.define('Application.view.grid.ArrayGrid', {
   emptyText: 'Няма записи',
   loadMask: true,
   stateful: true,
-  // Set a stateId so that this grid's state is persisted.
   stateId: 'stateful-filter-grid',
   store: {
     type: 'Companies',
@@ -29,7 +27,6 @@ Ext.define('Application.view.grid.ArrayGrid', {
     autoLoad: true,
     autoDestroy: true
   },
-  // Dispatch named listener and handler methods to this instance
   defaultListenerScope: true,
   columns: [{
       dataIndex: 'id',
@@ -84,43 +81,21 @@ Ext.define('Application.view.grid.ArrayGrid', {
       emptyMsg: "Няма записи"
     }],
   onDeleteClick: function(grid, rowIndex) {
-//    var msgBox = Ext.MessageBox;
-//    msgBox.buttonText = {
-//      yes: '<span style="color: #083772"><b>Да</b></span>',
-//      no: '<span style="color: #083772"><b>Не</b></span>'
-//    };
-//    msgBox.confirm('Изтриване', 'Сигурни ли сте, че искате да изтриете записа?', function(confirmation) {
-//      if(confirmation === 'yes') {
-//        grid.getStore().removeAt(rowIndex);
-//      }
-//    });
-
-    var msg = Ext.create('Application.view.define.MyMessageBox', {
-      renderMask: this
-    });
-    msg.buttonText = {
-      yes: '<span style="color: #083772"><b>Да</b></span>',
-      no: '<span style="color: #083772"><b>Не</b></span>'
-    };
-    msg.show({
+    var msgBox = Ext.create('Application.view.custom.customMsgBox', {
       modal: false,
-      fixed: true,
       title: 'Изтриване',
       msg: 'Сигурни ли сте, че искате да изтриете записа?',
       buttonText: {
         yes: '<span style="color: #083772"><b>Да</b></span>',
         no: '<span style="color: #083772"><b>Не</b></span>'
       },
-      fn: function(btn) {
+      fn: function(btn, text, ob) {
         if(btn === 'yes') {
           grid.getStore().removeAt(rowIndex);
         }
-        msg.hideMask();
       },
-      scope: this,
       icon: Ext.MessageBox.QUESTION
     });
-
-    msg.alignTo(this.el, 'c-c');
+    msgBox.show();
   }
 });

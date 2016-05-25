@@ -1,5 +1,13 @@
 /* global Ext */
-
+//Ext.define('hds.override.MessageBox', {
+//  override: 'Ext.window.MessageBox',
+//  initComponent: function() {
+//    this.modal = false;
+//    this.renderTo = 'tab0';
+//    console.log("init component 1"); //reached      
+//    this.callParent(arguments);  // here you might have your own init and maybe callSuper instead      
+//    console.log("init component 2"); // reached 
+//  }});
 Ext.define('MyApplication', {
   extend: 'Ext.app.Application',
   name: 'Application',
@@ -14,6 +22,16 @@ Ext.define('MyApplication', {
     'Application.view.main.Main'
   ],
   launch: function() {
+
+//    Ext.create('Ext.window.MessageBox').show({
+//      modal: false,
+//      title: 'Save Changes?',
+//      multiline: true,
+//      value: 'This is a very very very very very very very very very very very very very very very very very very long test',
+//      msg: 'You are closing a tab that has unsaved changes.<br>Would you like to save your changes?',
+//      buttons: Ext.Msg.YESNOCANCEL,
+//      icon: Ext.Msg.ERROR
+//    });
     // It's important to note that this type of application could use
     // any type of storage, i.e., Cookies, LocalStorage, etc.
     var loggedIn;
