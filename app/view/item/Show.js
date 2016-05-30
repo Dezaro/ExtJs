@@ -60,7 +60,7 @@ Ext.define('Application.view.item.Show', {
           width: 800,
           height: 450,
           style: 'margin-left: 15%;',
-          src: 'img/icon/evropat1.jpg'
+          src: 'img/icon/evropat.jpg'
         }
       ]
     }

@@ -108,7 +108,7 @@
     layout: 'fit',
     items: [formPanel]
   });
-  
+
   var btnLogout = {
     text: '<b><span style="color: #DC143C;">Изход</span></b>',
     icon: 'img/icon/logOut.png',
@@ -121,6 +121,7 @@
     xtype: 'textfield',
     width: 80,
     name: 'bCode',
+    maskRe: /[0-9]/,
     allowBlank: true
   };
 

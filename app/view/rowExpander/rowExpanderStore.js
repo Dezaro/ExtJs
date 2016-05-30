@@ -1,12 +1,12 @@
 /* global Ext */
 
-Ext.define('Application.view.users.UserStore', {
+Ext.define('Application.view.rowExpander.rowExpanderStore', {
   extend: 'Ext.data.Store',
-  alias: 'store.UserStore',
-  model: 'Application.view.users.UserModel',
+  alias: 'store.rowExpanderStore',
+  model: 'Application.view.rowExpander.rowExpanderModel',
   proxy: {
     type: 'ajax',
-    url: 'data/data.json',
+    url: 'data/rowExpander-data.json',
     reader: {
       type: 'json',
       rootProperty: 'data',

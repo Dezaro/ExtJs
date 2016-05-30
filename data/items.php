@@ -42,7 +42,7 @@ $array = '{
       {
         "item_id": "tab5",
         "name": "GFea1 pistol",
-        "description": "modules/array",
+        "description": "Application.view.rowExpander.rowExpanderGrid",
         "leaf": true
       },
       {

@@ -11,7 +11,8 @@ Ext.define('Application.view.users.UserModel', {
     'address',
     'email',
     'telephone',
-    'action'
+    'action',
+    'newRecord'
   ]
 });
 

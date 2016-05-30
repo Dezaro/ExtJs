@@ -101,7 +101,7 @@ Ext.define('Application.view.grid.testView', {
       data.push(filter.serialize());
     });
 
-    // Pretty it up for presentation
+    // Pretty it up for presentation 
     data = Ext.JSON.encodeValue(data, '\n').replace(/^[ ]+/gm, function(s) {
       for(var r = '', i = s.length; i--; ) {
         r += '&#160;';
