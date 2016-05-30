@@ -48,7 +48,7 @@ $array = '{
       {
         "item_id": "tab6",
         "name": "Deagle",
-        "description": "The Deagle, sometimes referred to by the manufacturer as Glock \"Safe Action\" Pistol, is a series of semi-automatic pistols designed and produced by Glock Ges.m.b.H., located in Deutsch-Wagram, Austria. The companys founder, engineer Gaston Glock, had no experience with firearm design or manufacture at the time their first pistol, the Glock 17, was being prototyped.",
+        "description": "Application.view.widget.widgetGrid",
         "leaf": true
       }
     ]
