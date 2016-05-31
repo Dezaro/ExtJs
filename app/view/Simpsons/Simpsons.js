@@ -14,27 +14,27 @@ Ext.define('Application.view.Simpsons.Simpsons', {
   frame: true,
   autoScroll: true,
   animScroll: true,
-  width: 700,
-  height: 500,
-  constrain: true,
-  resizable: true,
   plugins: ['cellediting'],
   selType: 'cellmodel',
   emptyText: 'Няма записи',
   loadMask: true,
   stateful: true,
   stateId: 'stateful-filter-grid',
-  store:  {
+  store: {
     type: 'SimpsonsStore',
-    url: 'data/simpsons-data.json',
     autoLoad: true,
     autoDestroy: true
-  },  //Ext.create('Application.view.Simpsons.SimpsonsStore'),   
+  },
   tbar: [{
       xtype: 'button',
       text: '<span style="color: #083772"><b>Филтър</b></span>',
       icon: 'img/icon/filter.png',
       handler: 'onFilterClick'
+    },
+    {
+      xtype: 'button',
+      text: 'Add',
+      handler: 'onAdd'
     }
   ],
   columns: [{
@@ -69,19 +69,16 @@ Ext.define('Application.view.Simpsons.Simpsons', {
       sortable: false,
       menuDisabled: true,
       items: [{
+          xtype: 'button',
           icon: "img/icon/delete_icon.png",
           tooltip: 'Изтрий записа',
-//          listeners: {
-//            select: 'onDeleteClick'
-//          }
-         handler: 'onDeleteClick'
+          handler: 'onDeleteClick'
         }]
     }],
   dockedItems: [{
       xtype: 'pagingtoolbar',
       store: {
         type: 'SimpsonsStore',
-        url: 'data/simpsons-data.json',
         autoLoad: true,
         autoDestroy: true
       },
@@ -92,28 +89,6 @@ Ext.define('Application.view.Simpsons.Simpsons', {
       afterPageText: 'от {0}',
       emptyMsg: "Няма записи"
     }]
-//  onDeleteClick: function(grid, rowIndex) {
-//    var msgBox = Ext.create('Application.view.custom.customMsgBox', {
-//      modal: false,
-//      title: 'Изтриване',
-//      msg: 'Сигурни ли сте, че искате да изтриете записа?',
-//      buttonText: {
-//        yes: '<span style="color: #083772"><b>Да</b></span>',
-//        no: '<span style="color: #083772"><b>Не</b></span>'
-//      },
-//      fn: function(btn, text, ob) {
-//        if(btn === 'yes') {
-//          grid.getStore().removeAt(rowIndex);
-//        }
-//      },
-//      icon: Ext.MessageBox.QUESTION
-//    });
-//    msgBox.show();
-//  },
-//  onFilterClick: function(btn) {
-//    var g = btn.up('grid');
-//    g.store.filter([{property: "name", anyMatch: true, value: 'Lisa'}, {property: "email", anyMatch: true, value: 'lisa@simpsons.com'}]);
-//  }
 });
 
 

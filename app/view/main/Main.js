@@ -205,7 +205,8 @@
   Ext.define('Application.view.main.Main', {
     extend: 'Ext.container.Container',
     requires: [
-      'Application.view.main.MainController'
+      'Application.view.main.MainController',
+      'Application.view.main.MainModel'
     ],
     xtype: 'app-main',
     controller: 'main',

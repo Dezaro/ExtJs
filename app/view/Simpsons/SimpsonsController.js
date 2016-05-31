@@ -11,7 +11,7 @@ Ext.define('Application.view.Simpsons.SimpsonsController', {
   ],
   init: function() {
     this.control({
-      'grid': {
+      grid: {
         selectionchange: this.gridSelectionChange
       }
     });
@@ -20,6 +20,7 @@ Ext.define('Application.view.Simpsons.SimpsonsController', {
     return console.log('Row is selected is change!');
   },
   onDeleteClick: function(grid, rowIndex) {
+    console.log('dasSAD');
     var msgBox = Ext.create('Application.view.custom.customMsgBox', {
       modal: false,
       title: 'Изтриване',
