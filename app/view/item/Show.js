@@ -13,10 +13,22 @@ Ext.define('Application.view.item.Show', {
       tbar: [
         {
           xtype: 'button',
-          icon: "img/icon/delete_icon.png",
+          icon: "img/icon/color.png",
           tooltip: 'show',
           handler: function(grid, rowIndex) {
             var test = Ext.create('Application.view.custom.customWindow', {
+              title: 'Colors',
+              width: 200,
+              height: 200,
+              items: [Ext.create('Ext.picker.Color', {
+                  value: '993300', // initial selected color
+                  renderTo: Ext.getBody(),
+                  listeners: {
+                    select: function(picker, selColor) {
+                      alert(selColor);
+                    }
+                  }
+                })]
             });
             test.show();
           }

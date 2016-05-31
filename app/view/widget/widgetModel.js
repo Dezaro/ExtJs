@@ -1,3 +1,5 @@
+/* global Ext */
+
 Ext.define('Application.view.widget.widgetModel', {
   extend: 'Application.model.Base',
   fields: [

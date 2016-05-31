@@ -1,3 +1,5 @@
+/* global Ext */
+
 Ext.define('Application.view.rowExpander.rowExpanderGrid', {
   id: 'rowExpanderID',
   extend: 'Ext.grid.Panel',
