@@ -35,6 +35,7 @@ Ext.define('Application.view.item.Show', {
 //            s.show();
             var test = Ext.create('Application.view.custom.customWindow', {
               //closable: false
+              title: 'Colors',
               width: 200,
               height: 200,
               items: [

@@ -5,8 +5,10 @@ Ext.define('Application.view.grid.ArrayGrid', {
   extend: 'Ext.grid.Panel',
   xtype: 'grid-filtering',
   requires: [
-    'Application.store.Companies'
+    'Application.store.Companies',
+    'Application.controller.ArrayController'
   ],
+  controller: 'ArrayController',
   title: '<span style="color: #525252;">Тест</span>',
   iconCls: 'icon-grid',
   frame: true,
@@ -27,7 +29,7 @@ Ext.define('Application.view.grid.ArrayGrid', {
     autoLoad: true,
     autoDestroy: true
   },
-  defaultListenerScope: true,
+ // defaultListenerScope: true,
   columns: [{
       dataIndex: 'id',
       text: 'ID',
@@ -80,22 +82,22 @@ Ext.define('Application.view.grid.ArrayGrid', {
       afterPageText: 'от {0}',
       emptyMsg: "Няма записи"
     }],
-  onDeleteClick: function(grid, rowIndex) {
-    var msgBox = Ext.create('Application.view.custom.customMsgBox', {
-      modal: false,
-      title: 'Изтриване',
-      msg: 'Сигурни ли сте, че искате да изтриете записа?',
-      buttonText: {
-        yes: '<span style="color: #083772"><b>Да</b></span>',
-        no: '<span style="color: #083772"><b>Не</b></span>'
-      },
-      fn: function(btn, text, ob) {
-        if(btn === 'yes') {
-          grid.getStore().removeAt(rowIndex);
-        }
-      },
-      icon: Ext.MessageBox.QUESTION
-    });
-    msgBox.show();
-  }
+//  onDeleteClick: function(grid, rowIndex) {
+//    var msgBox = Ext.create('Application.view.custom.customMsgBox', {
+//      modal: false,
+//      title: 'Изтриване',
+//      msg: 'Сигурни ли сте, че искате да изтриете записа?',
+//      buttonText: {
+//        yes: '<span style="color: #083772"><b>Да</b></span>',
+//        no: '<span style="color: #083772"><b>Не</b></span>'
+//      },
+//      fn: function(btn, text, ob) {
+//        if(btn === 'yes') {
+//          grid.getStore().removeAt(rowIndex);
+//        }
+//      },
+//      icon: Ext.MessageBox.QUESTION
+//    });
+//    msgBox.show();
+//  }
 });

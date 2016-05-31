@@ -14,7 +14,7 @@ Ext.define('Application.view.widget.widgetGrid', {
     type: 'widgetStore',
     autoLoad: true,
     autoDestroy: true
-  },
+  },//Ext.create('Application.view.widget.widgetStore'),
   collapsible: true,
   height: 350,
   width: 1050,

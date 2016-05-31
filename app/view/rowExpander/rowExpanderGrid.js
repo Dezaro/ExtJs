@@ -2,22 +2,17 @@ Ext.define('Application.view.rowExpander.rowExpanderGrid', {
   id: 'rowExpanderID',
   extend: 'Ext.grid.Panel',
   requires: [
-    'Application.view.rowExpander.rowExpanderStore'
+    'Application.view.rowExpander.rowExpanderStore',
+    'Application.view.rowExpander.rowExpanderController'
   ],
+  controller: 'rowExpanderController',
   xtype: 'expander-lockable',
- // store: 'companies',
   store: {
     type: 'rowExpanderStore',
     url: 'data/rowExpander-data.json',
     autoLoad: true,
     autoDestroy: true
-  },
-//  store: {
-//    type: 'Companies',
-//    url: 'data/companies.json',
-//    autoLoad: true,
-//    autoDestroy: true
-//  },
+  }, //Ext.create('Application.view.rowExpander.rowExpanderStore'),
   columns: [
     {text: "Company", flex: 1, dataIndex: 'name'},
     {text: "Price", formatter: 'usMoney', dataIndex: 'price'},
@@ -44,11 +39,11 @@ Ext.define('Application.view.rowExpander.rowExpanderGrid', {
   collapsible: true,
   animCollapse: false,
   title: 'Expander Rows in a Collapsible Grid with lockable columns',
-  iconCls: 'icon-grid',
-  initComponent: function() {
-    this.width = 700;
-    this.callParent();
-  }
+  iconCls: 'icon-grid'
+//  initComponent: function() {
+//    this.width = 700;
+//    this.callParent();
+//  }
 });
 
 

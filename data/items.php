@@ -24,13 +24,13 @@ $array = '{
     "children": [
       {
         "item_id": "tab3",
-        "name": "M1911 pistol",
+        "name": "FilterGrid",
         "description": "Application.view.grid.testView",
         "leaf": true
       },
       {
         "item_id": "tab4",
-        "name": "Glock",
+        "name": "ArrayGrid",
         "description": "Application.view.grid.ArrayGrid",
         "leaf": true
       }
@@ -41,13 +41,13 @@ $array = '{
     "children": [
       {
         "item_id": "tab5",
-        "name": "GFea1 pistol",
+        "name": "Row Expander",
         "description": "Application.view.rowExpander.rowExpanderGrid",
         "leaf": true
       },
       {
         "item_id": "tab6",
-        "name": "Deagle",
+        "name": "Widget",
         "description": "Application.view.widget.widgetGrid",
         "leaf": true
       }

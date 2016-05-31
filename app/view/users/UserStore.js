@@ -4,6 +4,8 @@ Ext.define('Application.view.users.UserStore', {
   extend: 'Ext.data.Store',
   alias: 'store.UserStore',
   model: 'Application.view.users.UserModel',
+//  autoLoad: true,
+//  autoDestroy: true,
   proxy: {
     type: 'ajax',
     url: 'data/data.json',

@@ -4,6 +4,8 @@ Ext.define('Application.view.rowExpander.rowExpanderStore', {
   extend: 'Ext.data.Store',
   alias: 'store.rowExpanderStore',
   model: 'Application.view.rowExpander.rowExpanderModel',
+//  autoLoad: true,
+//  autoDestroy: true,
   proxy: {
     type: 'ajax',
     url: 'data/rowExpander-data.json',

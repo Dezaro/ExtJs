@@ -23,8 +23,10 @@ Ext.define('Application.view.users.UserGrid', {
   extend: 'Ext.grid.Panel',
   xtype: 'grid-filtering',
   requires: [
-    'Application.view.users.UserStore'
+    'Application.view.users.UserStore',
+    'Application.view.users.UserController'
   ],
+  controller: 'UserController',
   title: '<span style="color: #083772;">Списък с потребители</span>',
   iconCls: 'icon-grid',
   frame: true,
@@ -52,8 +54,7 @@ Ext.define('Application.view.users.UserGrid', {
     url: 'data/data.json',
     autoLoad: true,
     autoDestroy: true
-  },
-  defaultListenerScope: true,
+  },  //Ext.create('Application.view.users.UserStore'),
   tbar: [
     {
       xtype: 'button',
@@ -128,49 +129,7 @@ Ext.define('Application.view.users.UserGrid', {
       beforePageText: 'страница',
       afterPageText: 'от {0}',
       emptyMsg: "Няма записи"
-    }],
-  onAddClick: function(btn) {
-    // Create a model instance
-    var g = btn.up('grid');
-    var myStore = g.getStore();
-    var maxId = myStore.getAt(0).get('id'); // initialise to the first record's id value.
-    myStore.each(function(rec) // go through all the records
-    {
-      maxId = Math.max(maxId, rec.get('id'));
-    });
-    var rec = {
-      id: maxId + 1,
-      name: '',
-      age: '0',
-      profession: 'example profession',
-      country: 'example country',
-      address: 'example address',
-      email: 'example@email.com',
-      telephone: '0'
-    };
-
-    g.getStore().insert(0, rec);
-    var plugin = g.editingPlugin;
-    plugin.startEdit(0, 0);
-  },
-  onDeleteClick: function(grid, rowIndex) {
-    var msgBox = Ext.create('Application.view.custom.customMsgBox', {
-      modal: false,
-      title: 'Изтриване',
-      msg: 'Сигурни ли сте, че искате да изтриете записа?',
-      buttonText: {
-        yes: '<span style="color: #083772"><b>Да</b></span>',
-        no: '<span style="color: #083772"><b>Не</b></span>'
-      },
-      fn: function(btn, text, ob) {
-        if(btn === 'yes') {
-          grid.getStore().removeAt(rowIndex);
-        }
-      },
-      icon: Ext.MessageBox.QUESTION
-    });
-    msgBox.show();
-  }
+    }]
 });
 
 
