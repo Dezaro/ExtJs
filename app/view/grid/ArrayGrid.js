@@ -18,24 +18,6 @@ Ext.define('Application.view.grid.ArrayGrid', {
   width: 700,
   height: 500,
   resizable: true,
-  tbar:[
-    {
-      xtype: 'button',
-      text: 'btn',
-      handler: function(){
-//        console.log('First change!');
-        console.log('Second change!');
-      }
-    },
-    {
-      xtype: 'button',
-      text: 'btn',
-      handler: function(){
-//        console.log('First change!');
-        console.log('Second change!');
-      }
-    }
-  ],
   plugins: ['cellediting'],
   selType: 'cellmodel',
   emptyText: 'Няма записи',

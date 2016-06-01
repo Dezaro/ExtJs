@@ -28,7 +28,6 @@ Ext.define('Application.controller.ItemController', {
           var tabToDestroy = Ext.getCmp(selection.data.item_id);
           tabToDestroy.removeAll(true);
           this.tabs.remove(tabToDestroy, true);
-          tabToDestroy.setAlwaysOnTop(true);
           var view = Ext.create(selection.raw.description);
           this.tabs.insert(i, {
             id: selection.data.item_id,
@@ -44,8 +43,6 @@ Ext.define('Application.controller.ItemController', {
         }
       }
       if(!active && this.tabs.items.length <= this.maxTabs) {
-        var viewport = Ext.ComponentQuery.query('viewport');
-        console.log(viewport);
         var view = Ext.create(selection.raw.description);
         this.tabs.add({
           id: selection.data.item_id,
