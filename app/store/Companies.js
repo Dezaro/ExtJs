@@ -6,7 +6,7 @@ Ext.define('Application.store.Companies', {
   model: 'Application.model.Company',
   proxy: {
     type: 'ajax',
-    url: 'data/array-grid.json',
+    url: 'data/array-grid.php',
     reader: {
       type: 'json',
       rootProperty: 'data',
@@ -14,10 +14,6 @@ Ext.define('Application.store.Companies', {
       totalProperty: 'total'
     }
   },
-  remoteSort: false,
-  sorters: [{
-      property: 'name',
-      direction: 'ASC'
-    }],
-  pageSize: 50
+  autoLoad: true,
+  remoteSort: false
 });

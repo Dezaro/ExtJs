@@ -51,7 +51,7 @@ Ext.define('Application.view.users.UserGrid', {
   stateId: 'stateful-filter-grid',
   store: {
     type: 'UserStore',
-    url: 'data/data.json',
+//    url: 'data/data.json',
     autoLoad: true,
     autoDestroy: true
   },  //Ext.create('Application.view.users.UserStore'),
@@ -119,7 +119,7 @@ Ext.define('Application.view.users.UserGrid', {
       xtype: 'pagingtoolbar',
       store: {
         type: 'UserStore',
-        url: 'data/data.json',
+//        url: 'data/data.json',
         autoLoad: true,
         autoDestroy: true
       },

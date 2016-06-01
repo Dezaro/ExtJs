@@ -30,11 +30,6 @@ Ext.define('Application.view.Simpsons.Simpsons', {
       text: '<span style="color: #083772"><b>Филтър</b></span>',
       icon: 'img/icon/filter.png',
       handler: 'onFilterClick'
-    },
-    {
-      xtype: 'button',
-      text: 'Add',
-      handler: 'onAdd'
     }
   ],
   columns: [{

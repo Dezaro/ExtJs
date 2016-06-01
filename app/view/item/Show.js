@@ -19,6 +19,7 @@ Ext.define('Application.view.item.Show', {
             var test = Ext.create('Application.view.custom.customWindow', {
               title: 'Colors',
               width: 200,
+              alwaysOnTop: true,
               height: 200,
               items: [Ext.create('Ext.picker.Color', {
                   value: '993300', // initial selected color

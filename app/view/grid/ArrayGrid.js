@@ -14,9 +14,28 @@ Ext.define('Application.view.grid.ArrayGrid', {
   frame: true,
   autoScroll: true,
   animScroll: true,
+  autoDestroy: true,
   width: 700,
   height: 500,
   resizable: true,
+  tbar:[
+    {
+      xtype: 'button',
+      text: 'btn',
+      handler: function(){
+//        console.log('First change!');
+        console.log('Second change!');
+      }
+    },
+    {
+      xtype: 'button',
+      text: 'btn',
+      handler: function(){
+//        console.log('First change!');
+        console.log('Second change!');
+      }
+    }
+  ],
   plugins: ['cellediting'],
   selType: 'cellmodel',
   emptyText: 'Няма записи',
@@ -25,11 +44,10 @@ Ext.define('Application.view.grid.ArrayGrid', {
   stateId: 'stateful-filter-grid',
   store: {
     type: 'Companies',
-    url: 'data/array-grid.json',
+   // url: 'data/array-grid.php',
     autoLoad: true,
     autoDestroy: true
   },
- // defaultListenerScope: true,
   columns: [{
       dataIndex: 'id',
       text: 'ID',
@@ -67,37 +85,20 @@ Ext.define('Application.view.grid.ArrayGrid', {
           handler: 'onDeleteClick'
         }]
     }],
-  dockedItems: [{
-      xtype: 'pagingtoolbar',
-      store: {
-        type: 'Companies',
-        url: 'data/array-grid.json',
-        autoLoad: true,
-        autoDestroy: true
-      },
-      dock: 'bottom',
-      displayInfo: true,
-      displayMsg: 'Записи от {0} до {1} от общо {2}',
-      beforePageText: 'страница',
-      afterPageText: 'от {0}',
-      emptyMsg: "Няма записи"
-    }],
-//  onDeleteClick: function(grid, rowIndex) {
-//    var msgBox = Ext.create('Application.view.custom.customMsgBox', {
-//      modal: false,
-//      title: 'Изтриване',
-//      msg: 'Сигурни ли сте, че искате да изтриете записа?',
-//      buttonText: {
-//        yes: '<span style="color: #083772"><b>Да</b></span>',
-//        no: '<span style="color: #083772"><b>Не</b></span>'
-//      },
-//      fn: function(btn, text, ob) {
-//        if(btn === 'yes') {
-//          grid.getStore().removeAt(rowIndex);
-//        }
-//      },
-//      icon: Ext.MessageBox.QUESTION
-//    });
-//    msgBox.show();
-//  }
+//  dockedItems: [{
+//      xtype: 'pagingtoolbar',
+////      store: {
+////        type: 'Companies',
+////        //url: 'data/array-grid.php',
+////        autoLoad: true,
+////        autoDestroy: true
+////      },
+//      store: test,
+//      dock: 'bottom',
+//      displayInfo: true,
+//      displayMsg: 'Записи от {0} до {1} от общо {2}',
+//      beforePageText: 'страница',
+//      afterPageText: 'от {0}',
+//      emptyMsg: "Няма записи"
+//    }]
 });

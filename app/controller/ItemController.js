@@ -18,7 +18,6 @@ Ext.define('Application.controller.ItemController', {
       }
     });
   },
-  tabs: null,
   maxTabs: 5,
   onItemClick: function(selModel, selection) {
     this.tabs = Ext.getCmp('tabs12');
@@ -27,8 +26,9 @@ Ext.define('Application.controller.ItemController', {
       for(var i = 0; i < this.tabs.items.length; ++i) {
         if(selection.data.item_id === this.tabs.items.items[i].id) {
           var tabToDestroy = Ext.getCmp(selection.data.item_id);
-          tabToDestroy.remove(selection.raw.description);
-          tabToDestroy.destroy();
+          tabToDestroy.removeAll(true);
+          this.tabs.remove(tabToDestroy, true);
+          tabToDestroy.setAlwaysOnTop(true);
           var view = Ext.create(selection.raw.description);
           this.tabs.insert(i, {
             id: selection.data.item_id,
@@ -44,6 +44,8 @@ Ext.define('Application.controller.ItemController', {
         }
       }
       if(!active && this.tabs.items.length <= this.maxTabs) {
+        var viewport = Ext.ComponentQuery.query('viewport');
+        console.log(viewport);
         var view = Ext.create(selection.raw.description);
         this.tabs.add({
           id: selection.data.item_id,
@@ -52,6 +54,7 @@ Ext.define('Application.controller.ItemController', {
           border: false,
           autoDestroy: true,
           layout: 'fit',
+          region: 'center',
           items: [view]
         });
         this.tabs.setActiveTab(this.tabs.items.length - 1);
