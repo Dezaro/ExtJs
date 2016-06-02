@@ -11,7 +11,6 @@ Ext.define('Application.view.grid.ArrayGrid', {
   controller: 'ArrayController',
   title: '<span style="color: #525252;">Тест</span>',
   iconCls: 'icon-grid',
-  frame: true,
   autoScroll: true,
   animScroll: true,
   autoDestroy: true,

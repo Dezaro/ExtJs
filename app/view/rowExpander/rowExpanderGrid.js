@@ -11,7 +11,7 @@ Ext.define('Application.view.rowExpander.rowExpanderGrid', {
   xtype: 'expander-lockable',
   store: {
     type: 'rowExpanderStore',
-    url: 'data/rowExpander-data.json',
+   // url: 'data/rowExpander-data.json',
     autoLoad: true,
     autoDestroy: true
   }, //Ext.create('Application.view.rowExpander.rowExpanderStore'),

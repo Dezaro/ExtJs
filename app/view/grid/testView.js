@@ -3,14 +3,13 @@
 Ext.define('Application.view.grid.testView', {
   id: 'testGridID',
   extend: 'Ext.grid.Panel',
-  xtype: 'grid-filtering',
+ // xtype: 'grid-filtering',
   requires: [
     'Ext.grid.filters.Filters',
     'Application.store.Tests'
   ],
   title: 'Продукти',
   iconCls: 'icon-grid',
-  frame: true,
   autoScroll: true,
   animScroll: true,
 //  width: 700,
@@ -29,7 +28,7 @@ Ext.define('Application.view.grid.testView', {
   stateId: 'stateful-filter-grid',
   store: {
     type: 'Tests',
-    url: 'data/grid-filter.json',
+   // url: 'data/grid-filter.json',
     autoLoad: true,
     autoDestroy: true
   },

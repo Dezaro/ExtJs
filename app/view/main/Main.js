@@ -13,21 +13,6 @@
 
   document.body.appendChild(css);
 
-  var win = Ext.create('Ext.window.Window', {
-    id: 'winID',
-    title: 'Информация',
-    closable: true,
-    closeAction: 'hide',
-    width: 400,
-    modal: true,
-    minWidth: 350,
-    height: 150,
-    layout: 'fit',
-    items: [{
-        html: '<div class="textColor"><b>Продукт, разработен от IT отдел на "Европът-2000" АД. <br>Година: 2016г.</b><br><img src="img/icon/logo2.png"></div>'
-      }]
-  });
-
   var oldPassword = {
     xtype: 'textfield',
     id: 'oldPassID',
@@ -96,19 +81,6 @@
     buttonAlign: 'center'
   };
 
-  var changePassWindow = Ext.create('Ext.window.Window', {
-    id: 'changePassWindow',
-    title: 'Промяна на парола',
-    closable: true,
-    closeAction: 'hide',
-    width: 330,
-    modal: true,
-    minWidth: 300,
-    height: 160,
-    layout: 'fit',
-    items: [formPanel]
-  });
-
   var btnLogout = {
     text: '<b><span style="color: #DC143C;">Изход</span></b>',
     icon: 'img/icon/logOut.png',
@@ -130,12 +102,6 @@
     icon: 'img/icon/book_open.png',
     handler: 'onInfoClick'
   };
-
-//  var btnInfo = {
-//    text: 'info',
-//    icon: 'img/icon/info.png',
-//    handler: 'onInfoClick'
-//  };
 
   var changePassword = {
     text: '<b><span class="textColor">Смяна на парола</span></b>',
@@ -192,7 +158,7 @@
     border: false,
     layout: {
       type: 'border',
-      padding: 3
+      padding: 2
     },
     items: [
       tree,
@@ -201,6 +167,34 @@
     bbar: ['Офис <b>Управление</b>', '->', 'продукт, разработен от <b>IT отдел</b> на <b>"Европът-2000" АД</b>'],
     flex: 1
   };
+
+  Ext.create('Ext.window.Window', {
+    id: 'winID',
+    title: 'Информация',
+    closable: true,
+    closeAction: 'hide',
+    width: 400,
+    modal: true,
+    minWidth: 350,
+    height: 150,
+    layout: 'fit',
+    items: [{
+        html: '<div class="textColor"><b>Продукт, разработен от IT отдел на "Европът-2000" АД. <br>Година: 2016г.</b><br><img src="img/icon/logo2.png"></div>'
+      }]
+  });
+
+  Ext.create('Ext.window.Window', {
+    id: 'changePassWindow',
+    title: 'Промяна на парола',
+    closable: true,
+    closeAction: 'hide',
+    width: 330,
+    modal: true,
+    minWidth: 300,
+    height: 160,
+    layout: 'fit',
+    items: [formPanel]
+  });
 
   Ext.define('Application.view.main.Main', {
     extend: 'Ext.container.Container',

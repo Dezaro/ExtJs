@@ -36,6 +36,8 @@ Ext.define('Application.controller.ItemController', {
             border: false,
             autoDestroy: true,
             layout: 'fit',
+            region: 'center',
+            icon: 'img/icon/pass.png',
             items: [view]
           });
           this.tabs.setActiveTab(i);
@@ -52,6 +54,7 @@ Ext.define('Application.controller.ItemController', {
           autoDestroy: true,
           layout: 'fit',
           region: 'center',
+          icon: 'img/icon/building_edit.png',
           items: [view]
         });
         this.tabs.setActiveTab(this.tabs.items.length - 1);
