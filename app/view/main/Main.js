@@ -171,6 +171,7 @@
   Ext.create('Ext.window.Window', {
     id: 'winID',
     title: 'Информация',
+    reference: 'infoWin',
     closable: true,
     closeAction: 'hide',
     width: 400,
@@ -186,6 +187,7 @@
   Ext.create('Ext.window.Window', {
     id: 'changePassWindow',
     title: 'Промяна на парола',
+    reference: 'changePass',
     closable: true,
     closeAction: 'hide',
     width: 330,

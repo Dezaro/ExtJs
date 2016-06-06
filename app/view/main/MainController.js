@@ -10,22 +10,23 @@ Ext.define('Application.view.main.MainController', {
     this.getView().destroy();
     // Add the Login Window
     Ext.widget('login');
+//    this.lookupReference('userField').focus(true, 100);
     Ext.getCmp('uNameLog').focus(true, 100);
   },
   onInfoClick: function() {
-    Ext.getCmp('winID').show();
+    this.lookupReference('infoWin').show();
     // win.show();
   },
   onChangePassClick: function() {
-    Ext.getCmp('changePassWindow').show();
+    this.lookupReference('changePass').show();
     //  changePassWindow.show();
   },
   onConfirmClick: function() {
-    Ext.getCmp('changePassWindow').hide();
+    this.lookupReference('changePass').hide();
     //  changePassWindow.show();
   },
   onCancelClick: function() {
-    Ext.getCmp('changePassWindow').hide();
+    this.lookupReference('changePass').hide();
     //  changePassWindow.show();
   }
 });
