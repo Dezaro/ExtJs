@@ -218,7 +218,7 @@
         text: '<div class="container">\n\
               <div class="left-element"> "Европът - 2000" АД</div>\n\
               <div class="middle-element"><img style= "width: 75px; height: 30px;" src="img/icon/logo2.png"></div>\n\
-              <div class="right-element">Куриер - 2016</div>\n\
+              <div class="right-element">Куриер 1.0.1</div>\n\
             </div>',
         cls: 'panel-title'
       },

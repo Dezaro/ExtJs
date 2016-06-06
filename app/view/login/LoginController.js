@@ -3,13 +3,16 @@
 Ext.define('Application.view.login.LoginController', {
   extend: 'Ext.app.ViewController',
   alias: 'controller.login',
-  onLoginClick: function() {
+  onLoginClick: function(btn, obj, e) {
+    var me = this,
+            user = me.lookupReference('userField').getValue(),
+            password = me.lookupReference('passField').getValue();
     Ext.Ajax.request({
       url: 'data/login.php',
       method: 'POST',
       params: {
-        userName: Ext.getCmp('uNameLog').getValue(),
-        password: Ext.getCmp('passLog').getValue()
+        userName: user, //Ext.getCmp('uNameLog').getValue(),
+        password: password//Ext.getCmp('passLog').getValue()
       },
       scope: this,
       //method to call when the request is successful
@@ -34,8 +37,7 @@ Ext.define('Application.view.login.LoginController', {
       this.getView().destroy();
       // Add the main view to the viewport
       Ext.widget('app-main');
-    }
-    else {
+    } else {
       Ext.MessageBox.alert('Грешка', 'Невалидно потребителско име или парола!');
     }
   },
@@ -46,7 +48,8 @@ Ext.define('Application.view.login.LoginController', {
   },
   changeFocus: function(f, e) {
     if(e.getKey() === e.ENTER) {
-      Ext.getCmp('passLog').focus(true, 100);
+//      Ext.getCmp('passLog').focus(true, 100);
+      this.lookupReference('passField').focus(true, 100);
     }
   }
 });

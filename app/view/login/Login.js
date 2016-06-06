@@ -15,6 +15,7 @@
     id: 'uNameLog',
     name: 'username',
     labelWidth: 70,
+    reference: 'userField',
     fieldLabel: 'Потребител:',
     allowBlank: true,
     style: 'text-align: right',
@@ -28,6 +29,7 @@
     id: 'passLog',
     name: 'password',
     inputType: 'password',
+    reference: 'passField',
     labelWidth: 70,
     fieldLabel: 'Парола:',
     allowBlank: true,
@@ -51,7 +53,7 @@
     xtype: 'form',
     border: false,
     bodyStyle: 'background:none; ',
-    reference: 'form',
+    reference: 'loginForm',
     items: [
       userName,
       password
