@@ -9,8 +9,8 @@ Ext.define('Application.view.Simpsons.Simpsons', {
     'Application.view.Simpsons.SimpsonsController'
   ],
   controller: 'simpsons-controller',
-  title: '<span style="color: #525252;">Simpsons</span>',
-  iconCls: 'icon-grid',
+  title: 'Simpsons',
+//  iconCls: 'icon-grid',
   autoScroll: true,
   animScroll: true,
   plugins: ['cellediting'],

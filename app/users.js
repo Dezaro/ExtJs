@@ -141,6 +141,22 @@ Ext.define('Application.UserController', {
       icon: Ext.MessageBox.QUESTION
     });
     msgBox.show();
+  },
+  onchangeSomething: function(grid, rowIndex){
+    var msgBox = Ext.create('Application.view.custom.customMsgBox',{
+      modal:false,
+      title: 'Change',
+      msg: 'Are you sure?',
+      buttonText: {
+        yes: '<span style="color: green;">Yes</span>',
+        no: '<span style="color: red;">No</span>'
+      },
+      fn: function(btn, text, ob){
+        if(btn === 'yes'){
+          grid.selectionchange;
+        }
+      }
+    });
   }
 });
 

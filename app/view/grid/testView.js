@@ -9,7 +9,7 @@ Ext.define('Application.view.grid.testView', {
     'Application.store.Tests'
   ],
   title: 'Продукти',
-  iconCls: 'icon-grid',
+//  iconCls: 'icon-grid',
   autoScroll: true,
   animScroll: true,
 //  width: 700,

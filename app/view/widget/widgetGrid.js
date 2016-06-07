@@ -20,6 +20,7 @@ Ext.define('Application.view.widget.widgetGrid', {
   height: 350,
   width: 1050,
   title: 'Widget Grid',
+//  iconCls: 'icon-grid',
   viewConfig: {
     stripeRows: true,
     enableTextSelection: false,
@@ -45,7 +46,7 @@ Ext.define('Application.view.widget.widgetGrid', {
             var msg = Ext.create('Application.view.custom.customMsgBox', {
               modal: false,
               title: 'Button clicked',
-              msg: "Hey! " + rec.get('name')       
+              msg: "Hey! " + rec.get('name')
             });
             msg.show();
           }}
@@ -73,7 +74,17 @@ Ext.define('Application.view.widget.widgetGrid', {
           ],
           listeners: {
             select: function(combo) {
-              console.log(combo.getValue() + ' selected');
+            //  console.log(combo.getValue() + ' selected');
+              Ext.toast({
+                title: 'Information',
+                timeout: 2000,
+                align: 't',
+                closable: false,
+                minWidth: 200,
+                slideInDuration: 400,
+                icon: 'img/icon/info.png',
+                html: combo.getValue() + ' selected!'
+              });
             }
           }
         }

@@ -57,7 +57,7 @@ Ext.define('Application.view.users.UserGrid', {
   ],
   controller: 'UserController',
   title: '<span style="color: #083772;">Списък с потребители</span>',
-  iconCls: 'icon-grid',
+//  iconCls: 'icon-grid',
   autoScroll: true,
   animScroll: true,
   layout: {

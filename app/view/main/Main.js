@@ -122,6 +122,7 @@
       title: '{name}'
     },
     title: 'Модули',
+    icon: 'img/icon/modules.png',
     autoScroll: false,
     collapsible: true,
     collapseDirection: Ext.Component.DIRECTION_LEFT,

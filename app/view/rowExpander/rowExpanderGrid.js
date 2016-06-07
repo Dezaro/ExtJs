@@ -40,8 +40,8 @@ Ext.define('Application.view.rowExpander.rowExpanderGrid', {
     }],
   collapsible: true,
   animCollapse: false,
-  title: 'Expander Rows in a Collapsible Grid with lockable columns',
-  iconCls: 'icon-grid'
+  title: 'Expander Rows in a Collapsible Grid with lockable columns'
+ // iconCls: 'icon-grid'
 //  initComponent: function() {
 //    this.width = 700;
 //    this.callParent();
