@@ -26,7 +26,7 @@ Ext.define('Application.controller.ArrayController', {
     var msgBox = Ext.create('Application.view.custom.customMsgBox', {
       modal: false,
       title: 'Изтриване',
-      msg: 'Сигурни ли сте, че искате да изтриете записа?',
+      msg: 'Сигурни ли сте, че искате да изтриете запис ' + grid.getStore().data.items[rowIndex].data.id + '.' + grid.getStore().data.items[rowIndex].data.name + '?',
       buttonText: {
         yes: '<span style="color: #083772"><b>Да</b></span>',
         no: '<span style="color: #083772"><b>Не</b></span>'

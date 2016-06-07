@@ -27,7 +27,7 @@ Ext.define('Application.view.Simpsons.Simpsons', {
   tbar: [{
       xtype: 'button',
       text: '<span style="color: #083772"><b>Филтър</b></span>',
-      icon: 'img/icon/filter.png',
+      icon: 'img/icon/FilterGrid.png',
       handler: 'onFilterClick'
     }
   ],

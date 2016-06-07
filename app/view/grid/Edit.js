@@ -1,4 +1,5 @@
 //unused window for edit http://docs.sencha.com/extjs/4.0.7/#!/guide/application_architecture
+
 /* global Ext */
 Ext.define('Application.view.grid.Edit', {
   extend: 'Ext.window.Window',

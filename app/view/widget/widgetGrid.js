@@ -11,12 +11,11 @@ Ext.define('Application.view.widget.widgetGrid', {
     'Ext.sparkline.*'
   ],
   xtype: 'widget-grid',
-  //   store: 'widgetStore',
   store: {
     type: 'widgetStore',
     autoLoad: true,
     autoDestroy: true
-  },//Ext.create('Application.view.widget.widgetStore'),
+  }, //Ext.create('Application.view.widget.widgetStore'),
   collapsible: true,
   height: 350,
   width: 1050,
@@ -42,9 +41,14 @@ Ext.define('Application.view.widget.widgetGrid', {
           icon: 'img/icon/feed_add.png',
           handler: function(btn) {
             var rec = btn.getWidgetRecord();
-            Ext.Msg.alert("Button clicked", "Hey! " + rec.get('name'));
-          }
-        }
+            // Ext.Msg.alert("Button clicked", "Hey! " + rec.get('name'));
+            var msg = Ext.create('Application.view.custom.customMsgBox', {
+              modal: false,
+              title: 'Button clicked',
+              msg: "Hey! " + rec.get('name')       
+            });
+            msg.show();
+          }}
       }, {
         text: 'Progress',
         xtype: 'widgetcolumn',

@@ -1,16 +1,13 @@
 /* global Ext */
+
 var rowEditing = {
   ptype: 'rowediting',
   clicksToMoveEditor: 1,
   autoCancel: false,
   saveBtnText: 'Редактирай',
-  cancelBtnText: 'Отказ', // по default бутоните са update и cancel
+  cancelBtnText: 'Отказ',
   listeners: {
     edit: function(editor, context, record) {
-//      Ext.Msg.alert('Редактирани данни', 'Име: ' + context.record.data.name + ' <br /> Възраст: ' + context.record.data.age + '<br /> Професия: ' +
-//              context.record.data.profession + '<br /> Държава: ' + context.record.data.country + '<br /> Адрес: '
-//              + context.record.data.address + '<br /> Ел.поща: ' + context.record.data.email + '<br /> Телефон: ' + context.record.data.telephone);
-      // console.log(context.record.data.name); //Contains the variables that should have been in the e var
       var editMsg = Ext.create('Application.view.custom.customMsgBox', {
         modal: false,
         title: 'Редактирани данни',
@@ -47,13 +44,113 @@ var rowEditing = {
   }
 };
 
-Ext.define('Application.view.users.UserGrid', {
+Ext.define('Application.UserModel', {
+  extend: 'Application.model.Base',
+  fields: [
+    'id',
+    'name',
+    'age',
+    'profession',
+    'country',
+    'address',
+    'email',
+    'telephone',
+    'action',
+    'newRecord'
+  ]
+});
+
+Ext.define('Application.UserStore', {
+  extend: 'Ext.data.Store',
+  alias: 'store.UserStore',
+  model: 'Application.UserModel',
+  proxy: {
+    type: 'ajax',
+    url: 'data/data.json',
+    reader: {
+      type: 'json',
+      rootProperty: 'data',
+      idProperty: 'id',
+      totalProperty: 'total'
+    }
+  },
+  remoteSort: false,
+  sorters: [{
+      property: 'name',
+      direction: 'ASC'
+    }],
+  pageSize: 50
+});
+
+Ext.define('Application.UserController', {
+  extend: 'Ext.app.ViewController',
+  alias: 'controller.UserController',
+  refs: [
+    {
+      ref: 'grid',
+      selector: '#usersGridID'
+    }
+  ],
+  init: function() {
+    this.control({
+      'grid': {
+        selectionchange: this.gridSelectionChange
+      }
+    });
+  },
+  gridSelectionChange: function() {
+    return console.log('Row is selected is change!');
+  },
+  onAddClick: function(btn) {
+    var grid = btn.up('grid');
+    var store = grid.getStore();
+    var maxId = store.getAt(0).get('id');
+    store.each(function(rec) {
+      maxId = Math.max(maxId, rec.get('id'));
+    });
+    var rec = {
+      id: maxId + 1,
+      name: '',
+      age: '0',
+      profession: 'example profession',
+      country: 'example country',
+      address: 'example address',
+      email: 'example@email.com',
+      telephone: '0',
+      newRecord: '1'
+    };
+
+    store.insert(0, rec);
+    var plugin = grid.editingPlugin;
+    plugin.startEdit(0, 0);
+  },
+  onDeleteClick: function(grid, rowIndex) {
+    var msgBox = Ext.create('Application.view.custom.customMsgBox', {
+      modal: false,
+      title: 'Изтриване',
+      msg: 'Сигурни ли сте, че искате да изтриете ' + grid.getStore().data.items[rowIndex].data.name + ' от списъка с потребители?',
+      buttonText: {
+        yes: '<span style="color: #083772"><b>Да</b></span>',
+        no: '<span style="color: #083772"><b>Не</b></span>'
+      },
+      fn: function(btn, text, ob) {
+        if(btn === 'yes') {
+          grid.getStore().removeAt(rowIndex);
+        }
+      },
+      icon: Ext.MessageBox.QUESTION
+    });
+    msgBox.show();
+  }
+});
+
+Ext.define('Application.users', {
   id: 'usersGridID',
   extend: 'Ext.grid.Panel',
   xtype: 'grid-filtering',
   requires: [
-    'Application.view.users.UserStore',
-    'Application.view.users.UserController'
+    'Application.UserStore',
+    'Application.UserController'
   ],
   controller: 'UserController',
   title: '<span style="color: #083772;">Списък с потребители</span>',
@@ -63,42 +160,34 @@ Ext.define('Application.view.users.UserGrid', {
   layout: {
     type: 'fit'
   },
-//  width: 700,
-//  height: 500,
   resizable: true,
-  plugins: [rowEditing], //'cellediting'],
-  // selType: 'cellmodel',
+  plugins: [rowEditing],
   selType: 'rowmodel',
-//  plugins: ['viewport', {
-//      ptype: 'rowediting',
-//      clicksToEdit: 2
-//    }],
   emptyText: 'Няма записи',
   loadMask: true,
   stateful: true,
   stateId: 'stateful-filter-grid',
   store: {
     type: 'UserStore',
-//    url: 'data/data.json',
     autoLoad: true,
     autoDestroy: true
-  }, //Ext.create('Application.view.users.UserStore'),
+  },
   tbar: [
     {
       xtype: 'button',
-      icon: "img/icon/add_pic.png",
+      icon: 'img/icon/add_pic.png',
       text: 'Добави потребител',
       handler: 'onAddClick'
     }
   ],
-  columns: [{
+  columns: [
+    {
       dataIndex: 'id',
       text: 'ID',
       width: 30
     }, {
       dataIndex: 'name',
       text: 'Име',
-      //  width: 150,
       flex: 1,
       editor: {xtype: 'textfield', allowBlank: false}
     }, {
@@ -122,32 +211,28 @@ Ext.define('Application.view.users.UserGrid', {
       width: 290,
       editor: 'textfield'
     }, {
-      dataIndex: 'email',
-      text: 'Ел.поща',
-      width: 180,
-      editor: 'textfield'
-    }, {
       dataIndex: 'telephone',
       text: 'Телефон',
       width: 100,
       editor: 'textfield'
-    },
-    {
+    }, {
       xtype: 'actioncolumn',
       width: 30,
       sortable: false,
-      menuDisabled: true,
-      items: [{
-          icon: "img/icon/delete_icon.png",
+      menuDisable: true,
+      items: [
+        {
+          icon: 'img/icon/delete_icon.png',
           tooltip: 'Изтрий записа',
           handler: 'onDeleteClick'
-        }]
-    }],
+        }
+      ]
+    }
+  ],
   dockedItems: [{
       xtype: 'pagingtoolbar',
       store: {
         type: 'UserStore',
-//        url: 'data/data.json',
         autoLoad: true,
         autoDestroy: true
       },
@@ -156,8 +241,6 @@ Ext.define('Application.view.users.UserGrid', {
       displayMsg: 'Записи от {0} до {1} от общо {2}',
       beforePageText: 'страница',
       afterPageText: 'от {0}',
-      emptyMsg: "Няма записи"
+      emptyMsg: 'Няма записи'
     }]
 });
-
-

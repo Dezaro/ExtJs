@@ -54,7 +54,7 @@ Ext.define('Application.controller.ItemController', {
           autoDestroy: true,
           layout: 'fit',
           region: 'center',
-          icon: 'img/icon/building_edit.png',
+          icon: 'img/icon/'+selection.data.name+'.png',
           items: [view]
         });
         this.tabs.setActiveTab(this.tabs.items.length - 1);

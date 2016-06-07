@@ -41,6 +41,9 @@ Ext.define('Application.view.Simpsons.SimpsonsController', {
   onFilterClick: function(btn) {
     var g = btn.up('grid');
     g.store.filter([{property: "name", anyMatch: true, value: 'Lisa'}, {property: "email", anyMatch: true, value: 'lisa@simpsons.com'}]);
+  },
+  onAdd: function(){
+    console.log('Add is clicked!');
   }
 });
 

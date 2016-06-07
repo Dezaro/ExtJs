@@ -41,7 +41,7 @@ $array = '{
     "children": [
       {
         "item_id": "tab5",
-        "name": "Row Expander",
+        "name": "RowExpander",
         "description": "Application.view.rowExpander.rowExpanderGrid",
         "leaf": true
       },

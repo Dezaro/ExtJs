@@ -39,7 +39,8 @@ Ext.define('Application.view.users.UserController', {
       country: 'example country',
       address: 'example address',
       email: 'example@email.com',
-      telephone: '0'
+      telephone: '0',
+      newRecord: '1'
     };
 
     g.getStore().insert(0, rec);
