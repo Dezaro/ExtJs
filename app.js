@@ -1,6 +1,6 @@
 /* global Ext */
 
-Ext.define('MyApplication', {
+Ext.application({
   extend: 'Ext.app.Application',
   name: 'Application',
   stores: [
@@ -23,5 +23,3 @@ Ext.define('MyApplication', {
     }
   }
 });
-
-Ext.application('MyApplication');
