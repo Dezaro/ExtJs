@@ -2,14 +2,6 @@
 
 (function() {
 
-  var css = document.createElement("style");
-  css.type = "text/css";
-  css.innerHTML = '.container{display:block; margin:0; padding:0;}\n\
-                   .left-el{float:left; display:block; margin-top: 5px; margin-right: 5px; color: black;}\n\
-                   body { background-image: url("img/icon/fon-login.png"); 	background-repeat: no-repeat; background-size: 100%;';
-
-  document.body.appendChild(css);
-
   var userName = {
     xtype: 'textfield',
     id: 'uNameLog',
