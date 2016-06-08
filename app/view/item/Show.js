@@ -37,7 +37,7 @@ Ext.define('Application.view.item.Show', {
       ],
       title: '',
       border: true,
-      icon: "img/icon/config1.png",
+      icon: "img/icon/home1.png",
       glyph: null,
       items: [
         {

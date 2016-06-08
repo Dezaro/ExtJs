@@ -10,7 +10,10 @@
                    .right-element{float:right; display:block; margin-top: 5px; margin-right: 5px;}\n\
                    .middle-element{float:left; display:block; margin-left: 900px;}\n\
                    .textColor {text-align: center; color: #083772; }\n\
-                   .it-icon{background-image: url(img/icon/it_icon.png); background-position: left center; background-repeat: no-repeat; padding-left: 20px;}';
+                   .it-icon{background-image: url(img/icon/it_icon.png); background-position: left center; background-repeat: no-repeat; padding-left: 20px;}\n\
+                   .office-icon{background-image: url(img/icon/building.png); background-position: left center; background-repeat: no-repeat; padding-left: 20px;}\n\
+                   .user-icon{background-image: url(img/icon/user.png); background-position: left center; background-repeat: no-repeat; padding-left: 20px;}\n\
+                   .userGroup-icon{background-image: url(img/icon/usersGroup.png); background-position: left center; background-repeat: no-repeat; padding-left: 20px;}';
 
   document.body.appendChild(css);
 
@@ -123,7 +126,7 @@
       title: '{name}'
     },
     title: 'Модули',
-    icon: 'img/icon/modules.png',
+    icon: 'img/icon/config1.png',
     autoScroll: false,
     collapsible: true,
     collapseDirection: Ext.Component.DIRECTION_LEFT,
@@ -203,9 +206,9 @@
       tabPanel
     ],
     bbar: [
-      '<span class="textColor"> Офис: ', officeLabel, ' </span>', '-',
-      '<span class="textColor"> Потребител: ', userLabel, ' </span>', '-',
-      '<span class="textColor"> Потребител група: ', userGroupLabel, ' </span>', '-',
+      '<span class="office-icon"></span><span class="textColor"> Офис: ', officeLabel, ' </span>', '-',
+      '<span class="user-icon"></span><span class="textColor"> Потребител: ', userLabel, ' </span>', '-',
+      '<span class="userGroup-icon"></span><span class="textColor"> Потребителска група: ', userGroupLabel, ' </span>', '-',
       '->',
       '-', '<span class="it-icon"></span><span class="textColor">Продукт, разработен от <b>IT отдел</b> на <b>"Европът-2000" АД</b></span>'
     ],

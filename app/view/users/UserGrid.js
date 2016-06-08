@@ -32,7 +32,7 @@ var rowEditing = {
           minWidth: 200,
           slideInDuration: 400,
           icon: 'img/icon/config1.png',
-          html: 'Ola! I am toast!'
+          html: 'Ola! I am toast! :)'
         });
       } else {
         var cancelMsg = Ext.create('Application.view.custom.customMsgBox', {
