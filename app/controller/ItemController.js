@@ -2,15 +2,9 @@
 
 Ext.define('Application.controller.ItemController', {
   extend: 'Ext.app.Controller',
-  stores: ['Items'],
-  models: ['Item'],
-  views: ['item.List', 'item.Show', 'item.iframe'],
-  refs: [
-    {
-      ref: 'itemShowDesc',
-      selector: 'itemShow > #item-description'
-    }
-  ],
+  stores: ['TreeStore'],
+  models: ['TreeModel'],
+  views: ['item.TreePanel', 'item.TabPanel'],
   init: function() {
     this.control({
       'itemList': {

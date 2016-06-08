@@ -1,10 +1,9 @@
 /* global Ext */
 
-Ext.define('Application.view.item.Show', {
+Ext.define('Application.view.item.TabPanel', {
   id: 'tabs12',
   extend: 'Ext.TabPanel',
   alias: 'widget.itemShow',
-  views: ['item.Frame'],
   reference: 'tabpanel',
   border: false,
   items: [

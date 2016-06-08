@@ -1,13 +1,13 @@
 /* global Ext */
 
-Ext.define('Application.store.Items', {
+Ext.define('Application.store.TreeStore', {
   extend: 'Ext.data.TreeStore',
-  model: 'Application.model.Item',
+  model: 'Application.model.TreeModel',
   autoLoad: true,
   // Attach store classes to this controller
-  stores: ['Items'],
+  stores: ['TreeStore'],
   // Attach model classes to this controller
-  models: ['Item'],
+  models: ['TreeModel'],
   // Define the root of the json file
   root: {
     // Root should be expanded on

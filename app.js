@@ -4,7 +4,7 @@ Ext.application({
   extend: 'Ext.app.Application',
   name: 'Application',
   stores: [
-    'Items'
+    'TreeStore'
   ],
   controllers: [
     'Application.controller.ItemController'
