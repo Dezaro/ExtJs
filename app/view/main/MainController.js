@@ -3,30 +3,30 @@
 Ext.define('Application.view.main.MainController', {
   extend: 'Ext.app.ViewController',
   alias: 'controller.main',
+  init: function() {
+    this.callParent();
+    this.logArray = JSON.parse(localStorage.getItem('logArray'));
+    this.lookupReference('officeLabel').setText(this.logArray.office.toUpperCase());
+    this.lookupReference('userLabel').setText(this.logArray.userName);
+    this.lookupReference('userGroupLabel').setText(this.logArray.userGroup);
+  },
   onClickButton: function() {
-    // Remove the localStorage key/value
-    localStorage.removeItem('loggedIn');
-    // Remove Main View
+    localStorage.removeItem('logArray');
     this.getView().destroy();
-    // Add the Login Window
     Ext.widget('login');
-//    this.lookupReference('userField').focus(true, 100);
     Ext.getCmp('uNameLog').focus(true, 100);
   },
   onInfoClick: function() {
-    this.lookupReference('infoWin').show();
-    // win.show();
+    this.office = 'Пловдив';
+    this.lookupReference('officeLabel').setText(this.office.toUpperCase());
   },
   onChangePassClick: function() {
     this.lookupReference('changePass').show();
-    //  changePassWindow.show();
   },
   onConfirmClick: function() {
     this.lookupReference('changePass').hide();
-    //  changePassWindow.show();
   },
   onCancelClick: function() {
     this.lookupReference('changePass').hide();
-    //  changePassWindow.show();
   }
 });

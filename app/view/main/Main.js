@@ -9,7 +9,8 @@
                    .left-element{float:left; display:block; margin-top: 5px;}\n\
                    .right-element{float:right; display:block; margin-top: 5px; margin-right: 5px;}\n\
                    .middle-element{float:left; display:block; margin-left: 900px;}\n\
-                   .textColor {text-align: center; color: #083772; }';
+                   .textColor {text-align: center; color: #083772; }\n\
+                   .it-icon{background-image: url(img/icon/it_icon.png); background-position: left center; background-repeat: no-repeat; padding-left: 20px;}';
 
   document.body.appendChild(css);
 
@@ -152,6 +153,42 @@
     ]
   };
 
+  var officeLabel = {
+    id: 'officeID',
+    xtype: 'label',
+    reference: 'officeLabel',
+    style: {
+      fontWeight: 'bold',
+      fontSize: '12px',
+      color: '#083772'
+    },
+    text: ''
+  };
+
+  var userLabel = {
+    id: 'userLabelID',
+    xtype: 'label',
+    reference: 'userLabel',
+    style: {
+      fontWeight: 'bold',
+      fontSize: '10px',
+      color: '#083772'
+    },
+    text: ''
+  };
+
+  var userGroupLabel = {
+    id: 'userGroupLabelID',
+    xtype: 'label',
+    reference: 'userGroupLabel',
+    style: {
+      fontWeight: 'bold',
+      fontSize: '10px',
+      color: '#083772'
+    },
+    text: ''
+  };
+
   var panel = {
     xtype: 'panel',
     autoScroll: false,
@@ -165,7 +202,13 @@
       tree,
       tabPanel
     ],
-    bbar: ['Офис <b>Управление</b>', '->', 'продукт, разработен от <b>IT отдел</b> на <b>"Европът-2000" АД</b>'],
+    bbar: [
+      '<span class="textColor"> Офис: ', officeLabel, ' </span>', '-',
+      '<span class="textColor"> Потребител: ', userLabel, ' </span>', '-',
+      '<span class="textColor"> Потребител група: ', userGroupLabel, ' </span>', '-',
+      '->',
+      '-', '<span class="it-icon"></span><span class="textColor">Продукт, разработен от <b>IT отдел</b> на <b>"Европът-2000" АД</b></span>'
+    ],
     flex: 1
   };
 
@@ -221,7 +264,7 @@
         text: '<div class="container">\n\
               <div class="left-element"> "Европът - 2000" АД</div>\n\
               <div class="middle-element"><img style= "width: 75px; height: 30px;" src="img/icon/logo2.png"></div>\n\
-              <div class="right-element">Куриер 1.0.1</div>\n\
+              <div class="right-element">КУРИЕР версия 1.0.1</div>\n\
             </div>',
         cls: 'panel-title'
       },

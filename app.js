@@ -14,9 +14,8 @@ Ext.define('MyApplication', {
     'Application.view.main.Main'
   ],
   launch: function() {
-    var loggedIn;
-    loggedIn = localStorage.getItem('loggedIn');
-    if(loggedIn) {
+    this.logArray = JSON.parse(localStorage.getItem('logArray'));
+    if(this.logArray !== null && this.logArray.loggedIn) {
       Ext.widget('app-main');
     } else {
       Ext.widget('login');
