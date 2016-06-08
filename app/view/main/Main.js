@@ -11,9 +11,9 @@
                    .middle-element{float:left; display:block; margin-left: 900px;}\n\
                    .textColor {text-align: center; color: #083772; }\n\
                    .it-icon{background-image: url(img/icon/it_icon.png); background-position: left center; background-repeat: no-repeat; padding-left: 20px;}\n\
-                   .office-icon{background-image: url(img/icon/building.png); background-position: left center; background-repeat: no-repeat; padding-left: 20px;}\n\
-                   .user-icon{background-image: url(img/icon/user.png); background-position: left center; background-repeat: no-repeat; padding-left: 20px;}\n\
-                   .userGroup-icon{background-image: url(img/icon/usersGroup1.png); background-position: left center; background-repeat: no-repeat; padding-left: 20px;}';
+                   .office-icon{background-image: url(img/icon/office.png); background-position: left center; background-repeat: no-repeat; padding-left: 20px;}\n\
+                   .user-icon{background-image: url(img/icon/user1.png); background-position: left center; background-repeat: no-repeat; padding-left: 20px;}\n\
+                   .userGroup-icon{background-image: url(img/icon/usersGroup.png); background-position: left center; background-repeat: no-repeat; padding-left: 20px;}';
 
   document.body.appendChild(css);
 
