@@ -104,7 +104,7 @@
   var changeOffice = {
     text: '<b><span class="textColor">Смяна на офис</span></b>',
     icon: 'img/icon/building_edit.png',
-    handler: 'onInfoClick'
+    handler: 'onChangeOfficeClick'
   };
 
   var tree = {

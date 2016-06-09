@@ -16,9 +16,12 @@ Ext.define('Application.view.main.MainController', {
     Ext.widget('login');
     Ext.getCmp('uNameLog').focus(true, 100);
   },
-  onInfoClick: function() {
+  onChangeOfficeClick: function() {
     this.office = 'Пловдив';
     this.lookupReference('officeLabel').setText(this.office.toUpperCase());
+  },
+  onInfoClick: function(){
+    this.lookupReference('infoWin').show();
   },
   onChangePassClick: function() {
     this.lookupReference('changePass').show();
