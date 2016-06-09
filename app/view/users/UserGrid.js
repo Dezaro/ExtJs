@@ -31,7 +31,7 @@ var rowEditing = {
           closable: false,
           minWidth: 200,
           slideInDuration: 400,
-          icon: 'img/icon/config1.png',
+          icon: 'img/icon/toast.png',
           html: 'Ola! I am toast! :)'
         });
       } else {
