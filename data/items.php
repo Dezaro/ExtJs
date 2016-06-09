@@ -56,6 +56,13 @@ $array = '{
         "description": "Application.view.widget.widgetGrid",
         "leaf": true,
         "icon": "img/icon/Widget.png"
+      },
+      {
+        "item_id": "tab7",
+        "name": "Search",
+        "description": "Application.view.search.searchGrid",
+        "leaf": true,
+        "icon": "img/icon/Search.png"
       }
     ]
   }

@@ -1,31 +1,25 @@
 <?php
 
-$start = $_GET['start'];
-$limit = $_GET['limit'];
-$array = '{
-  "total": "10000",
-  "data": [
-';
-//for($i = 1; $i < 10000; ++$i) {
-for($i = $start + 1; $i < ($start + $limit); ++$i) {
-  $array .='
-            {
-              "id": "' . $i . '",
-              "name": "Test ' . $i . '",
-              "address": "Test Address ' . $i . '",
-              "contact": "Test Contact ' . $i . '",
-              "telephone": "2525' . $i . '"
-            },';
-}
-$array .='
-            {
-              "id": "10000",
-              "name": "Test 10000",
-              "address": "Test Address 10000",
-              "contact": "Test Contact 10000",
-              "telephone": "25252525"
-            }
-  ]
-}';
+$start = (int) $_GET['start'];
+$limit = (int) $_GET['limit'];
 
-echo $array;
+$array = array(
+    'total' => '10000',
+    'data' => array()
+);
+
+if($start === 0) {
+  $start = 1;
+}
+
+for($i = $start; $i < ($start + $limit); ++$i) {
+  $array['data'][] = array(
+      'id' => $i,
+      'name' => 'Name ' . $i,
+      'address' => 'Address ' . $i,
+      'contact' => 'Contact ' . $i,
+      'telephone' => 'Telephone ' . $i
+  );
+}
+
+echo json_encode($array);
