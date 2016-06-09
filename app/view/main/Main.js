@@ -76,7 +76,10 @@
     handler: 'onClickButton'
   };
 
-  var emptyBtn = {width: 0};
+  var emptyBtn = {
+    width: 0,
+    disabled: true
+  };
 
   var textField = {
     xtype: 'textfield',
@@ -264,7 +267,9 @@
           '<b><span class="textColor">БАРКОД: </span></b>',
           textField,
           btnShow,
+          '-',
           '->',
+          '-',
           changeOffice,
           '-',
           changePassword,

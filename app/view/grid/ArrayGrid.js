@@ -24,10 +24,8 @@ Ext.define('Application.view.grid.ArrayGrid', {
   stateful: true,
   stateId: 'stateful-filter-grid',
   store: {
-    type: 'Companies',
-   // url: 'data/array-grid.php',
-    autoLoad: true,
-    autoDestroy: true
+    id: 'CompaniesStoreID',
+    type: 'Companies'
   },
   columns: [{
       dataIndex: 'id',
@@ -66,20 +64,14 @@ Ext.define('Application.view.grid.ArrayGrid', {
           handler: 'onDeleteClick'
         }]
     }],
-//  dockedItems: [{
-//      xtype: 'pagingtoolbar',
-////      store: {
-////        type: 'Companies',
-////        //url: 'data/array-grid.php',
-////        autoLoad: true,
-////        autoDestroy: true
-////      },
-//      store: test,
-//      dock: 'bottom',
-//      displayInfo: true,
-//      displayMsg: 'Записи от {0} до {1} от общо {2}',
-//      beforePageText: 'страница',
-//      afterPageText: 'от {0}',
-//      emptyMsg: "Няма записи"
-//    }]
+  dockedItems: {
+      xtype: 'pagingtoolbar',
+      store: 'CompaniesStoreID',
+      dock: 'bottom',
+      displayInfo: true,
+      displayMsg: 'Записи от {0} до {1} от общо {2}',
+      beforePageText: 'страница',
+      afterPageText: 'от {0}',
+      emptyMsg: "Няма записи"
+    }
 });

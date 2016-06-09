@@ -1,10 +1,13 @@
 <?php
 
+$start = $_GET['start'];
+$limit = $_GET['limit'];
 $array = '{
   "total": "10000",
   "data": [
 ';
-for($i = 1; $i < 10000; ++$i) {
+//for($i = 1; $i < 10000; ++$i) {
+for($i = $start + 1; $i < ($start + $limit); ++$i) {
   $array .='
             {
               "id": "' . $i . '",
