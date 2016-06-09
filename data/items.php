@@ -3,7 +3,7 @@
 $array = '{
   "text": ".",
   "children": [{
-    "name": "Big guns",
+    "name": "Модул",
     "children": [
       {
         "item_id": "tab1",

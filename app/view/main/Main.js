@@ -147,6 +147,15 @@
   var officeLabel = {
     id: 'officeID',
     xtype: 'label',
+    tip: 'Офис',
+    listeners: {
+      render: function(c) {
+        Ext.create('Ext.tip.ToolTip', {
+          target: c.getEl(),
+          html: c.tip
+        });
+      }
+    },
     reference: 'officeLabel',
     style: {
       fontWeight: 'bold',
@@ -155,11 +164,19 @@
     },
     text: ''
   };
-
   var userLabel = {
     id: 'userLabelID',
     xtype: 'label',
     reference: 'userLabel',
+    tip: 'Потребител',
+    listeners: {
+      render: function(c) {
+        Ext.create('Ext.tip.ToolTip', {
+          target: c.getEl(),
+          html: c.tip
+        });
+      }
+    },
     style: {
       fontWeight: 'bold',
       fontSize: '10px',
@@ -172,6 +189,15 @@
     id: 'userGroupLabelID',
     xtype: 'label',
     reference: 'userGroupLabel',
+    tip: 'Потребителска група',
+    listeners: {
+      render: function(c) {
+        Ext.create('Ext.tip.ToolTip', {
+          target: c.getEl(),
+          html: c.tip
+        });
+      }
+    },
     style: {
       fontWeight: 'bold',
       fontSize: '10px',
@@ -194,9 +220,12 @@
       tabPanel
     ],
     bbar: [
-      '<span class="office-icon"></span><span class="textColor"> Офис: ', officeLabel, ' </span>', '-',
-      '<span class="user-icon"></span><span class="textColor"> Потребител: ', userLabel, ' </span>', '-',
-      '<span class="userGroup-icon"></span><span class="textColor"> Потребителска група: ', userGroupLabel, ' </span>', '-',
+//      '<span class="office-icon"></span><span class="textColor"> Офис: ', officeLabel, ' </span>', '-',
+//      '<span class="user-icon"></span><span class="textColor"> Потребител: ', userLabel, ' </span>', '-',
+//      '<span class="userGroup-icon"></span><span class="textColor"> Потребителска група: ', userGroupLabel, ' </span>', '-',
+      '<span class="office-icon"></span><span class="textColor">', officeLabel, ' </span>', '-',
+      '<span class="user-icon"></span><span class="textColor">', userLabel, ' </span>', '-',
+      '<span class="userGroup-icon"></span><span class="textColor">', userGroupLabel, ' </span>', '-',
       '->',
       '-', '<span class="it-icon"></span><span class="textColor">Продукт, разработен от <b>IT отдел</b> на <b>"Европът-2000" АД</b></span>'
     ],
