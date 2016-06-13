@@ -1,5 +1,12 @@
 /* global Ext */
 
+Ext.Loader.setConfig({
+    enabled: true,
+    paths: {
+        'Ext.ux': 'ext-5.1.0/ux/'
+    }
+});
+
 Ext.application({
   extend: 'Ext.app.Application',
   name: 'Application',

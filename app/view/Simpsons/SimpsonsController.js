@@ -20,7 +20,6 @@ Ext.define('Application.view.Simpsons.SimpsonsController', {
     return console.log('Row is selected is change!');
   },
   onDeleteClick: function(grid, rowIndex) {
-    console.log('dasSAD');
     var msgBox = Ext.create('Application.view.custom.customMsgBox', {
       modal: false,
       title: 'Изтриване',
@@ -41,9 +40,6 @@ Ext.define('Application.view.Simpsons.SimpsonsController', {
   onFilterClick: function(btn) {
     var g = btn.up('grid');
     g.store.filter([{property: "name", anyMatch: true, value: 'Lisa'}, {property: "email", anyMatch: true, value: 'lisa@simpsons.com'}]);
-  },
-  onAdd: function(){
-    console.log('Add is clicked!');
   }
 });
 
