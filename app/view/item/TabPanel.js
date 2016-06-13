@@ -4,13 +4,20 @@ Ext.define('Application.view.item.TabPanel', {
   id: 'tabs12',
   extend: 'Ext.TabPanel',
   alias: 'widget.itemShow',
-  plugins: Ext.create('Ext.ux.TabReorderer'),
+//  plugins: Ext.create('Ext.ux.TabReorderer'),
+  requires: [
+    'Ext.ux.TabReorderer'
+  ],
+  plugins: [
+    'tabreorderer',
+    'responsive'
+  ],
   responsiveConfig: {
-    landscape: {
-      tabPosition: 'top'
-    },
-    portrait: {
+    'width < 800': {
       tabPosition: 'left'
+    },
+    'width > 800': {
+      tabPosition: 'top'
     }
   },
   reference: 'tabpanel',
