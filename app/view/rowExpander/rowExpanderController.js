@@ -25,6 +25,22 @@ Ext.define('Application.view.rowExpander.rowExpanderController', {
   initComponent: function() {
     this.width = 700;
     this.callParent();
+  },
+  change: function(val){
+    if(val > 0){
+      return '<span style="color: green;">' + val + '</span>';
+    } else if(val < 0){
+      return '<span style="color: red;">' + val + '</span>';
+    }
+    return val;
+  },
+  pctChange: function(val){
+    if(val > 0){
+      return '<span style="color: green;">' + val + '%</span>';
+    } else if(val < 0){
+      return '<span style="color: red;">' + val + '%</span>';
+    }
+    return val;
   }
 });
 

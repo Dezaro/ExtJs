@@ -29,7 +29,7 @@ Ext.define('Application.view.login.LoginController', {
         loggedIn: true,
         userName: 'Дело Георгиев Брънчев',
         userGroup: 'Администратори на фирма',
-        office: 'Управление',
+        office: 'Управление'
       }));
       this.getView().destroy();
       Ext.widget('app-main');

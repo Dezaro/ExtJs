@@ -18,8 +18,8 @@ Ext.define('Application.view.rowExpander.rowExpanderGrid', {
   columns: [
     {text: "Company", flex: 1, dataIndex: 'name'},
     {text: "Price", formatter: 'usMoney', dataIndex: 'price'},
-    {text: "Change", dataIndex: 'change'},
-    {text: "% Change", dataIndex: 'pctChange'},
+    {text: "Change", dataIndex: 'change', renderer: 'change'},
+    {text: "% Change", dataIndex: 'pctChange', renderer: 'pctChange'},
     {text: "Last Updated", width: 120,  renderer: Ext.util.Format.dateRenderer('m/d/Y H:i'), dataIndex: 'lastChange'}
   ],
   columnLines: true,
