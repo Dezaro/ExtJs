@@ -194,7 +194,8 @@ Ext.define('Ext.ux.LiveSearchGridPanel', {
                         if (me.currentIndex === null) {
                             me.currentIndex = idx;
                         }
-                        return '<span class="' + me.matchCls + '">' + m + '</span>';
+                       // return '<span class="' + me.matchCls + '">' + m + '</span>';
+                        return '<span style="background:yellow;"><b>' + m + '</b></span>';
                      });
                      // restore protected tags
                      Ext.each(matches, function(match) {
