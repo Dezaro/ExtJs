@@ -1,7 +1,7 @@
 /* global Ext */
 
-Ext.define('DataObject', {
-  extend: 'Ext.data.Model',
+Ext.define('DragAndDropModel', {
+  extend: 'Application.model.Base',
   fields: ['name', 'column1', 'column2']
 });
 
@@ -19,7 +19,7 @@ var myData = [
 ];
 
 var firstGridStore = Ext.create('Ext.data.Store', {
-  model: 'DataObject',
+  model: 'DragAndDropModel',
   data: myData
 });
 
@@ -29,7 +29,8 @@ var columns = [
   {text: "column2", width: 70, sortable: true, dataIndex: 'column2'}
 ];
 
-var firstGrid = Ext.create('Ext.grid.Panel', {
+var firstGrid = {
+  xtype: 'grid',
   multiSelect: true,
   viewConfig: {
     plugins: {
@@ -58,14 +59,15 @@ var firstGrid = Ext.create('Ext.grid.Panel', {
   columns: columns,
   stripeRows: true,
   title: 'First Grid',
-  margins: '0 2 0 0'
-});
+  padding: '0 2 0 0'
+};
 
 var secondGridStore = Ext.create('Ext.data.Store', {
-  model: 'DataObject'
+  model: 'DragAndDropModel'
 });
 
-var secondGrid = Ext.create('Ext.grid.Panel', {
+var secondGrid = {
+  xtype: 'grid',
   viewConfig: {
     plugins: {
       ptype: 'gridviewdragdrop',
@@ -93,8 +95,8 @@ var secondGrid = Ext.create('Ext.grid.Panel', {
   columns: columns,
   stripeRows: true,
   title: 'Second Grid',
-  margins: '0 0 0 3'
-});
+  padding: '0 0 0 3'
+};
 
 Ext.define('Application.view.DragAndDrop.dragAndDropPanel', {
   extend: 'Ext.Panel',
