@@ -63,6 +63,13 @@ $array = '{
         "description": "Application.view.search.searchGrid",
         "leaf": true,
         "icon": "img/icon/Search.png"
+      },
+      {
+        "item_id": "tab8",
+        "name": "DragAndDrop",
+        "description": "Application.view.DragAndDrop.dragAndDropPanel",
+        "leaf": true,
+        "icon": "img/icon/DragAndDrop.png"
       }
     ]
   }
