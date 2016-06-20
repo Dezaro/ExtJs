@@ -1,11 +1,5 @@
 /* global Ext */
 
-//Ext.require([
-//  'Ext.grid.*',
-//  'Ext.data.*',
-//  'Ext.dd.*'
-//]);
-
 Ext.define('DataObject', {
   extend: 'Ext.data.Model',
   fields: ['name', 'column1', 'column2']
