@@ -35,6 +35,7 @@ Ext.define('Application.controller.ItemController', {
             items: [view]
           });
           this.tabs.setActiveTab(i);
+ //         Ext.getCmp('resetBtn').fireEvent('click');
           active = true;
         }
       }
