@@ -70,6 +70,13 @@ $array = '{
         "description": "Application.view.DragAndDrop.dragAndDropPanel",
         "leaf": true,
         "icon": "img/icon/DragAndDrop.png"
+      },
+      {
+        "item_id": "tab9",
+        "name": "MultipleSorting",
+        "description": "Application.view.multiSorting.multipleSorting",
+        "leaf": true,
+        "icon": "img/icon/MultipleSorting.png"
       }
     ]
   }

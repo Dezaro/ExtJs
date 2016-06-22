@@ -117,6 +117,7 @@ Ext.define('Application.view.DragAndDrop.dragAndDropPanel', {
     items: ['->', // Fill
       {
         text: 'Reset both grids',
+        icon: 'img/icon/reset.png',
         id: 'resetBtn',
 //        handler: function() {
 //          //refresh source grid
