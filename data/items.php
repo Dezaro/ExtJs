@@ -77,6 +77,13 @@ $array = '{
         "description": "Application.view.multiSorting.multipleSorting",
         "leaf": true,
         "icon": "img/icon/MultipleSorting.png"
+      },
+      {
+        "item_id": "tab10",
+        "name": "TagField",
+        "description": "Application.view.tagField.tagField",
+        "leaf": true,
+        "icon": "img/icon/TagField.png"
       }
     ]
   }
