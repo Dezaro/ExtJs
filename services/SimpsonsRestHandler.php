@@ -21,7 +21,7 @@ class SimpsonsRestHandler extends SimpleRest {
     $requestContentType = $_SERVER['HTTP_ACCEPT'];
     $this->setHttpHeaders($requestContentType, $statusCode);
     if(strpos($requestContentType, 'application/json') !== false) {
-      echo $data;
+      echo json_encode($data);
     }
   }
 
