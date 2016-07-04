@@ -21,6 +21,7 @@ Ext.define('Application.view.Simpsons.Simpsons', {
   stateId: 'stateful-filter-grid',
   store: {
     type: 'SimpsonsStore',
+    id: 'SimpsonsStoreID',
     autoLoad: true,
     autoDestroy: true
   },
@@ -71,11 +72,7 @@ Ext.define('Application.view.Simpsons.Simpsons', {
     }],
   dockedItems: [{
       xtype: 'pagingtoolbar',
-      store: {
-        type: 'SimpsonsStore',
-        autoLoad: true,
-        autoDestroy: true
-      },
+      store: 'SimpsonsStoreID',
       dock: 'bottom',
       displayInfo: true,
       displayMsg: 'Записи от {0} до {1} от общо {2}',

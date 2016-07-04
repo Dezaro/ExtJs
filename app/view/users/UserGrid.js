@@ -25,14 +25,18 @@ var rowEditing = {
       if(context.record.data.newRecord === '1') {
         context.store.removeAt(0);
         Ext.toast({
-          title: 'Toast',
+          title: 'Тостер',
           timeout: 2000,
           align: 't',
           closable: false,
+//          renderTo: Ext.getCmp('tabs12').getActiveTab().id,
+//          constrain: true,
+//          constrainHeader: true,
           minWidth: 200,
+//          animateTarget: 'tosID',
           slideInDuration: 400,
           icon: 'img/icon/toast.png',
-          html: 'Ola! I am toast! :)'
+          html: 'Опа! Ти си бот! :)'
         });
       } else {
         var cancelMsg = Ext.create('Application.view.custom.customMsgBox', {
@@ -78,13 +82,14 @@ Ext.define('Application.view.users.UserGrid', {
   stateful: true,
   stateId: 'stateful-filter-grid',
   store: {
+    id: 'UserStoreID',
     type: 'UserStore',
-//    url: 'data/data.json',
     autoLoad: true,
     autoDestroy: true
-  }, //Ext.create('Application.view.users.UserStore'),
+  },
   tbar: [
     {
+      id: 'tosID',
       xtype: 'button',
       icon: "img/icon/add_pic.png",
       text: 'Добави потребител',
@@ -145,12 +150,7 @@ Ext.define('Application.view.users.UserGrid', {
     }],
   dockedItems: [{
       xtype: 'pagingtoolbar',
-      store: {
-        type: 'UserStore',
-//        url: 'data/data.json',
-        autoLoad: true,
-        autoDestroy: true
-      },
+      store: 'UserStoreID',
       dock: 'bottom',
       displayInfo: true,
       displayMsg: 'Записи от {0} до {1} от общо {2}',

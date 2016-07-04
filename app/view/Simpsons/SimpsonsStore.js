@@ -8,7 +8,11 @@ Ext.define('Application.view.Simpsons.SimpsonsStore', {
 //  autoDestroy: true,
   proxy: {
     type: 'ajax',
-    url: 'data/simpsons-data.json',
+    url: 'simpsons/all/',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
     reader: {
       type: 'json',
       rootProperty: 'data',

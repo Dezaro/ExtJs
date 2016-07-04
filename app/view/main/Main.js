@@ -270,7 +270,10 @@
     ],
     xtype: 'app-main',
     controller: 'main',
-    plugins: 'viewport',
+    plugins: [
+      'viewport',
+      'responsive'
+    ],
     viewModel: {
       type: 'main'
     },
