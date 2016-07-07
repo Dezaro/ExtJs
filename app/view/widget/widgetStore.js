@@ -1,5 +1,3 @@
-/* global Ext */
-
 Ext.define('Application.view.widget.widgetStore', {
   extend: 'Ext.data.Store',
   alias: 'store.widgetStore',

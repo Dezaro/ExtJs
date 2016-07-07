@@ -2,9 +2,6 @@
 
 Ext.define('Application.view.widget.widgetController',{
   extend: 'Ext.app.Controller',
-  stores: ['widgetStore'],
-  models: ['widgetModel'],
-  views: ['widget.widgetGrid'],
   refs: [
     {
       ref: 'grid',

@@ -1,5 +1,3 @@
-/* global Ext */
-
 Ext.define('Application.view.widget.widgetGrid', {
   id: 'widgetGridID',
   extend: 'Ext.grid.Panel',

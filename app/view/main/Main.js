@@ -1,5 +1,3 @@
-/* global Ext */
-
 (function() {
 
   var oldPassword = {

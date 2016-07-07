@@ -1,5 +1,3 @@
-/* global Ext */
-
 Ext.define('Application.view.main.MainController', {
   extend: 'Ext.app.ViewController',
   alias: 'controller.main',
@@ -30,6 +28,6 @@ Ext.define('Application.view.main.MainController', {
     this.lookupReference('changePass').hide();
   },
   onCancelClick: function() {
-    this.lookupReference('changePass').hide();
+    this.lookupReference('changePass').hide();  
   }
 });
