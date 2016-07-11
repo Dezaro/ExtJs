@@ -36,7 +36,8 @@ Ext.define('Application.view.item.TabPanel', {
               width: 200,
               alwaysOnTop: true,
               height: 200,
-              items: [Ext.create('Ext.picker.Color', {
+              items: [
+                Ext.create('Ext.picker.Color', {
                   value: '993300', // initial selected color
                   renderTo: Ext.getBody(),
                   listeners: {
@@ -44,7 +45,8 @@ Ext.define('Application.view.item.TabPanel', {
                       alert(selColor);
                     }
                   }
-                })]
+                })
+              ]
             });
             test.show();
           }
@@ -59,6 +61,7 @@ Ext.define('Application.view.item.TabPanel', {
           xtype: 'image',
           width: 800,
           height: 450,
+          alt: 'headerLogo',
           style: 'margin-left: 15%;',
           src: 'img/icon/evropat.jpg'
         }

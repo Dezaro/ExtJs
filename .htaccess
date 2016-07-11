@@ -4,5 +4,6 @@ RewriteEngine on
 
 # map neat URL to internal URL
 RewriteRule ^mobile/list/$   RestController.php?view=all [nc,qsa]
+RewriteRule ^arrayGrid/list/$   data/array-grid.php [nc,qsa]
 RewriteRule ^simpsons/all/$   services/RestController.php?view=simpsonsAll [nc,qsa]
 RewriteRule ^mobile/list/([0-9]+)/$   RestController.php?view=single&id=$1 [nc,qsa]

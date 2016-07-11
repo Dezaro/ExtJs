@@ -1,8 +1,8 @@
 Ext.Loader.setConfig({
-    enabled: true,
-    paths: {
-        'Ext.ux': 'ext-5.1.0/ux/'
-    }
+  enabled: true,
+  paths: {
+    'Ext.ux': 'ext-5.1.0/ux/'
+  }
 });
 
 Ext.application({

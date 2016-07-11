@@ -65,7 +65,7 @@
     ],
     controller: 'login',
     bodyPadding: 10,
-    title: '<div class="container"><div class="left-el"><img style="width: 18px; height: 15px;" src="img/icon/login2.png"></div><div class="left-el">  Вход в системата</div></div>',
+    title: '<div class="container"><div class="left-el"><img alt="" style="width: 18px; height: 15px;" src="img/icon/login2.png"></div><div class="left-el">  Вход в системата</div></div>',
     closable: false,
     enableKeyEvents: true,
     autoShow: true,

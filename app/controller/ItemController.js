@@ -35,7 +35,7 @@ Ext.define('Application.controller.ItemController', {
             items: [view]
           });
           this.tabs.setActiveTab(i);
- //         Ext.getCmp('resetBtn').fireEvent('click');
+          //         Ext.getCmp('resetBtn').fireEvent('click');
           active = true;
         }
       }
@@ -49,7 +49,7 @@ Ext.define('Application.controller.ItemController', {
           autoDestroy: true,
           layout: 'fit',
           region: 'center',
-          icon: 'img/icon/'+selection.data.name+'.png',
+          icon: 'img/icon/' + selection.data.name + '.png',
           items: [view]
         });
         this.tabs.setActiveTab(this.tabs.items.length - 1);

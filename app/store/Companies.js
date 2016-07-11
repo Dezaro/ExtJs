@@ -6,7 +6,8 @@ Ext.define('Application.store.Companies', {
   model: 'Application.model.Company',
   proxy: {
     type: 'ajax',
-    url: 'data/array-grid.php',
+//    url: 'data/array-grid.php',
+    url: 'arrayGrid/list/',
     reader: {
       type: 'json',
       rootProperty: 'data',

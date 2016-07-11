@@ -242,7 +242,7 @@
     height: 150,
     layout: 'fit',
     items: [{
-        html: '<div class="textColor"><b>Продукт, разработен от IT отдел на "Европът-2000" АД. <br>Година: 2016г.</b><br><img src="img/icon/logo2.png"></div>'
+        html: '<div class="textColor"><b>Продукт, разработен от IT отдел на "Европът-2000" АД. <br>Година: 2016г.</b><br><img src="img/icon/logo2.png" alt=""></div>'
       }]
   });
 
@@ -284,7 +284,7 @@
         xtype: 'title',
         text: '<div class="container">\n\
               <div class="left-element"> "Европът - 2000" АД</div>\n\
-              <div class="middle-element"><img style= "width: 75px; height: 30px;" src="img/icon/logo2.png"></div>\n\
+              <div class="middle-element"><img style= "width: 75px; height: 30px;" src="img/icon/logo2.png" alt=""></div>\n\
               <div class="right-element">КУРИЕР версия 1.0.1</div>\n\
             </div>',
         cls: 'panel-title'
