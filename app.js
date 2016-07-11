@@ -1,4 +1,3 @@
-/* global Ext */
 
 Ext.Loader.setConfig({
     enabled: true,
