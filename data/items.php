@@ -84,6 +84,13 @@ $array = '{
         "description": "Application.view.tagField.tagField",
         "leaf": true,
         "icon": "img/icon/TagField.png"
+      },
+      {
+        "item_id": "tab11",
+        "name": "SpreadSheet",
+        "description": "Application.view.spreadSheet.spreadSheetGrid",
+        "leaf": true,
+        "icon": "img/icon/SpreadSheet.png"
       }
     ]
   }
