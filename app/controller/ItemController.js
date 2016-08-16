@@ -53,6 +53,17 @@ Ext.define('Application.controller.ItemController', {
           items: [view]
         });
         this.tabs.setActiveTab(this.tabs.items.length - 1);
+      } else {
+        Ext.toast({
+          title: 'Внимание',
+          timeout: 1000,
+          align: 't',
+          closable: false,
+          minWidth: 200,
+          slideInDuration: 400,
+          icon: 'img/icon/info.png',
+          html: '<div align="center" style="font-weight: bold;">Upps... Не може да отвориш повече от <span style="color: red;">5 таба</span>! :(</div>'
+        });
       }
     }
   }
