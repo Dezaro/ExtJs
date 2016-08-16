@@ -70,8 +70,10 @@ $array = '{
         "description": "Application.view.DragAndDrop.dragAndDropPanel",
         "leaf": true,
         "icon": "img/icon/DragAndDrop.png"
-      },
-      {
+      }   
+    ]
+  },
+  {
         "item_id": "tab9",
         "name": "MultipleSorting",
         "description": "Application.view.multiSorting.multipleSorting",
@@ -91,9 +93,14 @@ $array = '{
         "description": "Application.view.spreadSheet.spreadSheetGrid",
         "leaf": true,
         "icon": "img/icon/SpreadSheet.png"
+      },
+      {
+        "item_id": "tab12",
+        "name": "Tabs",
+        "description": "Application.view.tabs.tabs",
+        "leaf": true,
+        "icon": "img/icon/Tabs.png"
       }
-    ]
-  }
   ]
 }';
 

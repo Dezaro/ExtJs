@@ -25,6 +25,7 @@ Ext.define('Application.view.item.TabPanel', {
   items: [
     {
       id: 'tab0',
+      reorderable: false,
       tbar: [
         {
           xtype: 'button',

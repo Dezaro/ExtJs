@@ -1,6 +1,6 @@
 /* global Ext */
 
-Ext.define('Application.view.tagField.tagFieldStore',{
+Ext.define('Application.view.tagField.tagFieldStore', {
   extend: 'Ext.data.Store',
   alias: 'store.states',
   model: 'Application.view.tagField.tagFieldModel',

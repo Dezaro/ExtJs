@@ -32,7 +32,8 @@ Ext.define('Application.view.multiSorting.multipleSorting', {
   multiColumnSort: true,
   initComponent: function() {
     var me = this;
-
+    
+    // create the data store
     me.store = new Ext.data.Store({
       fields: [
         {name: 'rating', type: 'int'},
@@ -62,31 +63,35 @@ Ext.define('Application.view.multiSorting.multipleSorting', {
   },
   updateSortTitle: function() {
     var sortDetail = [];
-    
-    this.store.getSorters().each(function(sorter){
+
+    this.store.getSorters().each(function(sorter) {
       sortDetail.push(sorter.getProperty() + ' ' + sorter.getDirection());
     });
     this.down('#order').update('Sorted By: <span style="color:green;">' + sortDetail.join(', ') + '</span>');
   },
-  createFakeData: function(count){
+  /*
+   * Returns an array of the fake data
+   * @param {Number} count The number of fake rows to create data for
+   * @return {Array} The fake record data, suitable for usage with an ArrayReader
+   */
+  createFakeData: function(count) {
     var firstNames = ['Don', 'Phil', 'Nige', 'Evan', 'Aaron', 'Abe', 'Jamie', 'Doug', 'Craig', 'Mike'],
-        lastNames = ['Griffin', 'Guerrant', 'White', 'Trimboli', 'Conran', 'Elias', 'Avins', 'Hendricks', 'Gering', 'Estes'],
-        ratings = [1, 2, 3, 4, 5],
-        salaries = [85000, 100000, 175000, 162000, 300000];
+            lastNames = ['Griffin', 'Guerrant', 'White', 'Trimboli', 'Conran', 'Elias', 'Avins', 'Hendricks', 'Gering', 'Estes'],
+            ratings = [1, 2, 3, 4, 5],
+            salaries = [85000, 100000, 175000, 162000, 300000];
 
-  var data = [];
-  for(var i = 0; i < (count || 25); i++){
-    var ratingId = Math.floor(Math.random() * ratings.length),
-        salaryId = Math.floor(Math.random() * salaries.length),
-        firstNameId = Math.floor(Math.random() * firstNames.length),
-        lastNameId = Math.floor(Math.random() * lastNames.length),
-        
-        rating = ratings[ratingId],
-        salary = salaries[salaryId],
-        name = Ext.String.format("{0} {1}", firstNames[firstNameId], lastNames[lastNameId]);
-   
-   data.push([rating, salary, name]);
-  }
-  return data;
+    var data = [];
+    for(var i = 0; i < (count || 25); i++) {
+      var ratingId = Math.floor(Math.random() * ratings.length),
+              salaryId = Math.floor(Math.random() * salaries.length),
+              firstNameId = Math.floor(Math.random() * firstNames.length),
+              lastNameId = Math.floor(Math.random() * lastNames.length),
+              rating = ratings[ratingId],
+              salary = salaries[salaryId],
+              name = Ext.String.format("{0} {1}", firstNames[firstNameId], lastNames[lastNameId]);
+
+      data.push([rating, salary, name]);
+    }
+    return data;
   }
 });
