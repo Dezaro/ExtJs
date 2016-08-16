@@ -1,5 +1,5 @@
 /* global Ext */
-Ext.require(['Application.view.tabs.numberForm', 'Application.view.tabs.reorderableTabs']);
+Ext.require(['Application.view.tabs.numberForm', 'Application.view.tabs.reorderableTabs', 'Application.view.tagField.tagField']);
 
 var reorderableTabsPanel = {
   xtype: 'reorderable-tabs',
@@ -32,6 +32,10 @@ var number = {
   xtype: 'form-number'
 };
 
+var tagField = {
+  xtype: 'form-tag'
+};
+
 Ext.define('Application.view.tabs.tabs', {
   extend: 'Ext.tab.Panel',
   xtype: 'framed-tabs',
@@ -57,6 +61,9 @@ Ext.define('Application.view.tabs.tabs', {
     }, {
       title: 'Disabled Tab',
       disabled: true
+    }, {
+      title: 'Tag',
+      items: [tagField]
     }],
   listeners: {
     tabchange: 'onTabChange'
