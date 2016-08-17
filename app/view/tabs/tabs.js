@@ -33,6 +33,7 @@ var number = {
 };
 
 var tagField = {
+  id: 'tagFieldInTabs',
   xtype: 'form-tag'
 };
 

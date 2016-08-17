@@ -17,7 +17,7 @@ Ext.define('Application.view.tagField.tagField', {
       fieldLabel: 'Selected States',
       bind: '{states.value}'
     }, {
-      id: 'tagfield1',
+     // id: 'tagfield1',
       xtype: 'tagfield',
       fieldLabel: 'Select a state',
       store: {
@@ -35,7 +35,7 @@ Ext.define('Application.view.tagField.tagField', {
       fieldLabel: 'Selected Locations',
       bind: '{locations.value}'
     }, {
-      id: 'tagfield2',
+     // id: 'tagfield2',
       xtype: 'tagfield',
       fieldLabel: 'Select/add location',
       store: {
@@ -55,7 +55,7 @@ Ext.define('Application.view.tagField.tagField', {
       text: 'OK',
       listeners: {
         click: function(){
-          console.log(Ext.getCmp('tagfield2').value);
+         // console.log(Ext.getCmp('tagfield2').value);
           Ext.toast({
           title: 'Info',
           timeout: 1000,
@@ -64,7 +64,7 @@ Ext.define('Application.view.tagField.tagField', {
           minWidth: 200,
           slideInDuration: 400,
           icon: 'img/icon/info.png',
-          html: '<div align="center" style="color: green; font-weight: bold;">You clicked OK! :) </div> <div align="center" style="font-weight: bold;"><br> States: ' + Ext.getCmp('tagfield1').value + '; <br> Locations: ' + Ext.getCmp('tagfield2').value + ';</div>'
+          html: '<div align="center" style="color: green; font-weight: bold;">You clicked OK! :) </div>' // <div align="center" style="font-weight: bold;"><br> States: ' + Ext.getCmp('tagfield1').value + '; <br> Locations: ' + Ext.getCmp('tagfield2').value + ';</div>'
         });
         }
       }

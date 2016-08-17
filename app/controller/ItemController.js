@@ -39,6 +39,7 @@ Ext.define('Application.controller.ItemController', {
           active = true;
         }
       }
+      var tabsCount = this.tabs.items.length;
       if(!active && this.tabs.items.length <= this.maxTabs) {
         var view = Ext.create(selection.raw.description);
         this.tabs.add({
@@ -53,7 +54,9 @@ Ext.define('Application.controller.ItemController', {
           items: [view]
         });
         this.tabs.setActiveTab(this.tabs.items.length - 1);
-      } else {
+      }
+      
+      if(!active && tabsCount > this.maxTabs) {
         Ext.toast({
           title: 'Внимание',
           timeout: 1000,
