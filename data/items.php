@@ -100,6 +100,13 @@ $array = '{
         "description": "Application.view.tabs.tabs",
         "leaf": true,
         "icon": "img/icon/Tabs.png"
+      },
+      {
+        "item_id": "tab13",
+        "name": "Tree",
+        "description": "Application.view.checkTree.checkTree",
+        "leaf": true,
+        "icon": "img/icon/Tree.png"
       }
   ]
 }';

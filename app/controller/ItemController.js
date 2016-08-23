@@ -65,7 +65,7 @@ Ext.define('Application.controller.ItemController', {
           minWidth: 200,
           slideInDuration: 400,
           icon: 'img/icon/info.png',
-          html: '<div align="center" style="font-weight: bold;">Upps... Не може да отвориш повече от <span style="color: red;">5 таба</span>! :(</div>'
+          html: '<div align="center" style="color: #083772; font-weight: bold;">Upps... Не може да отвориш повече от <span style="color: red;">5 таба</span>! :(</div>'
         });
       }
     }
