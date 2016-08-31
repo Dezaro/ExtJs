@@ -107,6 +107,13 @@ $array = '{
         "description": "Application.view.checkTree.checkTree",
         "leaf": true,
         "icon": "img/icon/Tree.png"
+      },
+      {
+        "item_id": "tab14",
+        "name": "ReconfigureGrid",
+        "description": "Application.view.Reconfigure.reconfigureGrid",
+        "leaf": true,
+        "icon": "img/icon/ReconfigureGrid.png"
       }
   ]
 }';
